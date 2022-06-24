@@ -1,8 +1,9 @@
-import './App.css';
+import Home from './components/Home';
+import Nav from './components/Nav';
 
 function App() {
   return (
-    <h1 className='text-6xl'>Hello World</h1>
+    <Nav/>
   );
 }
 
