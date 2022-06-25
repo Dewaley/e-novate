@@ -24,21 +24,21 @@ const Nav = () => {
           </li>
         </ul>
         <div
-          className='md:hidden rounded border-white border-2 cursor-pointer'
-          onClick={() => setHamburger(!hamburger)}
+          className='md:hidden rounded border-white border-2 cursor-pointer flex justify-center'
+          onClick={() => setHamburger(true)}
         >
-          <button className='p-0.5 bg-white text-primary m-0.5 rounded'>
+          <button className='bg-white text-primary rounded p-0.5 m-0.5'>
             <GiHamburgerMenu />
           </button>
         </div>
       </nav>
       <div
-        className={`absolute transition-[top] duration-500 left-[50%] translate-x-[-50%] mx-auto w-full md:hidden ${
+        className={`absolute flex justify-center transition-[top] duration-500 left-[50%] translate-x-[-50%] mx-auto w-full md:hidden ${
           hamburger ? 'top-20 z-30' : '-top-60'
         }`}
       >
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
-          <nav className='bg-primary text-center rounded mx-10 py-2 relative'>
+          <nav className='bg-primary text-center rounded py-2 relative min-w-[80vw]'>
             <h1 className='text-xl mb-2'>
               <span className='text-secondary'>E-</span>novate Labs
             </h1>
