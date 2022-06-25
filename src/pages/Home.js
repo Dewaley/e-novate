@@ -25,10 +25,10 @@ const Home = () => {
             Courses
           </button>
         </div>
-        <img src={picture1} alt='' className='md:w-1/2 max-w-md' />
+        <img src={picture1} alt='' className='md:max-w-sm' />
       </div>
       <div className='flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 pb-6 text-primary px-6'>
-        <img src={picture2} alt='' className='max-w-md md:w-2/5' />
+        <img src={picture2} alt='' className='md:max-w-sm' />
         <div className='flex flex-col gap-y-2'>
           <h4>FEATURES</h4>
           <h1 className='text-2xl'>
