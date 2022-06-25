@@ -25,7 +25,7 @@ const Home = () => {
             Courses
           </button>
         </div>
-        <img src={picture1} alt='' className='md:max-w-sm' />
+        <img src={picture1} alt='' className='md:max-w-sm lg:w-1/2 lg:max-w-none' />
       </div>
       <div className='flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 pb-6 text-primary px-6'>
         <img src={picture2} alt='' className='md:max-w-sm' />
