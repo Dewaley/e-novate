@@ -33,8 +33,8 @@ const Nav = () => {
         </div>
       </nav>
       <div
-        className={`absolute transition-[top] left-[50%] translate-x-[-50%] mx-auto w-full md:hidden ${
-          hamburger ? 'top-20' : '-top-60'
+        className={`absolute transition-[top] duration-500 left-[50%] translate-x-[-50%] mx-auto w-full md:hidden ${
+          hamburger ? 'top-20 z-30' : '-top-60'
         }`}
       >
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
@@ -62,6 +62,7 @@ const Nav = () => {
           </nav>
         </OutsideClickHandler>
       </div>
+      <div className={`h-screen w-screen absolute top-0 left-0 bg-transparent ${hamburger ? 'block z-10' : 'hidden'}`}></div>
     </div>
   );
 };
