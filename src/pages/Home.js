@@ -25,9 +25,9 @@ const Home = () => {
             Courses
           </button>
         </div>
-        <img src={picture1} alt='' className='w-1/2' />
+        <img src={picture1} alt='' className='md:w-1/2 max-w-md' />
       </div>
-      <div className='flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 pb-6 text-primary'>
+      <div className='flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 pb-6 text-primary px-6'>
         <img src={picture2} alt='' className='max-w-md md:w-2/5' />
         <div className='flex flex-col gap-y-2'>
           <h4>FEATURES</h4>
@@ -36,7 +36,7 @@ const Home = () => {
           </h1>
           <div>
             <div className='flex items-center gap-x-2 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
-              <BsBookHalf className='text-3xl text-secondary'/>
+              <BsBookHalf className='text-3xl text-secondary' />
               <div>
                 <h3>Extensive Curriculum</h3>
                 <p>
@@ -46,7 +46,7 @@ const Home = () => {
               </div>
             </div>
             <div className='flex items-center gap-x-2 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
-              <FaChalkboardTeacher className='text-3xl text-secondary'/>
+              <FaChalkboardTeacher className='text-3xl text-secondary' />
               <div>
                 <h3>Expert Tutors</h3>
                 <p>
