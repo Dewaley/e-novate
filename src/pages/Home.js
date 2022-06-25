@@ -3,7 +3,7 @@ import picture1 from '../images/home/picture.png';
 
 const Home = () => {
   return (
-    <div className='px-12 pt-4 pb-8 bg-primary text-white'>
+    <div className='px-6 md:px-12 pt-4 pb-8 bg-primary text-white'>
       <div className='flex flex-col md:flex-row justify-center md:justify-between items-center gap-y-4'>
         <div className='md:w-2/5'>
           <h1 className='text-4xl md:max-w-[75%] pb-6'>
