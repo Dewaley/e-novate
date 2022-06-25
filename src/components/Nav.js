@@ -7,7 +7,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 const Nav = () => {
   const [hamburger, setHamburger] = useState(false);
   return (
-    <div className='text-white bg-primary flex justify-between items-center py-4 px-10 border-b-white border-b-2 overflow-hidden'>
+    <div className='text-white bg-primary flex justify-between items-center py-4 px-4 md:px-10 border-b-white border-b-[0.2px] overflow-hidden'>
       <h1 className='text-2xl'>
         <span className='text-secondary'>E-</span>novate Labs
       </h1>
@@ -62,7 +62,7 @@ const Nav = () => {
           </nav>
         </OutsideClickHandler>
       </div>
-      <div className={`h-screen w-screen absolute top-0 left-0 bg-transparent ${hamburger ? 'block z-10' : 'hidden'}`}></div>
+      <div className={`h-screen w-screen md:hidden absolute top-0 left-0 bg-transparent ${hamburger ? 'block z-10' : 'hidden'}`}></div>
     </div>
   );
 };
