@@ -111,7 +111,7 @@ const Home = () => {
           <h4 className='text-secondary my-2'>COURSES</h4>
           <p className='text-3xl my-2 mb-6'>We Offer These Courses</p>
         </div>
-        <div className='flex justify-center gap-x-4 max-w-[70vw] lg:max-w-[80vw]'>
+        <div className='flex justify-center gap-x-4 w-[90vw] lg:min-w-[80vw]'>
           <div className='flex flex-col shadow-md rounded-md'>
             <div className='basis-1/2'>
               <img src={picture3} alt='' className='w-full' />
