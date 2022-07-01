@@ -406,7 +406,7 @@ const Home = () => {
             <hr className='w-[60vw] h-2 md:hidden' />
           </div>
           <div className='md:1/3 flex flex-col justify-between gap-y-4'>
-            <div className='flex flex-col mb-4 gap-y-2'>
+            <div className='flex flex-col md:mb-4 gap-y-2'>
               <h2 className='text-lg font-normal'>Contact Us</h2>
               <ul className='flex flex-col gap-y-2'>
                 <li className='flex items-center gap-x-2'>
