@@ -3,10 +3,11 @@ import { BiLogIn } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoCloseOutline } from 'react-icons/io5';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 const Nav = () => {
   const [hamburger, setHamburger] = useState(false);
+  const navigate = useNavigate()
   return (
     <div className='text-white bg-primary flex justify-between items-center py-4 px-4 md:px-10 border-b-white border-b-[1px] overflow-hidden'>
       <h1 className='text-2xl'>
@@ -47,18 +48,56 @@ const Nav = () => {
               <span className='text-secondary'>E-</span>novate Labs
             </h1>
             <ul className='flex flex-col justify-center items-center gap-y-2'>
-              <Link to='/'>Home</Link>
-              <Link to='/about'>About Us</Link>
-              <Link to='/courses'>Courses</Link>
-              <Link to='/blog'>Blog</Link>
-              <Link to='/contact'>Contact</Link>
-              <Link
-                to='/login'
+              <li
+                onClick={() => {
+                  navigate('/');
+                  setHamburger(false);
+                }}
+              >
+                Home
+              </li>
+              <li
+                onClick={() => {
+                  navigate('/about');
+                  setHamburger(false);
+                }}
+              >
+                About Us
+              </li>
+              <li
+                onClick={() => {
+                  navigate('/courses');
+                  setHamburger(false);
+                }}
+              >
+                Courses
+              </li>
+              <li
+                onClick={() => {
+                  navigate('/');
+                  setHamburger(false);
+                }}
+              >
+                Blog
+              </li>
+              <li
+                onClick={() => {
+                  navigate('/');
+                  setHamburger(false);
+                }}
+              >
+                Contact
+              </li>
+              <li
+                onClick={() => {
+                  navigate('/');
+                  setHamburger(false);
+                }}
                 className='flex items-center gap-x-1 bg-secondary p-1 rounded'
               >
                 <BiLogIn />
                 login
-              </Link>
+              </li>
             </ul>
             <button
               className='absolute top-2 right-10 text-2xl cursor-pointer'
