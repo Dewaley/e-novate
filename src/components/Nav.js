@@ -3,6 +3,7 @@ import { BiLogIn } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoCloseOutline } from 'react-icons/io5';
 import OutsideClickHandler from 'react-outside-click-handler';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const [hamburger, setHamburger] = useState(false);
@@ -13,15 +14,18 @@ const Nav = () => {
       </h1>
       <nav>
         <ul className='md:flex items-center gap-x-8 hidden'>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Courses</li>
-          <li>Blog</li>
-          <li>Contact</li>
-          <li className='flex items-center gap-x-1 bg-secondary p-1 rounded'>
+          <Link to='/'>Home</Link>
+          <Link to='/about'>About Us</Link>
+          <Link to='/courses'>Courses</Link>
+          <Link to='/blog'>Blog</Link>
+          <Link to='/contact'>Contact</Link>
+          <Link
+            to='/login'
+            className='flex items-center gap-x-1 bg-secondary p-1 rounded'
+          >
             <BiLogIn />
             login
-          </li>
+          </Link>
         </ul>
         <div
           className='md:hidden rounded border-white border-2 cursor-pointer flex justify-center'
@@ -43,15 +47,18 @@ const Nav = () => {
               <span className='text-secondary'>E-</span>novate Labs
             </h1>
             <ul className='flex flex-col justify-center items-center gap-y-2'>
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Courses</li>
-              <li>Blog</li>
-              <li>Contact</li>
-              <li className='flex items-center gap-x-1 bg-secondary p-1 rounded'>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About Us</Link>
+              <Link to='/courses'>Courses</Link>
+              <Link to='/blog'>Blog</Link>
+              <Link to='/contact'>Contact</Link>
+              <Link
+                to='/login'
+                className='flex items-center gap-x-1 bg-secondary p-1 rounded'
+              >
                 <BiLogIn />
                 login
-              </li>
+              </Link>
             </ul>
             <button
               className='absolute top-2 right-10 text-2xl cursor-pointer'
@@ -62,7 +69,11 @@ const Nav = () => {
           </nav>
         </OutsideClickHandler>
       </div>
-      <div className={`h-screen w-screen md:hidden absolute top-0 left-0 bg-transparent ${hamburger ? 'block z-10' : 'hidden'}`}></div>
+      <div
+        className={`h-screen w-screen md:hidden absolute top-0 left-0 bg-transparent ${
+          hamburger ? 'block z-10' : 'hidden'
+        }`}
+      ></div>
     </div>
   );
 };
