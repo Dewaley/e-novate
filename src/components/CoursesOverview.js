@@ -74,7 +74,7 @@ const CoursesOverview = () => {
                 <span className='font-light text-sm'>22 lessons</span>
               </div>
               <button className='bg-secondary text-white font-light text-sm px-2 py-0.5 rounded'>
-                Details
+                Detailsheart
               </button>
             </div>
           </div>

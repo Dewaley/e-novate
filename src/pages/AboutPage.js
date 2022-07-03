@@ -3,14 +3,16 @@ import NewsLetter from '../components/NewsLetter';
 import Features from '../components/Features';
 import Offer from '../components/Offer';
 import { MdOutlineTouchApp } from 'react-icons/md';
-import { BsHeadset } from 'react-icons/bs';
+import { BsHeadset, BsHeart } from 'react-icons/bs';
 import { IoIosLock } from 'react-icons/io';
 import { TbBellRinging } from 'react-icons/tb';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { AiOutlineBook } from 'react-icons/ai';
 
 const AboutPage = () => {
   return (
     <div className='text-primary overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8'>
-      <div className='flex flex-col md:flex-row justify-center gap-x-8 items-center gap-y-4 px-6 md:px-12 pt-4 pb-6'>
+      <div className='flex flex-col md:flex-row justify-center gap-x-8 items-center gap-y-4 w-[90vw] pt-4 pb-6'>
         <img
           src={picture1}
           alt=''
@@ -32,6 +34,44 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
+      <div className='flex flex-col md:flex-row md:w-[90vw] bg-primary text-secondary md:justify-between py-14 px-16 rounded-xl gap-y-12 text-center'>
+        <div className='flex flex-col items-center'>
+          <span className='text-3xl'>
+            <FaChalkboardTeacher />
+          </span>
+          <span className='text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary'>
+            15
+          </span>
+          <span className='text-xl font-light'>Tutors</span>
+        </div>
+        <div className='flex flex-col items-center'>
+          <span className='text-3xl'>
+            <AiOutlineBook />
+          </span>
+          <span className='text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary'>
+            4
+          </span>
+          <span className='text-xl font-light'>Courses</span>
+        </div>
+        <div className='flex flex-col items-center'>
+          <span className='text-3xl'>
+            <BsHeart />
+          </span>
+          <span className='text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary'>
+            45
+          </span>
+          <span className='text-xl font-light'>Students</span>
+        </div>
+        <div className='flex flex-col items-center'>
+          <span className='text-3xl'>
+            <AiOutlineBook />
+          </span>
+          <span className='text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary'>
+            109
+          </span>
+          <span className='text-xl font-light'>Classes</span>
+        </div>
+      </div>
       <Features />
       <div className='flex flex-col justify-center items-center mb-8'>
         <div className='text-center font-light'>
@@ -41,7 +81,7 @@ const AboutPage = () => {
             experience.
           </p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 w-[90vw] gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 w-[90vw] gap-16'>
           <Offer
             icon={<MdOutlineTouchApp />}
             heading={'Anywhere anytime access'}
