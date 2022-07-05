@@ -1,7 +1,9 @@
 import { RiStarSFill } from 'react-icons/ri';
+import { MdOutlinePlayLesson } from 'react-icons/md';
 import { TbCertificate } from 'react-icons/tb';
 import { FiUsers, FiUser } from 'react-icons/fi';
-import { BsBarChartLine, BiTimeFive, BsCheck2 } from 'react-icons/bs';
+import { BiTimeFive } from 'react-icons/bi';
+import { BsBarChartLine, BsCheckLg } from 'react-icons/bs';
 import {
   FaFacebookF,
   FaWhatsapp,
@@ -12,9 +14,9 @@ import picture from '../images/home/pexels-burst-374074.png';
 
 const CourseDetails = () => {
   return (
-    <div className='flex flex-col md:flex-row'>
-      <div>
-        <div className='flex gap-x-2 px-6 mb-4 text-xl text-secondary'>
+    <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8'>
+      <div className='flex flex-col gap-y-8 md:w-2/3 mb-8'>
+        <div className='flex gap-x-2 text-xl text-secondary items-center'>
           <RiStarSFill />
           <RiStarSFill />
           <RiStarSFill />
@@ -22,7 +24,7 @@ const CourseDetails = () => {
           <RiStarSFill />
           <span>(5.00)</span>
         </div>
-        <h1>Front-End Development</h1>
+        <h1 className='text-4xl'>Front-End Development</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
@@ -31,11 +33,11 @@ const CourseDetails = () => {
         </p>
         <hr />
         <img src={picture} alt='' />
-        <ul>
-          <li>Overview</li>
-          <li>Topics</li>
-          <li>Instructor</li>
-          <li>Feedback</li>
+        <ul className='flex justify-between items-center border-[1px] border-[#666666]/[0.6] px-4 rounded-lg'>
+          <li className='py-4 border-b-2 border-secondary'>Overview</li>
+          <li className='py-4'>Topics</li>
+          <li className='py-4'>Instructor</li>
+          <li className='py-4'>Feedback</li>
         </ul>
         <p>
           Aliqua nisi amet labore laborum cillum occaecat mollit. Fugiat cillum
@@ -52,102 +54,104 @@ const CourseDetails = () => {
           est adipisicing duis culpa duis laborum. Officia nisi irure in laboris
           laborum veniam elit sint in ut nostrud quis.
         </p>
-        <div>
-          <div>
-            <h1>What you will learn</h1>
-            <hr />
+        <div className='p-4 bg-[#666666]/[.05] rounded-lg'>
+          <div className='flex flex-col gap-y-2'>
+            <h1 className='text-lg'>What you will learn</h1>
+            <hr className='w-2/12 bg-primary h-1' />
           </div>
-          <div>
-            <ul>
-              <li>
-                <BsCheck2 />
+          <div className='flex flex-col md:flex-row justify-between'>
+            <ul className='md:w-1/2'>
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>Foundations Of The Internet.</p>
               </li>
-              <li>
-                <BsCheck2 />
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>Programming Principles, and Techniques</p>
               </li>
-              <li>
-                <BsCheck2 />
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>Web hosting.</p>
               </li>
             </ul>
-            <ul>
-              <li>
-                <BsCheck2 />
+            <ul className='md:w-1/2'>
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>GIt and Version Control.</p>
               </li>
-              <li>
-                <BsCheck2 />
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>HTML, CSS and Javascript</p>
               </li>
-              <li>
-                <BsCheck2 />
+              <li className='flex items-center gap-x-2 my-2'>
+                <BsCheckLg className='text-secondary' />
                 <p>Working With React</p>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div>
-        <div>
-          <FiUsers />
+      <div className='md:w-1/3 flex flex-col gap-y-12 mb-8'>
+        <div className='flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md'>
+          <FiUsers className='text-xl text-secondary' />
           <span>Students Enrolled: </span>
-          <span>100</span>
+          <span className='text-secondary'>100</span>
         </div>
-        <div>
-          <div>
-            <span>Price:</span>
-            <span>#25,000</span>
+        <div className='flex flex-col items-center p-8 border-t-2 border-primary rounded-md shadow-md gap-y-2'>
+          <div className='flex gap-x-2 items-end'>
+            <span className='text-lg'>Price:</span>
+            <span className='text-4xl'>#25,000</span>
           </div>
-          <button>Pay</button>
+          <button className='bg-secondary text-white w-1/2 p-1 rounded-md'>
+            Pay
+          </button>
         </div>
-        <div>
-          <div>
-            <h1>This Course Includes:</h1>
-            <hr />
+        <div className='p-8 border-t-2 border-primary rounded-md shadow-md flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2'>
+            <h1 className='text-lg'>This Course Includes:</h1>
+            <hr className='w-2/12 bg-primary h-1' />
           </div>
-          <ul>
-            <li>
-              <div>
+          <ul className='flex flex-col gap-y-2'>
+            <li className='flex justify-between items-center'>
+              <div className='flex gap-x-2 items-center'>
                 <span>
-                  <BsBarChartLine />
+                  <BsBarChartLine className='text-secondary text-xl' />
                 </span>
                 <span>Skill Level</span>
               </div>
               <span>Beginner</span>
             </li>
-            <li>
-              <div>
+            <li className='flex justify-between items-center'>
+              <div className='flex gap-x-2 items-center'>
                 <span>
-                  <FiUser />
+                  <FiUser className='text-secondary text-xl' />
                 </span>
                 <span>Tutor</span>
               </div>
               <span>John Doe</span>
             </li>
-            <li>
-              <div>
+            <li className='flex justify-between items-center'>
+              <div className='flex gap-x-2 items-center'>
                 <span>
-                  <BiTimeFive />
+                  <BiTimeFive className='text-secondary text-xl' />
                 </span>
                 <span>Duration</span>
               </div>
               <span>2 weeks</span>
             </li>
-            <li>
-              <div>
+            <li className='flex justify-between items-center'>
+              <div className='flex gap-x-2 items-center'>
                 <span>
-                  <img src='' alt='' />
+                  <MdOutlinePlayLesson className='text-secondary text-xl' />
                 </span>
                 <span>Lessons</span>
               </div>
               <span>22</span>
             </li>
-            <li>
-              <div>
+            <li className='flex justify-between items-center'>
+              <div className='flex gap-x-2 items-center'>
                 <span>
-                  <TbCertificate />
+                  <TbCertificate className='text-secondary text-xl' />
                 </span>
                 <span>Certificate</span>
               </div>
@@ -155,37 +159,37 @@ const CourseDetails = () => {
             </li>
           </ul>
         </div>
-        <div className='flex'>
+        <div className='p-8 border-t-2 border-primary rounded-md shadow-md flex justify-between items-center'>
           <span>Share</span>
-          <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
             <FaFacebookF />
           </span>
-          <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
             <FaInstagram />
           </span>
-          <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
             <FaLinkedinIn />
           </span>
-          <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
             <FaWhatsapp />
           </span>
         </div>
-        <div>
-          <div>
-            <h1>Requirements</h1>
-            <hr />
+        <div className='p-8 border-t-2 border-primary rounded-md shadow-md'>
+          <div className='flex flex-col gap-y-2'>
+            <h1 className='text-lg'>Requirements</h1>
+            <hr className='w-2/12 bg-primary h-1' />
           </div>
           <ul>
-            <li>
-              <BsCheck2 />
+            <li className='flex items-center gap-x-2 my-2'>
+              <BsCheckLg className='text-secondary' />
               <span>No previous knowledge of Front-End required.</span>
             </li>
-            <li>
-              <BsCheck2 />
+            <li className='flex items-center gap-x-2 my-2'>
+              <BsCheckLg className='text-secondary' />
               <span>A working device e.g. Laptop, phone or tablet e.t.c</span>
             </li>
-            <li>
-              <BsCheck2 />
+            <li className='flex items-center gap-x-2 my-2'>
+              <BsCheckLg className='text-secondary' />
               <span>Internet Access</span>
             </li>
           </ul>
