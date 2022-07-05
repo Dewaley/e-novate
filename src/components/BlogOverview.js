@@ -9,10 +9,10 @@ const BlogOverview = () => {
   return (
     <div className='flex flex-col justify-center mb-12'>
       <div className='text-center font-light'>
-        <h4 className='text-secondary my-2'>BLOG</h4>
+        <h4 className='text-secondary my-2 font-extralight'>BLOG</h4>
         <p className='text-3xl my-2 mb-6'>Latest Blog Posts</p>
       </div>
-      <div className='flex md:flex-row flex-col justify-center gap-x-4 w-[90vw] lg:min-w-[80vw] relative gap-y-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 w-[90vw] lg:min-w-[80vw] relative gap-y-4'>
         <div className='flex flex-col shadow-md rounded-md'>
           <div className='basis-1/2'>
             <img src={picture3} alt='' className='w-full' />
@@ -26,11 +26,11 @@ const BlogOverview = () => {
               </p>
               <div className='flex justify-between'>
                 <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
-                  <AiOutlineMessage className='sm:text-lg sm:gap-x-2 text-base' />
+                  <AiOutlineMessage className='sm:text-lg text-base' />
                   Comments
                 </span>
                 <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
-                  <AiOutlineCalendar className='sm:text-lg sm:gap-x-2 text-base' />
+                  <AiOutlineCalendar className='sm:text-lg text-base' />
                   March 20, 2021
                 </span>
               </div>

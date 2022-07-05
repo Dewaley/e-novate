@@ -11,10 +11,12 @@ import {
   FaInstagram,
 } from 'react-icons/fa';
 import picture from '../images/home/pexels-burst-374074.png';
+import NewsLetter from '../components/NewsLetter'
 
 const CourseDetails = () => {
   return (
-    <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8'>
+    <div className='flex flex-col items-center'>
+    <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8 md:mb-8'>
       <div className='flex flex-col gap-y-8 md:w-2/3 mb-8'>
         <div className='flex gap-x-2 text-xl text-secondary items-center'>
           <RiStarSFill />
@@ -195,6 +197,8 @@ const CourseDetails = () => {
           </ul>
         </div>
       </div>
+    </div>
+    <NewsLetter/>
     </div>
   );
 };

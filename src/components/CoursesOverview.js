@@ -6,7 +6,7 @@ const CoursesOverview = () => {
   return (
     <div className='flex flex-col justify-center mb-12'>
       <div className='text-center font-light'>
-        <h4 className='text-secondary my-2'>COURSES</h4>
+        <h4 className='text-secondary font-extralight my-2'>COURSES</h4>
         <p className='text-3xl my-2 mb-6'>We Offer These Courses</p>
       </div>
       <div className='flex justify-center gap-x-4 w-[90vw] lg:min-w-[80vw] relative'>
@@ -27,7 +27,7 @@ const CoursesOverview = () => {
                 <img src={tinyImage} alt='' className='pr-1 max-h-5' />
                 <span className='font-light text-sm'>22 lessons</span>
               </div>
-              <button className='bg-secondary text-white font-light text-sm px-2 py-0.5 rounded'>
+              <button className='bg-secondary text-white font-light text-sm px-4 py-1 rounded-md'>
                 Details
               </button>
             </div>
@@ -50,7 +50,7 @@ const CoursesOverview = () => {
                 <img src={tinyImage} alt='' className='pr-1 max-h-5' />
                 <span className='font-light text-sm'>22 lessons</span>
               </div>
-              <button className='bg-secondary text-white font-light text-sm px-2 py-0.5 rounded'>
+              <button className='bg-secondary text-white font-light text-sm px-4 py-1 rounded-md'>
                 Details
               </button>
             </div>
@@ -73,8 +73,8 @@ const CoursesOverview = () => {
                 <img src={tinyImage} alt='' className='pr-1 max-h-5' />
                 <span className='font-light text-sm'>22 lessons</span>
               </div>
-              <button className='bg-secondary text-white font-light text-sm px-2 py-0.5 rounded'>
-                Detailsheart
+              <button className='bg-secondary text-white font-light text-sm px-4 py-1 rounded-md'>
+                Details
               </button>
             </div>
           </div>
