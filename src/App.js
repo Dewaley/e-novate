@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer'
 import CoursesPage from './pages/CoursesPage'
 import CourseDetails from './pages/CourseDetails'
+import './App.css'
 
 function App() {
   return (
