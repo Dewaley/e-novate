@@ -4,7 +4,7 @@ import { MdOutlinePlayLesson } from 'react-icons/md';
 
 const Card = ({ title, preamble, lessons, id }) => {
   return (
-    <div className='flex flex-col shadow-md rounded-md h-[440px]'>
+    <div className='flex flex-col shadow-md rounded-md md:h-[440px] lg:h-auto'>
       <div className='basis-1/2'>
         <img src={picture3} alt='' className='w-full' />
       </div>
