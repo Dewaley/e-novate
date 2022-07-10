@@ -2,5 +2,13 @@
   bottom: -5px !important;
 }
 .swiper-pagination-bullet-active {
- background-color: #FF206E !important;
+  background-color: #ff206e !important;
+}
+.swiper-slide {
+  align-self: stretch !important;
+}
+@media (min-width: 640px) {
+  .swiper-pagination {
+    display: none;
+  }
 }
