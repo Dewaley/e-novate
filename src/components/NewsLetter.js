@@ -12,12 +12,12 @@ const NewsLetter = () => {
           name=''
           id=''
           placeholder='E-mail Address'
-          className='border-none w-[160px] sm:w-auto outline-none text-primary mr-0.5 placeholder:text-primary'
+          className='border-none w-[160px] sm:w-auto outline-none text-primary mr-0.5 placeholder:text-primary pl-2'
         />
         <input
           type='submit'
           value='Submit'
-          className='p-2 bg-secondary text-white p-3 rounded-full'
+          className='bg-secondary text-white p-3 rounded-full'
         />
       </form>
       </div>
