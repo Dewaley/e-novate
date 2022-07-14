@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Card from '../components/Card';
+import CourseCard from '../components/CourseCard';
 import { Navigation, Pagination } from 'swiper';
 import { useEffect, useRef, useState } from 'react';
 
@@ -61,7 +61,7 @@ const CoursesOverview = () => {
             {courses.map((course) => {
               return (
                 <SwiperSlide>
-                  <Card
+                  <CourseCard
                     title={course.course}
                     preamble={course.course_preamble}
                     lessons={course.course_duration}

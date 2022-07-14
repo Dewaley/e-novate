@@ -1,6 +1,6 @@
 import NewsLetter from '../components/NewsLetter';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Card from '../components/Card';
+import CourseCard from '../components/CourseCard';
 import { useEffect, useState } from 'react';
 
 const CoursesPage = () => {
@@ -42,7 +42,7 @@ const CoursesPage = () => {
       {courses && (<div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
         {courses.map((course) => {
           return (
-            <Card
+            <CourseCard
               title={course.course}
               preamble={course.course_preamble}
               lessons={course.course_duration}

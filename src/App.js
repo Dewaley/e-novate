@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer'
 import CoursesPage from './pages/CoursesPage'
 import CourseDetails from './pages/CourseDetails'
+import BlogPage from './pages/BlogPage';
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/about' element={<AboutPage/>}/>
         <Route path='/courses' element={<CoursesPage/>}/>
         <Route path='/course' element={<CourseDetails/>} />
+        <Route path='/blog' element={<BlogPage/>}/>
       </Routes>
       <Footer/>
     </Router>

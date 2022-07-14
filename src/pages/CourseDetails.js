@@ -1,4 +1,3 @@
-import { RiStarSFill } from 'react-icons/ri';
 import { MdOutlinePlayLesson } from 'react-icons/md';
 import { TbCertificate } from 'react-icons/tb';
 import { FiUsers, FiUser } from 'react-icons/fi';
@@ -18,14 +17,6 @@ const CourseDetails = () => {
     <div className='flex flex-col items-center'>
       <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8 md:mb-8'>
         <div className='flex flex-col gap-y-8 md:w-2/3 mb-8'>
-          <div className='flex gap-x-2 text-xl text-secondary items-center'>
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-            <span>(5.00)</span>
-          </div>
           <h1 className='text-4xl'>Front-End Development</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
