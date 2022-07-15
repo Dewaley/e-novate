@@ -5,7 +5,10 @@
   background-color: #ff206e !important;
 }
 .swiper-slide {
-  align-self: stretch !important;
+  height: auto !important;
+}
+.swiper-container {
+  height: auto !important;
 }
 @media (min-width: 640px) {
   .swiper-pagination {

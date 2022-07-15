@@ -9,23 +9,34 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
-import picture from '../images/home/pexels-burst-374074.png';
 import NewsLetter from '../components/NewsLetter';
+import { useParams } from 'react-router-dom';
+import { SingleCourse } from '../config/api';
+import { useEffect, useState } from 'react';
+import {skillLevel} from '../config/skillLevel'
 
 const CourseDetails = () => {
+  const [course, setCourse] = useState(null)
+  const {id} = useParams()
+  const fetchCourse =async ()=> {
+    const res = await fetch(SingleCourse(id))
+    const data = await res.json()
+    setCourse(data)
+  }
+  useEffect(() => {
+    fetchCourse()
+  }, [])
+  
   return (
     <div className='flex flex-col items-center'>
-      <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8 md:mb-8'>
+      {course &&(<div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8 md:mb-8'>
         <div className='flex flex-col gap-y-8 md:w-2/3 mb-8'>
-          <h1 className='text-4xl'>Front-End Development</h1>
+          <h1 className='text-4xl'>{course.course_name}</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-            ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-            accumsan lacus vel facilisis.
+            {course.course_preamble}
           </p>
           <hr />
-          <img src={picture} alt='' />
+          <img src={course.course_image} alt='' />
           <ul className='flex justify-between items-center border-[1px] border-[#666666]/[0.6] px-4 rounded-lg'>
             <li className='py-4 border-b-2 border-secondary'>Overview</li>
             <li className='py-4'>Topics</li>
@@ -33,20 +44,7 @@ const CourseDetails = () => {
             <li className='py-4'>Feedback</li>
           </ul>
           <p>
-            Aliqua nisi amet labore laborum cillum occaecat mollit. Fugiat
-            cillum aliquip et consequat consequat duis. Laboris consectetur qui
-            fugiat excepteur consequat incididunt deserunt anim eiusmod.
-            Occaecat magna veniam ut esse tempor pariatur velit. Consequat
-            adipisicing nostrud dolor velit ea occaecat laborum excepteur magna
-            dolor aute cupidatat cillum. Dolor quis labore amet ullamco. Nostrud
-            veniam laboris dolore ut ad sit ex id cillum mollit. Nulla dolor
-            labore aliqua reprehenderit esse amet amet et id. Aliquip cupidatat
-            fugiat deserunt enim deserunt aute ullamco excepteur ipsum dolore do
-            enim. Quis exercitation minim occaecat elit fugiat fugiat sint.
-            Velit consectetur voluptate aute nostrud culpa dolor proident ipsum
-            cupidatat id. Laborum sit nostrud est adipisicing duis culpa duis
-            laborum. Officia nisi irure in laboris laborum veniam elit sint in
-            ut nostrud quis.
+            {course.course_overview}
           </p>
           <div className='p-4 bg-[#666666]/[.05] rounded-lg'>
             <div className='flex flex-col gap-y-2'>
@@ -101,12 +99,12 @@ const CourseDetails = () => {
           <div className='flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md'>
             <FiUsers className='text-xl text-secondary' />
             <span>Students Enrolled: </span>
-            <span className='text-secondary'>100</span>
+            <span className='text-secondary'>{course.students_enrolled}</span>
           </div>
           <div className='flex flex-col items-center p-8 border-t-2 border-primary rounded-md shadow-md gap-y-2'>
             <div className='flex gap-x-2 items-end'>
               <span className='text-lg'>Price:</span>
-              <span className='text-4xl'>#25,000</span>
+              <span className='text-4xl'>{course.course_price_currency}{course.course_price}</span>
             </div>
             <button className='bg-secondary text-white w-1/2 p-1 rounded-md'>
               Pay
@@ -125,7 +123,9 @@ const CourseDetails = () => {
                   </span>
                   <span>Skill Level</span>
                 </div>
-                <span>Beginner</span>
+                <span>
+                  {skillLevel[course.skill_level]}
+                </span>
               </li>
               <li className='flex justify-between items-center'>
                 <div className='flex gap-x-2 items-center'>
@@ -143,7 +143,7 @@ const CourseDetails = () => {
                   </span>
                   <span>Duration</span>
                 </div>
-                <span>2 weeks</span>
+                <span>{course.course_duration}</span>
               </li>
               <li className='flex justify-between items-center'>
                 <div className='flex gap-x-2 items-center'>
@@ -152,7 +152,7 @@ const CourseDetails = () => {
                   </span>
                   <span>Lessons</span>
                 </div>
-                <span>22</span>
+                <span>{course.no_of_lessons}</span>
               </li>
               <li className='flex justify-between items-center'>
                 <div className='flex gap-x-2 items-center'>
@@ -161,7 +161,7 @@ const CourseDetails = () => {
                   </span>
                   <span>Certificate</span>
                 </div>
-                <span>Yes</span>
+                <span>{course.has_certification ? 'Yes' : 'No'}</span>
               </li>
             </ul>
           </div>
@@ -207,7 +207,7 @@ const CourseDetails = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div>)}
       <NewsLetter />
     </div>
   );

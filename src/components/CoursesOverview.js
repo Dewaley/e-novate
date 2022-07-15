@@ -60,11 +60,14 @@ const CoursesOverview = () => {
           >
             {courses.map((course) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide
+                key={course.id}
+                >
                   <CourseCard
-                    title={course.course}
+                    title={course.course_name}
                     preamble={course.course_preamble}
                     lessons={course.course_duration}
+                    id={course.id}
                   />
                 </SwiperSlide>
               );
