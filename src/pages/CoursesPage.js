@@ -2,12 +2,12 @@ import NewsLetter from '../components/NewsLetter';
 import { AiOutlineSearch } from 'react-icons/ai';
 import CourseCard from '../components/CourseCard';
 import { useEffect, useState } from 'react';
-import {Courses} from '../config/api'
+import {CourseList} from '../config/api'
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState(null);
   const fetchCourses = async () => {
-    const res = await fetch(Courses);
+    const res = await fetch(CourseList);
     console.log(res);
     const data = await res.json();
     console.log(data);
