@@ -1,6 +1,5 @@
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from 'react-icons/md';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
-import { RiStarSFill } from 'react-icons/ri';
 
 const Testimonials = () => {
   return (
@@ -22,13 +21,6 @@ const Testimonials = () => {
             exercitation nostrud ipsum .Laboris exercitation nostrud ipsum ex
             culpa exercitation quis ipsum est.
           </p>
-          <div className='flex gap-x-2 px-6 mb-4 text-xl text-secondary'>
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-            <RiStarSFill />
-          </div>
           <div className='px-6 flex items-center gap-x-2'>
             <span className='flex h-12 w-12 bg-secondary rounded-full'></span>
             <div>

@@ -1,6 +1,6 @@
 import {
   FaFacebookF,
-  FaWhatsapp,
+  FaTwitter,
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
@@ -18,30 +18,47 @@ const InstructorCard = ({
   twitter,
 }) => {
   return (
-    <div>
+    <div className='bg-[#c4c4c4]/20 p-2 flex gap-x-4 p-2 rounded-md mb-4'>
       <div>
-        <img src={image} alt='' />
+        <span
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+          className='flex w-12 h-12 rounded-full bg-center bg-cover'
+        ></span>
       </div>
-      <div className='bg-[#c4c4c4]/20 p-2'>
-        <h1>{firstName + ' ' + lastName}</h1>
+      <div className='flex flex-col gap-y-2'>
+        <h1 className='text-3xl'>{firstName + ' ' + lastName}</h1>
         <p>{bio}</p>
-        <span>
-          <AiOutlineMail />
+        <span className='flex items-center gap-x-1'>
+          <AiOutlineMail className='text-secondary' />
           <span>{email}</span>
         </span>
         <div className='flex items-center gap-x-2'>
-          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
+          <a
+            href={`${facebook}`}
+            className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
+          >
             <FaFacebookF />
-          </span>
-          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
+          </a>
+          <a
+            href={`${instagram}`}
+            className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
+          >
             <FaInstagram />
-          </span>
-          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
+          </a>
+          <a
+            href={`${linkedin}`}
+            className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
+          >
             <FaLinkedinIn />
-          </span>
-          <span className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg'>
-            <FaWhatsapp />
-          </span>
+          </a>
+          <a
+            href={`${twitter}`}
+            className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
+          >
+            <FaTwitter />
+          </a>
         </div>
       </div>
     </div>

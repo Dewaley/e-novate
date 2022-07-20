@@ -18,9 +18,9 @@ import InstructorCard from '../components/InstructorCard';
 import { InstructorList } from '../config/api';
 
 const CourseDetails = () => {
-  var tutors = [];
-  const [course, setCourse] = useState(null);
-  const [instructors, setInstructors] = useState(null);
+  const [course, setCourse] = useState([]);
+  const [instructors, setInstructors] = useState([]);
+  const [instructorInfo,setInstructorInfo] = useState([])
   const [subMenu, setSubMenu] = useState('Overview');
   const { id } = useParams();
   const fetchCourse = async () => {
@@ -28,25 +28,32 @@ const CourseDetails = () => {
     const data = await res.json();
     setCourse(data);
     setInstructors(data.course_instructors);
-    for (var i = 0; i < data.course_instructors.length; i++) {
-      const result= await fetch(InstructorList(data.course_instructors[i]))
-      const response = await result.json()
-      console.log(response)
-    }
+  };
+  const getInstructorById = async (instructor) => {
+    const res = await fetch(InstructorList(instructor));
+    const data = await res.json();
+    return data;
+  };
+  const fetchData = async (ids) => {
+    const idRequests = await Promise.all(
+      ids.map((eachId) => getInstructorById(eachId))
+    );
+    setInstructorInfo(idRequests)
   };
   useEffect(() => {
     fetchCourse();
-  }, []);
+    fetchData(instructors);
+  }, [instructors]);
   return (
     <div className='flex flex-col items-center'>
       {course && (
-        <div className='text-primary flex flex-col md:flex-row pt-12 px-8 gap-x-8 md:mb-8'>
-          <div className='flex flex-col gap-y-8 md:w-2/3 mb-8'>
+        <div className='text-primary flex flex-col items-center  md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-hidden'>
+          <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]'>
             <h1 className='text-4xl'>{course.course_name}</h1>
             <p>{course.course_preamble}</p>
             <hr />
             <img src={course.course_image} alt='' />
-            <ul className='flex justify-between items-center border-[1px] border-[#666666]/[0.6] px-4 rounded-lg'>
+            <ul className='flex justify-between items-center border-[1px] border-[#666666]/[0.6] sm:px-4 px-1 rounded-lg text-sm sm:text-base'>
               <li
                 className={`py-4 ${
                   subMenu === 'Overview' && `border-b-2 border-secondary`
@@ -93,7 +100,19 @@ const CourseDetails = () => {
                   <h1 className='text-xl'>Instructor(s)</h1>
                   <hr className='h-1 bg-secondary w-1/3' />
                 </div>
-                
+                {instructorInfo !== [] && instructorInfo.map((instructor) => (
+                  <InstructorCard
+                    image={instructor.picture}
+                    firstName={instructor.first_name}
+                    lastName={instructor.last_name}
+                    email={instructor.email}
+                    bio={instructor.bio}
+                    facebook={instructor.facebook_link}
+                    instagram={instructor.instagram_link}
+                    twitter={instructor.twitter_link}
+                    linkedin={instructor.linkedin_link}
+                  />
+                ))}
               </div>
             )}
             <div className='p-4 bg-[#666666]/[.05] rounded-lg'>
@@ -104,19 +123,19 @@ const CourseDetails = () => {
               <div className='flex flex-col md:flex-row justify-between'>
                 <ul className='md:w-1/2'>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>Foundations Of The Internet.</p>
                   </li>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>Programming Principles, and Techniques</p>
                   </li>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>Web hosting.</p>
@@ -124,19 +143,19 @@ const CourseDetails = () => {
                 </ul>
                 <ul className='md:w-1/2'>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>GIt and Version Control.</p>
                   </li>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>HTML, CSS and Javascript</p>
                   </li>
                   <li className='flex items-center gap-x-2 my-2'>
-                    <p className='w-4 h-4'>
+                    <p className='w-6 h-6'>
                       <BsCheckLg className='text-secondary text-xl' />
                     </p>
                     <p>Working With React</p>
@@ -145,7 +164,7 @@ const CourseDetails = () => {
               </div>
             </div>
           </div>
-          <div className='md:w-1/3 flex flex-col gap-y-12 mb-8'>
+          <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]'>
             <div className='flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md'>
               <FiUsers className='text-xl text-secondary' />
               <span>Students Enrolled: </span>
@@ -238,13 +257,13 @@ const CourseDetails = () => {
               </div>
               <ul>
                 <li className='flex items-center gap-x-2 my-2'>
-                  <p className='w-4 h-4'>
+                  <p className='w-6 h-6'>
                     <BsCheckLg className='text-secondary text-xl' />
                   </p>
                   <span>No previous knowledge of Front-End required.</span>
                 </li>
                 <li className='flex items-center gap-x-2 my-2'>
-                  <p className='w-4 h-4'>
+                  <p className='w-6 h-6'>
                     <BsCheckLg className='text-secondary text-xl' />
                   </p>
                   <span>
@@ -252,7 +271,7 @@ const CourseDetails = () => {
                   </span>
                 </li>
                 <li className='flex items-center gap-x-2 my-2'>
-                  <p className='w-4 h-4'>
+                  <p className='w-6 h-6'>
                     <BsCheckLg className='text-secondary text-xl' />
                   </p>
                   <span>Internet Access</span>
