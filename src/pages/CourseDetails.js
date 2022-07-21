@@ -47,8 +47,8 @@ const CourseDetails = () => {
   return (
     <div className='flex flex-col items-center'>
       {course && (
-        <div className='text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-hidden'>
-          <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]'>
+        <div className='text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 overflow-hidden border-2 border-black'>
+          <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw] border-2 border-black'>
             <h1 className='text-4xl'>{course.course_name}</h1>
             <p>{course.course_preamble}</p>
             <hr />
@@ -100,19 +100,20 @@ const CourseDetails = () => {
                   <h1 className='text-xl'>Instructor(s)</h1>
                   <hr className='h-1 bg-secondary w-1/3' />
                 </div>
-                {instructorInfo !== [] && instructorInfo.map((instructor) => (
-                  <InstructorCard
-                    image={instructor.picture}
-                    firstName={instructor.first_name}
-                    lastName={instructor.last_name}
-                    email={instructor.email}
-                    bio={instructor.bio}
-                    facebook={instructor.facebook_link}
-                    instagram={instructor.instagram_link}
-                    twitter={instructor.twitter_link}
-                    linkedin={instructor.linkedin_link}
-                  />
-                ))}
+                {instructorInfo !== [] &&
+                  instructorInfo.map((instructor) => (
+                    <InstructorCard
+                      image={instructor.picture}
+                      firstName={instructor.first_name}
+                      lastName={instructor.last_name}
+                      email={instructor.email}
+                      bio={instructor.bio}
+                      facebook={instructor.facebook_link}
+                      instagram={instructor.instagram_link}
+                      twitter={instructor.twitter_link}
+                      linkedin={instructor.linkedin_link}
+                    />
+                  ))}
               </div>
             )}
             <div className='p-4 bg-[#666666]/[.05] rounded-lg'>
@@ -164,7 +165,7 @@ const CourseDetails = () => {
               </div>
             </div>
           </div>
-          <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]'>
+          <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw] border-2 border-black'>
             <div className='flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md'>
               <FiUsers className='text-xl text-secondary' />
               <span>Students Enrolled: </span>
