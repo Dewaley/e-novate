@@ -47,7 +47,7 @@ const CourseDetails = () => {
   return (
     <div className='flex flex-col items-center'>
       {course && (
-        <div className='text-primary flex flex-col items-center  md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-hidden'>
+        <div className='text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-hidden'>
           <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]'>
             <h1 className='text-4xl'>{course.course_name}</h1>
             <p>{course.course_preamble}</p>
@@ -173,7 +173,7 @@ const CourseDetails = () => {
             <div className='flex flex-col items-center p-8 border-t-2 border-primary rounded-md shadow-md gap-y-2'>
               <div className='flex gap-x-2 items-end'>
                 <span className='text-lg'>Price:</span>
-                <span className='text-4xl'>
+                <span className='text-4xl md:text-xl lg:text-4xl'>
                   {course.course_price_currency}
                   {course.course_price}
                 </span>
