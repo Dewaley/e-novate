@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import CoursesPage from './pages/CoursesPage'
 import CourseDetails from './pages/CourseDetails'
 import BlogPage from './pages/BlogPage';
+import ArticlePage from './pages/ArticlePage';
 import './App.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/courses' element={<CoursesPage/>}/>
         <Route path='/courses/:id' element={<CourseDetails/>} />
         <Route path='/blog' element={<BlogPage/>}/>
+        <Route path='/blog/:id' element={<ArticlePage/>}/>
       </Routes>
       <Footer/>
     </Router>

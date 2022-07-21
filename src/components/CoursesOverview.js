@@ -55,8 +55,6 @@ const CoursesOverview = () => {
               swiper.params.navigation.prevEl = swiperNavPrevRef.current;
               swiper.params.navigation.nextEl = swiperNavNextRef.current;
             }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
           >
             {courses.map((course) => {
               return (
