@@ -1,4 +1,3 @@
-import picture3 from '../images/home/pexels-burst-374074.png';
 import { FiUser } from 'react-icons/fi';
 import {
   AiOutlineCalendar,
