@@ -100,7 +100,7 @@ const Nav = () => {
               </li>
             </ul>
             <button
-              className='absolute top-2 right-10 text-2xl cursor-pointer'
+              className='absolute top-2 right-[5vw] text-2xl cursor-pointer'
               onClick={() => setHamburger(false)}
             >
               <IoCloseOutline />

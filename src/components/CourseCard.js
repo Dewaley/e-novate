@@ -14,7 +14,7 @@ const CourseCard = ({ title, preamble, lessons, id }) => {
         }}
       ></div>
       <div className='flex flex-col px-6 justify-between pt-4'>
-        <div className='md:h-[200px] sm:h-[170px] lg:h-[170px] overflow-hidden'>
+        <div className='md:h-[200px] lg:h-[170px] overflow-hidden'>
           <h3 className='text-xl'>
             {title.length > 40 ? shortenedTitle : title}
           </h3>
@@ -23,7 +23,7 @@ const CourseCard = ({ title, preamble, lessons, id }) => {
         <div className='flex justify-between items-center border-t-primary border-t-[1px] py-2 mt-4 mb-2'>
           <div className='flex items-end gap-x-0.5'>
             <MdOutlinePlayLesson className='text-secondary text-2xl' />
-            <span className='font-light text-sm'>{lessons}</span>
+            <span className='font-light text-sm'>{lessons + ''} lessons</span>
           </div>
           <button
             className='bg-secondary text-white font-light text-sm px-4 py-1 rounded-md'

@@ -35,24 +35,26 @@ const CoursesPage = () => {
               name=''
               id=''
               placeholder='Search for anything here'
-              className='bg-transparent border-none outline-none placeholder:text-primary'
+              className='bg-transparent border-none outline-none placeholder:text-primary w-[200px] sm:w-auto'
             />
           </form>
         </div>
       </div>
-      {courses && (<div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
-        {courses.map((course) => {
-          return (
-            <CourseCard
-              key={course.id}
-              title={course.course_name}
-              preamble={course.course_preamble}
-              lessons={course.course_duration}
-              id={course.id}
-            />
-          );
-        })}
-      </div>)}
+      {courses && (
+        <div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
+          {courses.map((course) => {
+            return (
+              <CourseCard
+                key={course.id}
+                title={course.course_name}
+                preamble={course.course_preamble}
+                lessons={course.no_of_lessons}
+                id={course.id}
+              />
+            );
+          })}
+        </div>
+      )}
       <NewsLetter />
     </div>
   );

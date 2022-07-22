@@ -67,7 +67,7 @@ const Footer = () => {
                 <span>
                   <MdOutlineMailOutline className='text-secondary' />
                 </span>
-                <p>VillageSquareOnline@gmail.com</p>
+                <p className='break-all'>VillageSquareOnline@gmail.com</p>
               </li>
               <li className='flex items-center gap-x-2'>
                 <span>
@@ -86,7 +86,7 @@ const Footer = () => {
                 name=''
                 id=''
                 placeholder='E-mail Address'
-                className='border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5'
+                className='border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5 w-[160px] sm:w-auto'
               />
               <button
                 type='submit'

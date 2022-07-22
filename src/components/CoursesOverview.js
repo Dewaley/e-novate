@@ -64,7 +64,7 @@ const CoursesOverview = () => {
                   <CourseCard
                     title={course.course_name}
                     preamble={course.course_preamble}
-                    lessons={course.course_duration}
+                    lessons={course.no_of_lessons}
                     id={course.id}
                   />
                 </SwiperSlide>
