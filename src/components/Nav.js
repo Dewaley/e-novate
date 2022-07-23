@@ -8,6 +8,7 @@ import { useNavigate,Link } from 'react-router-dom';
 const Nav = () => {
   const [hamburger, setHamburger] = useState(false);
   const navigate = useNavigate()
+  const pathname = window.location.pathname;
   return (
     <div className='text-white bg-primary flex justify-between items-center py-4 px-4 md:px-10 border-b-white border-b-[1px] overflow-hidden'>
       <h1 className='text-2xl'>
@@ -15,11 +16,36 @@ const Nav = () => {
       </h1>
       <nav>
         <ul className='md:flex items-center gap-x-8 hidden'>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About Us</Link>
-          <Link to='/courses'>Courses</Link>
-          <Link to='/blog'>Blog</Link>
-          <Link to='/contact'>Contact</Link>
+          <Link
+            to='/'
+            className={`${pathname === '/' && 'border-b-2 border-secondary'} px-2`}
+          >
+            Home
+          </Link>
+          <Link
+            to='/about'
+            className={`${pathname === '/about' && 'border-b-2 border-secondary'} px-2`}
+          >
+            About Us
+          </Link>
+          <Link
+            to='/courses'
+            className={`${pathname === '/courses' && 'border-b-2 border-secondary'} px-2`}
+          >
+            Courses
+          </Link>
+          <Link
+            to='/blog'
+            className={`${pathname === '/blog' && 'border-b-2 border-secondary'} px-2`}
+          >
+            Blog
+          </Link>
+          <Link
+            to='/contact'
+            className={`${pathname === '/contact' && 'border-b-2 border-secondary'} px-2`}
+          >
+            Contact
+          </Link>
           <Link
             to='/login'
             className='flex items-center gap-x-1 bg-secondary p-1 rounded'
@@ -74,7 +100,7 @@ const Nav = () => {
               </li>
               <li
                 onClick={() => {
-                  navigate('/');
+                  navigate('/blog');
                   setHamburger(false);
                 }}
               >
@@ -82,7 +108,7 @@ const Nav = () => {
               </li>
               <li
                 onClick={() => {
-                  navigate('/');
+                  navigate('/contact');
                   setHamburger(false);
                 }}
               >
@@ -90,7 +116,7 @@ const Nav = () => {
               </li>
               <li
                 onClick={() => {
-                  navigate('/');
+                  navigate('/login');
                   setHamburger(false);
                 }}
                 className='flex items-center gap-x-1 bg-secondary p-1 rounded'

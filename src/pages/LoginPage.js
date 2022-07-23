@@ -1,9 +1,11 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import SignUpPic from '../images/loginPage/signUp.png';
+import SignInPic from '../images/loginPage/signIn.png';
 import { useState } from 'react';
 
 const LoginPage = () => {
   const [hasAccount, setHasAccount] = useState(true);
+  const img = hasAccount ? SignInPic : SignUpPic
   return (
     <div className='flex flex-col items-center text-primary'>
       <div className='w-[90vw] block md:hidden mt-6'>
@@ -30,7 +32,9 @@ const LoginPage = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 w-[90vw] border-[1px] border-[#666666]/20 rounded-md overflow-hidden shadow-md mt-6 mb-12 md:my-12'>
         <div
           className='flex flex-col md:col-span-1 h-[50vh] md:h-auto bg-center bg-cover'
-          style={{ backgroundImage: `url(${SignUpPic})` }}
+          style={{
+            backgroundImage: `url(${img})`,
+          }}
         ></div>
         <div className='flex flex-col gap-y-8 mb-8 md:col-span-1 py-8 items-center w-full'>
           <div className='w-full pr-4 hidden md:block'>
