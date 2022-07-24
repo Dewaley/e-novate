@@ -23,7 +23,7 @@ const Features = () => {
             </div>
           </div>
           <div className='flex items-center gap-x-2 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
-            <FaChalkboardTeacher className='text-3xl text-secondary' />
+            <FaChalkboardTeacher className='text-4xl text-secondary' />
             <div>
               <h3>Expert Tutors</h3>
               <p>

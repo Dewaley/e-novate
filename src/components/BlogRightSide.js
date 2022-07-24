@@ -5,7 +5,7 @@ import { tags } from '../config/api';
 
 const BlogRightSide = ({blogList}) => {
   return (
-    <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]'>
+    <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-full'>
       <div className='flex justify-center items-center border-[1px] border-[#263B5D]/50 py-10 px-4'>
         <form
           action=''
@@ -29,7 +29,7 @@ const BlogRightSide = ({blogList}) => {
           <hr className='w-2/12 bg-primary h-1' />
         </div>
         <div className='flex flex-col gap-y-2'>
-          {blogList.map((article) => (
+          {blogList.slice(0,3).map((article) => (
             <LatestPosts
               image={article.post_picture}
               title={article.title}

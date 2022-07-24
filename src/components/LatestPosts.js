@@ -7,7 +7,7 @@ const LatestPosts = ({ image, title, date, id }) => {
   const month = dateArray[1] - 1;
   const shortenedTitle = title.slice(0, 40) + '...';
   return (
-    <div className='flex items-end gap-x-2'>
+    <div className='flex items-center gap-x-2'>
       <div>
         <div
           className='h-12 w-12 rounded-full bg-center bg-cover'

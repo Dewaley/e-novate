@@ -21,7 +21,7 @@ const BlogOverview = () => {
 
       {blogList !== [] && (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 w-[90vw] lg:min-w-[80vw] relative gap-y-4'>
-          {blogList.map((article)=> <TopBlogCard image={article.post_picture} title={article.title} preamble={article.preamble} date={article.date_posted} id={article.id} key={article.id}/>)}
+          {blogList.slice(0,3).map((article)=> <TopBlogCard image={article.post_picture} title={article.title} preamble={article.preamble} date={article.date_posted} id={article.id} key={article.id}/>)}
         </div>
       )}
     </div>

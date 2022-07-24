@@ -4,6 +4,8 @@ export const SingleCourse = (id) =>
 export const InstructorList = (id) =>
   `https://e-novate.herokuapp.com/api/instructor/view/${id}`;
 export const Blog = `https://e-novate.herokuapp.com/api/blog/view`;
+export const Article = (id) =>
+  `https://e-novate.herokuapp.com/api/blog/view/${id}`;
 export const months = [
   'January',
   'February',

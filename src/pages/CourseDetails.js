@@ -48,7 +48,7 @@ const CourseDetails = () => {
     <div>
       {course && instructorInfo !== [] && (
         <div className='flex flex-col items-center'>
-          <div className='text-primary flex flex-col items-center md:items-start md:flex-row pt-12 gap-x-8 md:mb-8 overflow-hidden'>
+          <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
             <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]'>
               <h1 className='text-4xl'>{course.course_name}</h1>
               <p>{course.course_preamble}</p>
