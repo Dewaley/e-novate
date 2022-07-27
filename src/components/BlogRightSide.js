@@ -15,7 +15,7 @@ const BlogRightSide = ({blogList}) => {
             type='text'
             name=''
             id=''
-            className='p-2 h-10 outline-none placeholder:text-primary'
+            className='p-2 h-10 outline-none placeholder:text-primary w-[60vw] sm:w-auto md:w-[20vw]'
             placeholder='Search'
           />
           <span className='h-10 w-10 bg-primary flex justify-center items-center p-2 text-secondary rounded'>

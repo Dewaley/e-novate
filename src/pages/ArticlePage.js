@@ -7,6 +7,7 @@ import { AiOutlineCalendar, AiOutlineMessage } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
 import { months } from '../config/api';
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
+import AuthorCard from '../components/AuthorCard';
 
 const ArticlePage = () => {
   const { id } = useParams();
@@ -25,15 +26,17 @@ const ArticlePage = () => {
     const numeration = data.findIndex((item) => {
       return item.id === index;
     });
+    console.log(numeration);
+    console.log(data);
     setArticle(data[numeration]);
     if (numeration > 0) {
       setPrevArticle(data[numeration - 1]);
-    } else {
+    } else if (numeration <= 0) {
       setPrevArticle([]);
     }
-    if (numeration < data.length - 1) {
+    if (numeration + 1 < data.length) {
       setNextArticle(data[numeration + 1]);
-    } else {
+    } else if (numeration + 1 === data.length) {
       setNextArticle([]);
     }
     setTags(data[numeration].tags);
@@ -47,7 +50,7 @@ const ArticlePage = () => {
     <div>
       {blogList !== [] && (
         <div className='flex flex-col items-center'>
-          <div className='text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:w-[90vw] md:mb-8'>
+          <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
             <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-full'>
               <div
                 className='h-[250px] md:h-[350px] bg-center bg-cover w-full'
@@ -81,13 +84,13 @@ const ArticlePage = () => {
                   </p>
                 ))}
               </div>
-              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mt-4' />
-              <div className='w-full flex divide-x-[2px] divide-[#263B5D]/20'>
-                <div className='w-1/2 flex justify-center'>
+              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mt-12' />
+              <div className='w-full flex flex-col md:flex-row justify-center items-center md:divide-x-[2px] divide-y-[2px] md:divide-y-0 divide-[#263B5D]/20'>
+                <div className='md:w-1/2 flex justify-center p-2'>
                   {prevArticle !== [] ? (
                     <div>
                       <h1
-                        className='flex items-center gap-x-2 text-[#263238]/70'
+                        className='flex items-center gap-x-2 text-[#263238]/70 justify-center md:justify-start cursor-pointer'
                         onClick={() => setIndex(parseInt(prevArticle.id))}
                       >
                         <BiLeftArrowAlt />
@@ -97,18 +100,18 @@ const ArticlePage = () => {
                     </div>
                   ) : (
                     <div>
-                      <h1 className='flex items-center gap-x-2 text-[#263238]/70'>
+                      <h1 className='flex justify-center items-center gap-x-2 text-[#263238]/70 cursor-pointer'>
                         <BiLeftArrowAlt />
                         <span>PREVIOUS POST</span>
                       </h1>
                     </div>
                   )}
                 </div>
-                <div className='w-1/2 flex justify-center'>
+                <div className='md:w-1/2 flex justify-center p-2'>
                   {nextArticle !== [] ? (
                     <div>
                       <h1
-                        className='w-full flex items-center gap-x-2 text-[#263238]/70 justify-end'
+                        className='w-full flex items-center gap-x-2 text-[#263238]/70 justify-center md:justify-end cursor-pointer'
                         onClick={() => setIndex(parseInt(nextArticle.id))}
                       >
                         <BiRightArrowAlt />
@@ -118,7 +121,7 @@ const ArticlePage = () => {
                     </div>
                   ) : (
                     <div>
-                      <h1 className='w-full flex items-center gap-x-2 text-[#263238]/70 justify-end'>
+                      <h1 className='w-full flex items-center gap-x-2 text-[#263238]/70 justify-center cursor-pointer'>
                         <BiRightArrowAlt />
                         <span>NEXT POST</span>
                       </h1>
@@ -126,7 +129,54 @@ const ArticlePage = () => {
                   )}
                 </div>
               </div>
-              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mb-4' />
+              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mb-12' />
+              <AuthorCard
+                image={article.author_picture}
+                name={article.author}
+                bio={article.author_bio}
+                facebook={article.facebook_link}
+                instagram={article.instagram_link}
+                twitter={article.twitter_link}
+                linkedin={article.linkedin_link}
+              />
+              <form className='bg-[#c4c4c4]/20 p-2 flex flex-col items-center gap-y-4 p-8 rounded-md mb-12'>
+                <div className='flex flex-col gap-y-0.5 w-full'>
+                  <label htmlFor='' className='font-bold'>
+                    Name
+                  </label>
+                  <input
+                    type='text'
+                    className='p-2 rounded outline-none focus:outline-primary sm:w-1/2'
+                    placeholder='John Doe'
+                  />
+                </div>
+                <div className='flex flex-col gap-y-0.5 w-full'>
+                  <label htmlFor='' className='font-bold'>
+                    Email
+                  </label>
+                  <input
+                    type='text'
+                    className='p-2 rounded outline-none focus:outline-primary sm:w-1/2'
+                    placeholder='johndoe@gmail.com'
+                  />
+                </div>
+                <div className='flex flex-col gap-y-0.5 w-full'>
+                  <label htmlFor='' className='font-bold'>
+                    Comment
+                  </label>
+                  <textarea
+                  rows={8}
+                    className='p-2 rounded outline-none focus:outline-primary resize-none'
+                    placeholder='Leave a comment...'
+                  ></textarea>
+                </div>
+                <button
+                  className='bg-secondary px-8 py-2 text-white font-bold rounded mt-4'
+                  type='submit'
+                >
+                  Submit
+                </button>
+              </form>
             </div>
             <BlogRightSide blogList={blogList} />
           </div>
