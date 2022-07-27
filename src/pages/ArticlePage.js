@@ -8,6 +8,7 @@ import { FiUser } from 'react-icons/fi';
 import { months } from '../config/api';
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import AuthorCard from '../components/AuthorCard';
+import { Link } from 'react-router-dom';
 
 const ArticlePage = () => {
   const { id } = useParams();
@@ -50,6 +51,22 @@ const ArticlePage = () => {
     <div>
       {blogList !== [] && (
         <div className='flex flex-col items-center'>
+          <div className='flex flex-col bg-primary items-center justify-center w-full mt-12 mb-12 py-4 text-white'>
+            <h1 className='text-center text-3xl max-w-[80vw] sm:max-w-[45vw] md:max-w-[35vw]'>
+              {article.title}
+            </h1>
+            <div className='flex items-center gap-x-1 uppercase'>
+              <Link className='text-[#ffffff]/50 font-bold text-lg' to='/'>
+                Home
+              </Link>
+              <span className='text-2xl'>/</span>
+              <Link className='text-[#ffffff]/50 font-bold text-lg' to='/blog'>
+                Blog
+              </Link>
+              <span className='text-2xl'>/</span>
+              <span className='font-bold text-lg'>Blog Post</span>
+            </div>
+          </div>
           <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
             <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-full'>
               <div
@@ -165,7 +182,7 @@ const ArticlePage = () => {
                     Comment
                   </label>
                   <textarea
-                  rows={8}
+                    rows={8}
                     className='p-2 rounded outline-none focus:outline-primary resize-none'
                     placeholder='Leave a comment...'
                   ></textarea>

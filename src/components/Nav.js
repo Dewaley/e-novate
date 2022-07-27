@@ -18,31 +18,43 @@ const Nav = () => {
         <ul className='md:flex items-center gap-x-8 hidden'>
           <Link
             to='/'
-            className={`${pathname === '/' && 'border-b-2 border-secondary'} px-2`}
+            className={`${
+              pathname === '/' && 'border-b-2 border-secondary'
+            } px-2`}
           >
             Home
           </Link>
           <Link
             to='/about'
-            className={`${pathname === '/about' && 'border-b-2 border-secondary'} px-2`}
+            className={`${
+              pathname.slice(0, 6) === '/about' && 'border-b-2 border-secondary'
+            } px-2`}
           >
             About Us
           </Link>
           <Link
             to='/courses'
-            className={`${pathname === '/courses' && 'border-b-2 border-secondary'} px-2`}
+            className={`${
+              pathname.slice(0, 8) === '/courses' &&
+              'border-b-2 border-secondary'
+            } px-2`}
           >
             Courses
           </Link>
           <Link
             to='/blog'
-            className={`${pathname === '/blog' && 'border-b-2 border-secondary'} px-2`}
+            className={`${
+              pathname.slice(0, 5) === '/blog' && 'border-b-2 border-secondary'
+            } px-2`}
           >
             Blog
           </Link>
           <Link
             to='/contact'
-            className={`${pathname === '/contact' && 'border-b-2 border-secondary'} px-2`}
+            className={`${
+              pathname.slice(0, 8) === '/contact' &&
+              'border-b-2 border-secondary'
+            } px-2`}
           >
             Contact
           </Link>
@@ -79,6 +91,10 @@ const Nav = () => {
                   navigate('/');
                   setHamburger(false);
                 }}
+                className={`${
+                  pathname === '/' &&
+                  'border-b-2 border-secondary'
+                } px-2`}
               >
                 Home
               </li>
@@ -87,6 +103,10 @@ const Nav = () => {
                   navigate('/about');
                   setHamburger(false);
                 }}
+                className={`${
+                  pathname.slice(0, 6) === '/about' &&
+                  'border-b-2 border-secondary'
+                } px-2`}
               >
                 About Us
               </li>
@@ -95,6 +115,10 @@ const Nav = () => {
                   navigate('/courses');
                   setHamburger(false);
                 }}
+                className={`${
+                  pathname.slice(0, 8) === '/courses' &&
+                  'border-b-2 border-secondary'
+                } px-2`}
               >
                 Courses
               </li>
@@ -103,6 +127,10 @@ const Nav = () => {
                   navigate('/blog');
                   setHamburger(false);
                 }}
+                className={`${
+                  pathname.slice(0, 5) === '/blog' &&
+                  'border-b-2 border-secondary'
+                } px-2`}
               >
                 Blog
               </li>
@@ -111,6 +139,10 @@ const Nav = () => {
                   navigate('/contact');
                   setHamburger(false);
                 }}
+                className={`${
+                  pathname.slice(0, 8) === '/contact' &&
+                  'border-b-2 border-secondary'
+                } px-2`}
               >
                 Contact
               </li>
