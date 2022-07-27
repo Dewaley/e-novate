@@ -8,17 +8,18 @@ import { FiUser } from 'react-icons/fi';
 import { months } from '../config/api';
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import AuthorCard from '../components/AuthorCard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ArticlePage = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [blogList, setBlogList] = useState([]);
   const [article, setArticle] = useState([]);
   const [month, setMonth] = useState();
   const [tags, setTags] = useState([]);
   const [dateArray, setDateArray] = useState();
-  const [nextArticle, setNextArticle] = useState([]);
-  const [prevArticle, setPrevArticle] = useState([]);
+  const [nextArticle, setNextArticle] = useState({});
+  const [prevArticle, setPrevArticle] = useState({});
   const [index, setIndex] = useState(parseInt(id));
   const fetchArticle = async () => {
     const res = await fetch(Blog);
@@ -33,12 +34,16 @@ const ArticlePage = () => {
     if (numeration > 0) {
       setPrevArticle(data[numeration - 1]);
     } else if (numeration <= 0) {
-      setPrevArticle([]);
+      setPrevArticle({
+        id: numeration - 1,
+      });
     }
     if (numeration + 1 < data.length) {
       setNextArticle(data[numeration + 1]);
     } else if (numeration + 1 === data.length) {
-      setNextArticle([]);
+      setNextArticle({
+        id: numeration+1,
+      });
     }
     setTags(data[numeration].tags);
     setDateArray(data[numeration].date_posted.slice(0, 10).split('-', 3));
@@ -104,11 +109,14 @@ const ArticlePage = () => {
               <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mt-12' />
               <div className='w-full flex flex-col md:flex-row justify-center items-center md:divide-x-[2px] divide-y-[2px] md:divide-y-0 divide-[#263B5D]/20'>
                 <div className='md:w-1/2 flex justify-center p-2'>
-                  {prevArticle !== [] ? (
+                  {prevArticle !== {} ? (
                     <div>
                       <h1
                         className='flex items-center gap-x-2 text-[#263238]/70 justify-center md:justify-start cursor-pointer'
-                        onClick={() => setIndex(parseInt(prevArticle.id))}
+                        onClick={() => {
+                          setIndex(parseInt(prevArticle.id));
+                          navigate(`/blog/${parseInt(prevArticle.id)}`);
+                        }}
                       >
                         <BiLeftArrowAlt />
                         <span>PREVIOUS POST</span>
@@ -125,11 +133,14 @@ const ArticlePage = () => {
                   )}
                 </div>
                 <div className='md:w-1/2 flex justify-center p-2'>
-                  {nextArticle !== [] ? (
+                  {nextArticle !== {} ? (
                     <div>
                       <h1
                         className='w-full flex items-center gap-x-2 text-[#263238]/70 justify-center md:justify-end cursor-pointer'
-                        onClick={() => setIndex(parseInt(nextArticle.id))}
+                        onClick={() => {
+                          setIndex(parseInt(nextArticle.id));
+                          navigate(`/blog/${parseInt(nextArticle.id)}`);
+                        }}
                       >
                         <BiRightArrowAlt />
                         <span>NEXT POST</span>
