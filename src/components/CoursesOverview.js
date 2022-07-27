@@ -72,13 +72,13 @@ const CoursesOverview = () => {
             })}
           </Swiper>
           <button
-            className='hidden absolute text-xl  sm:flex justify-center items-center w-12 h-12 shadow-md top-[50%] left-[-1.5rem] translate-y-[-50%] z-50  bg-white rounded-full'
+            className='hidden absolute text-xl  sm:flex justify-center items-center w-12 h-12 shadow-md top-[50%] left-[-1.5rem] translate-y-[-50%] z-40  bg-white rounded-full'
             ref={swiperNavPrevRef}
           >
             <MdOutlineNavigateBefore />
           </button>
           <button
-            className='hidden absolute text-xl  sm:flex justify-center items-center w-12 h-12 shadow-md top-[50%] right-[-1.5rem] translate-y-[-50%] z-50  bg-white rounded-full'
+            className='hidden absolute text-xl  sm:flex justify-center items-center w-12 h-12 shadow-md top-[50%] right-[-1.5rem] translate-y-[-50%] z-40  bg-white rounded-full'
             ref={swiperNavNextRef}
           >
             <MdOutlineNavigateNext />

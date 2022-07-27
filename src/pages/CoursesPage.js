@@ -15,6 +15,10 @@ const CoursesPage = () => {
   };
   useEffect(() => {
     fetchCourses();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }, []);
   return (
     <div className='flex flex-col items-center mb-12 gap-y-4'>

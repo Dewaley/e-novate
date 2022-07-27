@@ -44,6 +44,12 @@ const CourseDetails = () => {
     fetchCourse();
     fetchData(instructors);
   }, [instructors]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   return (
     <div>
       {course && instructorInfo !== [] && (
@@ -208,7 +214,9 @@ const CourseDetails = () => {
                         </span>
                         <span>Tutor</span>
                       </div>
-                      <span>{instructor.first_name + ' ' + instructor.last_name}</span>
+                      <span>
+                        {instructor.first_name + ' ' + instructor.last_name}
+                      </span>
                     </li>
                   ))}
                   <li className='flex justify-between items-center'>

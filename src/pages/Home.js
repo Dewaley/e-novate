@@ -9,8 +9,15 @@ import CoursesOverview from '../components/CoursesOverview';
 import Testimonials from '../components/Testimonials';
 import BlogOverview from '../components/BlogOverview';
 import NewsLetter from '../components/NewsLetter';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   return (
     <div className='text-white overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8'>
       <div className='flex flex-col md:flex-row justify-center gap-x-8 items-center bg-primary gap-y-4 px-6 md:px-12 pt-4 pb-6 text-white'>

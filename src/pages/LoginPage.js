@@ -1,9 +1,15 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import SignUpPic from '../images/loginPage/signUp.png';
 import SignInPic from '../images/loginPage/signIn.png';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 const LoginPage = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   const [hasAccount, setHasAccount] = useState(true);
   const img = hasAccount ? SignInPic : SignUpPic
   return (

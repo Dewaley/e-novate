@@ -8,8 +8,16 @@ import { IoIosLock } from 'react-icons/io';
 import { TbBellRinging } from 'react-icons/tb';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { AiOutlineBook } from 'react-icons/ai';
+import { useEffect } from 'react';
 
 const AboutPage = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <div className='text-primary overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8'>
       <div className='flex flex-col md:flex-row justify-center gap-x-8 items-center gap-y-4 w-[90vw] pt-4 pb-6'>
