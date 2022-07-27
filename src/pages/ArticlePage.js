@@ -51,6 +51,10 @@ const ArticlePage = () => {
   };
   useEffect(() => {
     fetchArticle();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
   }, [index]);
   return (
     <div>
