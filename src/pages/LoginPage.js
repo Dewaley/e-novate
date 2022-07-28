@@ -66,23 +66,23 @@ const LoginPage = () => {
               )}
             </p>
           </div>
-          <div className='flex flex-col gap-y-4 items-center md:items-start'>
+          <div className='flex flex-col gap-y-4 items-center md:items-start w-full'>
             <h1 className='font-bold text-xl pl-4'>
               {hasAccount ? 'Sign In' : 'Sign up'} to{' '}
               <span className='text-secondary'>E-</span>novate
             </h1>
-            <div className='flex flex-col md:flex-row gap-x-2 flex-wrap items-center md:w-fit w-[60vw] gap-y-2 pl-4'>
-              <button className='bg-secondary gap-x-8 rounded flex items-center justify-center text-white w-full md:w-auto px-2 h-10'>
+            <div className='flex flex-col md:flex-row gap-x-2 flex-wrap items-center md:w-fit w-[80vw] gap-y-2 md:pl-4'>
+              <button className='bg-secondary gap-x-8 rounded flex items-center justify-center text-white w-full sm:w-60 md:w-auto px-2 h-10'>
                 <FaGoogle />
                 <span>{hasAccount ? 'Sign In' : 'Sign up'} with Google</span>
               </button>
-              <button className='text-[#636363] w-full md:w-10 h-10 bg-[#C4C4C4]/40 rounded flex justify-center items-center gap-x-6'>
+              <button className='bg-[#C4C4C4]/40 gap-x-8 rounded flex items-center justify-center text-[#636363] w-full sm:w-60 md:w-auto px-2 h-10 md:w-10'>
                 <FaLinkedinIn />
                 <span className='md:hidden'>
                   {hasAccount ? 'Sign In' : 'Sign up'} with LinkedIn
                 </span>
               </button>
-              <button className='text-[#636363] w-full md:w-10 h-10 bg-[#C4C4C4]/40 rounded flex justify-center items-center gap-x-6'>
+              <button className='bg-[#C4C4C4]/40 gap-x-8 rounded flex items-center justify-center text-[#636363] w-full sm:w-60 md:w-auto px-2 h-10 md:w-10'>
                 <FaFacebookF />
                 <span className='md:hidden'>
                   {hasAccount ? 'Sign In' : 'Sign up'} with Facebook
@@ -147,8 +147,10 @@ const LoginPage = () => {
                   className='bg-[#C4C4C4]/25 rounded p-2 w-[75vw] md:w-auto outline-none focus:outline-primary'
                 />
               </span>
-              <span className='flex items-center gap-x-2 my-2'>
-                <input type='checkbox' name='' id='' />
+              <span className='flex items-start gap-x-2 my-2'>
+                <div>
+                  <input type='checkbox' name='' id='' />
+                </div>
                 <span>
                   Subscribe to our emails and notifications and offers from us.
                 </span>
@@ -156,14 +158,14 @@ const LoginPage = () => {
               {hasAccount ? (
                 <button
                   type='submit'
-                  className='w-fit bg-secondary p-2 rounded text-white'
+                  className='w-fit bg-secondary py-2 px-4 rounded text-white'
                 >
                   Sign In
                 </button>
               ) : (
                 <button
                   type='submit'
-                  className='w-fit bg-secondary p-2 rounded text-white'
+                  className='w-fit bg-secondary py-2 px-4 rounded text-white'
                 >
                   Sign Up
                 </button>

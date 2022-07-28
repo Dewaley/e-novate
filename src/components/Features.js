@@ -12,21 +12,25 @@ const Features = () => {
           Take the step, begin your journey into IT today.
         </h1>
         <div>
-          <div className='flex items-center gap-x-2 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
-            <BsBookHalf className='text-4xl text-secondary' />
+          <div className='flex items-center gap-x-4 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
+            <div className='w-10'>
+              <BsBookHalf className='text-4xl text-secondary' />
+            </div>
             <div>
-              <h3>Extensive Curriculum</h3>
-              <p>
+              <h3 className='text-lg'>Extensive Curriculum</h3>
+              <p className='text-sm font-light'>
                 Laboris exercitation nostrud ipsum ex culpa exercitation quis
                 ipsum est.
               </p>
             </div>
           </div>
-          <div className='flex items-center gap-x-2 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
-            <FaChalkboardTeacher className='text-4xl text-secondary' />
+          <div className='flex items-center gap-x-4 bg-[#c4c4c4]/20 p-2 rounded mb-2'>
+            <div className='w-10'>
+              <FaChalkboardTeacher className='text-4xl text-secondary' />
+            </div>
             <div>
-              <h3>Expert Tutors</h3>
-              <p>
+              <h3 className='text-lg'>Expert Tutors</h3>
+              <p className='text-sm font-light'>
                 Laboris exercitation nostrud ipsum ex culpa exercitation quis
                 ipsum est.
               </p>

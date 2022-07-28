@@ -27,7 +27,7 @@ const AboutPage = () => {
           className='md:max-w-sm lg:w-1/2 lg:max-w-none'
         />
         <div className=''>
-          <h1 className='text-4xl pb-6'>Our Vision</h1>
+          <h1 className='text-4xl pb-2'>Our Vision</h1>
           <p className='opacity-60 pb-4 font-light'>
             Consectetur proident occaecat enim magna amet ipsum ex enim
             incididunt culpa consectetur non cupidatat. Veniam laboris duis

@@ -13,9 +13,7 @@ const CoursesOverview = () => {
   const swiperNavNextRef = useRef(null);
   const fetchCourses = async () => {
     const res = await fetch(`https://e-novate.herokuapp.com/api/course/view/`);
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     setCourses(data);
   };
   useEffect(() => {
@@ -23,7 +21,7 @@ const CoursesOverview = () => {
   }, []);
 
   return (
-    <div className='flex flex-col justify-center mb-12'>
+    <div className='flex flex-col justify-center items-center mb-12'>
       <div className='text-center font-light'>
         <h4 className='text-secondary font-extralight my-2'>COURSES</h4>
         <p className='text-3xl my-2 mb-6'>We Offer These Courses</p>

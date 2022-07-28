@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsTelephone } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -45,11 +46,11 @@ const Footer = () => {
         <div className='md:w-1/3 flex flex-col md:items-center gap-y-4'>
           <ul className='flex flex-col gap-y-2'>
             <h1 className='text-lg font-normal'>Corporate</h1>
-            <li>About us</li>
-            <li>Contact us</li>
-            <li>Projects</li>
-            <li>Terms and Conditions</li>
-            <li>Privacy policy</li>
+            <Link to='/about'>About us</Link>
+            <Link to='/contact'>Contact us</Link>
+            <Link to='/'>Projects</Link>
+            <Link to='/'>Terms and Conditions</Link>
+            <Link to='/'>Privacy policy</Link>
           </ul>
           <hr className='w-[60vw] h-2 md:hidden' />
         </div>
@@ -57,17 +58,24 @@ const Footer = () => {
           <div className='flex flex-col md:mb-4 gap-y-2'>
             <h2 className='text-lg font-normal'>Contact Us</h2>
             <ul className='flex flex-col gap-y-2'>
-              <li className='flex items-center gap-x-2'>
-                <span>
-                  <BsTelephone className='text-secondary' />
-                </span>
-                <p>0803 353 0335</p>
+              <li>
+                <a href='tel:08033530335' className='flex items-center gap-x-2'>
+                  <span>
+                    <BsTelephone className='text-secondary' />
+                  </span>
+                  <p>0803 353 0335</p>
+                </a>
               </li>
-              <li className='flex items-center gap-x-2'>
-                <span>
-                  <MdOutlineMailOutline className='text-secondary' />
-                </span>
-                <p className='break-all'>VillageSquareOnline@gmail.com</p>
+              <li>
+                <a
+                  href='mailto:villageSquareOnline@gmail.com'
+                  className='flex items-center gap-x-2'
+                >
+                  <span>
+                    <MdOutlineMailOutline className='text-secondary' />
+                  </span>
+                  <p className='break-all'>VillageSquareOnline@gmail.com</p>
+                </a>
               </li>
               <li className='flex items-center gap-x-2'>
                 <span>

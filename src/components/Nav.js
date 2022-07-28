@@ -64,7 +64,6 @@ const Nav = () => {
             <Link
               to='/login'
               className='cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded'
-              
             >
               <BiLogIn />
               login
@@ -155,7 +154,7 @@ const Nav = () => {
                   navigate('/login');
                   setHamburger(false);
                 }}
-                className='cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded'
+                className='cursor-pointer flex items-center gap-x-1 bg-secondary py-1 px-4 rounded'
               >
                 <BiLogIn />
                 login
