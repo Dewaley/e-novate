@@ -16,7 +16,7 @@ const Nav = () => {
           <span className='text-secondary'>E-</span>novate Labs
         </h1>
         <nav>
-          <ul className='md:flex items-center gap-x-8 hidden'>
+          <ul className='md:flex items-center gap-x-6 hidden'>
             <Link
               to='/'
               className={`cursor-pointer ${
