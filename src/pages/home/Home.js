@@ -2,13 +2,13 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { HiOutlineDocumentDuplicate } from 'react-icons/hi';
 import { TiUser } from 'react-icons/ti';
 import { TbCertificate } from 'react-icons/tb';
-import picture1 from '../images/home/picture.png';
-import Features from '../components/Features';
-import Offer from '../components/Offer';
-import CoursesOverview from '../components/CoursesOverview';
-import Testimonials from '../components/Testimonials';
-import BlogOverview from '../components/BlogOverview';
-import NewsLetter from '../components/NewsLetter';
+import picture1 from '../../images/home/picture.png';
+import Features from '../../components/home/Features';
+import Offer from '../../components/home/Offer';
+import CoursesOverview from '../../components/home/CoursesOverview';
+import Testimonials from '../../components/home/Testimonials';
+import BlogOverview from '../../components/home/BlogOverview';
+import NewsLetter from '../../components/universal/NewsLetter';
 import { useEffect } from 'react';
 
 const Home = () => {

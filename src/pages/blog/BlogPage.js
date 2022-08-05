@@ -1,8 +1,8 @@
-import NewsLetter from '../components/NewsLetter';
-import BlogCard from '../components/BlogCard';
-import { Blog } from '../config/api';
+import NewsLetter from '../../components/universal/NewsLetter';
+import BlogCard from '../../components/blog/BlogCard';
+import { Blog } from '../../config/blogApi';
 import { useState, useEffect } from 'react';
-import BlogRightSide from '../components/BlogRightSide';
+import BlogRightSide from '../../components/blog/BlogRightSide';
 
 const BlogPage = () => {
   const [blogList, setBlogList] = useState([]);

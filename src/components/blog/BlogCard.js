@@ -5,7 +5,7 @@ import {
   AiOutlineArrowRight,
 } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { months } from '../config/api';
+import { months } from '../../config/monthsApi';
 
 const BlogCard = ({ image, title, preamble, date, id }) => {
   const navigate = useNavigate();

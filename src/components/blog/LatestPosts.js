@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { months } from '../config/api';
+import { months } from '../../config/monthsApi';
 
 const LatestPosts = ({ image, title, date, id }) => {
   const navigate = useNavigate();

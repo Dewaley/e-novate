@@ -1,8 +1,8 @@
-import NewsLetter from '../components/NewsLetter';
+import NewsLetter from '../../components/universal/NewsLetter';
 import { AiOutlineSearch } from 'react-icons/ai';
-import CourseCard from '../components/CourseCard';
+import CourseCard from '../../components/courses/CourseCard';
 import { useEffect, useState } from 'react';
-import {CourseList} from '../config/api'
+import {CourseList} from '../../config/courseApi'
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState(null);

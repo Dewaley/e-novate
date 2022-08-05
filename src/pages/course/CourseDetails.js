@@ -9,13 +9,13 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
-import NewsLetter from '../components/NewsLetter';
+import NewsLetter from '../../components/universal/NewsLetter';
 import { useParams } from 'react-router-dom';
-import { SingleCourse } from '../config/api';
+import { SingleCourse } from '../../config/courseApi';
 import { useEffect, useState } from 'react';
-import { skillLevel } from '../config/skillLevel';
-import InstructorCard from '../components/InstructorCard';
-import { InstructorList } from '../config/api';
+import { skillLevel } from '../../config/skillLevel';
+import InstructorCard from '../../components/courses/InstructorCard';
+import { InstructorList } from '../../config/courseApi';
 
 const CourseDetails = () => {
   const [course, setCourse] = useState([]);

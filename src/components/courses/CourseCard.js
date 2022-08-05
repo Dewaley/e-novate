@@ -1,4 +1,4 @@
-import image from '../images/home/pexels-burst-374074.png';
+import image from '../../images/home/pexels-burst-374074.png';
 import { MdOutlinePlayLesson } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 

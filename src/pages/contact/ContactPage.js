@@ -1,4 +1,4 @@
-import NewsLetter from "../components/NewsLetter";
+import NewsLetter from "../../components/universal/NewsLetter";
 
 const ContactPage = () => {
   return (
@@ -91,7 +91,12 @@ const ContactPage = () => {
             ></textarea>
           </div>
           <div className="flex justify-center items-center mt-2">
-            <button type="submit" className="bg-secondary px-4 py-2 text-white rounded-md">Submit</button>
+            <button
+              type="submit"
+              className="bg-secondary px-4 py-2 text-white rounded-md"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>

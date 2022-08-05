@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import CoursesPage from "./pages/CoursesPage";
-import CourseDetails from "./pages/CourseDetails";
-import BlogPage from "./pages/BlogPage";
-import ArticlePage from "./pages/ArticlePage";
-import LoginPage from "./pages/LoginPage";
-import ContactPage from "./pages/ContactPage";
+import Home from "./pages/home/Home";
+import AboutPage from "./pages/about/AboutPage";
+import Nav from "./components/universal/Nav";
+import Footer from "./components/universal/Footer";
+import CoursesPage from "./pages/courses/CoursesPage";
+import CourseDetails from "./pages/course/CourseDetails";
+import BlogPage from "./pages/blog/BlogPage";
+import ArticlePage from "./pages/article/ArticlePage";
+import LoginPage from "./pages/login/LoginPage";
+import ContactPage from "./pages/contact/ContactPage";
 import "./App.css";
 
 function App() {

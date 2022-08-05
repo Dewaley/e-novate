@@ -1,4 +1,4 @@
-import picture2 from '../images/home/Online learning-cuate.png';
+import picture2 from '../../images/home/Online learning-cuate.png';
 import { BsBookHalf } from 'react-icons/bs';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 

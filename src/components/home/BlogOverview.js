@@ -1,5 +1,5 @@
-import TopBlogCard from './TopBlogCard';
-import { Blog } from '../config/api';
+import TopBlogCard from '../home/TopBlogCard';
+import { Blog } from '../../config/blogApi';
 import { useState,useEffect } from 'react';
 
 const BlogOverview = () => {

@@ -1,7 +1,7 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import LatestPosts from './LatestPosts';
 import CategoryList from './CategoryList';
-import { tags } from '../config/api';
+import { tags } from '../../config/static';
 
 const BlogRightSide = ({blogList}) => {
   return (

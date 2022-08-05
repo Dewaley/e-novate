@@ -1,6 +1,6 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
-import SignUpPic from '../images/loginPage/signUp.png';
-import SignInPic from '../images/loginPage/signIn.png';
+import SignUpPic from '../../images/loginPage/signUp.png';
+import SignInPic from '../../images/loginPage/signIn.png';
 import { useState,useEffect } from 'react';
 
 const LoginPage = () => {

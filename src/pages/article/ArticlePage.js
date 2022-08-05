@@ -1,13 +1,13 @@
-import BlogRightSide from '../components/BlogRightSide';
-import { Blog } from '../config/api';
+import BlogRightSide from '../../components/blog/BlogRightSide';
+import { Blog } from '../../config/blogApi';
 import { useState, useEffect } from 'react';
-import NewsLetter from '../components/NewsLetter';
+import NewsLetter from '../../components/universal/NewsLetter';
 import { useParams } from 'react-router-dom';
 import { AiOutlineCalendar, AiOutlineMessage } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
-import { months } from '../config/api';
+import { months } from '../../config/monthsApi';
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
-import AuthorCard from '../components/AuthorCard';
+import AuthorCard from '../../components/article/AuthorCard';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ArticlePage = () => {

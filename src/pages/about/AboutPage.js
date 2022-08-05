@@ -1,7 +1,7 @@
-import picture1 from '../images/aboutPage/pexels-picha-stock-3894378 1.png';
-import NewsLetter from '../components/NewsLetter';
-import Features from '../components/Features';
-import Offer from '../components/Offer';
+import picture1 from '../../images/aboutPage/Mask-group.png';
+import NewsLetter from '../../components/universal/NewsLetter';
+import Features from '../../components/home/Features';
+import Offer from '../../components/home/Offer';
 import { MdOutlineTouchApp } from 'react-icons/md';
 import { BsHeadset, BsHeart } from 'react-icons/bs';
 import { IoIosLock } from 'react-icons/io';
