@@ -11,7 +11,7 @@ const CoursesPage = () => {
     console.log(res);
     const data = await res.json();
     console.log(data);
-    setCourses(data);
+    setCourses(data.results);
   };
   useEffect(() => {
     fetchCourses();
@@ -54,6 +54,7 @@ const CoursesPage = () => {
                 preamble={course.course_preamble}
                 lessons={course.no_of_lessons}
                 id={course.id}
+                image={course.course_image}
               />
             );
           })}

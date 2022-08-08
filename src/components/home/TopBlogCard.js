@@ -13,12 +13,7 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
   const shortenedTitle = title.slice(0, 40) + "...";
   return (
     <div className="flex flex-col shadow-md rounded-md overflow-hidden">
-      <div
-        className="h-[250px] md:h-[200px] bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      ></div>
+      <img src={image} alt="" className="w-full" />
       <div className="flex flex-col px-6 justify-between pt-4">
         <div className="flex flex-col justify-between">
           <div className="md:h-[180px] overflow-hidden">

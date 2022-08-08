@@ -8,13 +8,13 @@ import { Navigation, Pagination } from 'swiper';
 import { useEffect, useRef, useState } from 'react';
 
 const CoursesOverview = () => {
-  const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState([]);
   const swiperNavPrevRef = useRef(null);
   const swiperNavNextRef = useRef(null);
   const fetchCourses = async () => {
     const res = await fetch(`https://e-novate.herokuapp.com/api/course/view/`);
     const data = await res.json();
-    setCourses(data);
+    setCourses(data.results);
   };
   useEffect(() => {
     fetchCourses();
@@ -26,7 +26,7 @@ const CoursesOverview = () => {
         <h4 className='text-secondary font-extralight my-2'>COURSES</h4>
         <p className='text-3xl my-2 mb-6'>We Offer These Courses</p>
       </div>
-      {courses && (
+      {courses !== [] && (
         <div className='flex justify-center gap-x-4 w-[90vw] lg:min-w-[80vw] relative'>
           <Swiper
             breakpoints={{
@@ -64,6 +64,7 @@ const CoursesOverview = () => {
                     preamble={course.course_preamble}
                     lessons={course.no_of_lessons}
                     id={course.id}
+                    image={course.course_image}
                   />
                 </SwiperSlide>
               );

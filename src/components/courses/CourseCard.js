@@ -1,18 +1,12 @@
-import image from '../../images/home/pexels-burst-374074.png';
 import { MdOutlinePlayLesson } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-const CourseCard = ({ title, preamble, lessons, id }) => {
+const CourseCard = ({ title, preamble, lessons, id ,image}) => {
   const navigate = useNavigate();
   const shortenedTitle = title.slice(0, 40) + '...';
   return (
     <div className='flex flex-col shadow-md rounded-md overflow-hidden w-full'>
-      <div
-        className='h-[250px] md:h-[200px] bg-center bg-cover'
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      ></div>
+      <img src={image} alt="" className='w-full'/>
       <div className='flex flex-col px-6 justify-between pt-4'>
         <div className='h-[200px] lg:h-[170px] overflow-hidden'>
           <h3 className='text-xl'>

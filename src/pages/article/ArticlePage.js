@@ -23,7 +23,9 @@ const ArticlePage = () => {
   const [index, setIndex] = useState(parseInt(id));
   const fetchArticle = async () => {
     const res = await fetch(Blog);
-    const data = await res.json();
+    const dat = await res.json();
+    const data = await dat.results
+    console.log(data)
     setBlogList(data);
     const numeration = data.findIndex((item) => {
       return item.id === index;
@@ -78,12 +80,7 @@ const ArticlePage = () => {
           </div>
           <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
             <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-full'>
-              <div
-                className='h-[250px] md:h-[350px] bg-center bg-cover w-full'
-                style={{
-                  backgroundImage: `url(${article.post_picture})`,
-                }}
-              ></div>
+              <img src={article.post_picture} alt="" className="w-full"/>
               {Number.isInteger(month) && (
                 <div className='flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary w-full border-b-[#263B5D]/20 border-b-[2px] pb-2 text-[#263238]/70'>
                   <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
