@@ -14,12 +14,7 @@ const BlogCard = ({ image, title, preamble, date, id }) => {
   const shortenedTitle = title.slice(0, 40) + '...';
   return (
     <div className='flex flex-col shadow-md rounded-md md:h-[440px] lg:h-auto overflow-hidden'>
-      <div
-        className='h-[250px] md:h-[350px] bg-center bg-cover'
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      ></div>
+      <img src={image} alt="" className="w-full"/>
       <div className='flex flex-col px-6 pt-4 gap-y-2'>
         <div className='flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary'>
           <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
