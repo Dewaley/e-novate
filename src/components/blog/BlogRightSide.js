@@ -1,7 +1,7 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import LatestPosts from './LatestPosts';
-import CategoryList from './CategoryList';
-import { tags } from '../../config/static';
+import CategoryList from './CategoryItem';
+import Category from './Category'
 
 const BlogRightSide = ({blogList}) => {
   return (
@@ -40,32 +40,7 @@ const BlogRightSide = ({blogList}) => {
           ))}
         </div>
       </div>
-      <div className='flex justify-center p-8 gap-y-4 shadow-md border-t-2 border-primary rounded-md flex-col'>
-        <div className='flex flex-col gap-y-2'>
-          <h1 className='text-lg text-secondary'>Categories</h1>
-          <hr className='w-2/12 bg-primary h-1' />
-        </div>
-        <ul className='divide-y divide-[#263B5D]/30'>
-          <CategoryList />
-          <CategoryList />
-          <CategoryList />
-          <CategoryList />
-          <CategoryList />
-        </ul>
-      </div>
-      <div className='flex justify-center p-8 gap-y-4 shadow-md border-t-2 border-primary rounded-md flex-col'>
-        <div className='flex flex-col gap-y-2'>
-          <h1 className='text-lg text-secondary'>Tags</h1>
-          <hr className='w-2/12 bg-primary h-1' />
-        </div>
-        <div className='flex flex-wrap gap-x-2 gap-y-2'>
-          {tags.map((tag) => (
-            <p className='p-2 border-[0.5px] border-primary rounded-md'>
-              {tag}
-            </p>
-          ))}
-        </div>
-      </div>
+      <Category/>
     </div>
   );
 }
