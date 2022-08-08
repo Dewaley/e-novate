@@ -8,11 +8,11 @@ const CourseCard = ({ title, preamble, lessons, id ,image}) => {
     <div className='flex flex-col shadow-md rounded-md overflow-hidden w-full'>
       <img src={image} alt="" className='w-full'/>
       <div className='flex flex-col px-6 justify-between pt-4'>
-        <div className='h-[200px] lg:h-[170px] overflow-hidden'>
+        <div className='overflow-hidden'>
           <h3 className='text-xl'>
             {title.length > 40 ? shortenedTitle : title}
           </h3>
-          <p className='font-light text-sm'>{preamble.slice(0, 150)}...</p>
+          <p className='font-light text-sm h-[200]'>{preamble.slice(0, 150)}...</p>
         </div>
         <div className='flex justify-between items-center border-t-primary border-t-[1px] py-2 mt-4 mb-2'>
           <div className='flex items-end gap-x-0.5'>
