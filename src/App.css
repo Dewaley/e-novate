@@ -10,6 +10,9 @@
 .swiper-container {
   height: auto !important;
 }
+.swiper-button-disabled {
+  opacity: 0.5 !important;
+}
 @media (min-width: 640px) {
   .swiper-pagination {
     display: none;

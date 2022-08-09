@@ -1,4 +1,4 @@
-export const CourseList = `https://e-novate.herokuapp.com/api/course/view/`;
+export const CourseList = `https://e-novate.herokuapp.com/api/course/view/?page=1`;
 export const SingleCourse = (id) =>
   `https://e-novate.herokuapp.com/api/course/view/${id}`;
 export const InstructorList = (id) =>

@@ -1,13 +1,14 @@
 import NewsLetter from "../../components/universal/NewsLetter";
 import BlogCard from "../../components/blog/BlogCard";
 import { Blog } from "../../config/blogApi";
+import { API } from "../../config/staticApi";
 import { useState, useEffect } from "react";
 import BlogRightSide from "../../components/blog/BlogRightSide";
 
 const BlogPage = () => {
   const [blogList, setBlogList] = useState([]);
   const fetchBlog = async () => {
-    const res = await fetch(Blog);
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + "/blog/view");
     const data = await res.json();
     setBlogList(data.results);
   };

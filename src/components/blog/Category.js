@@ -1,4 +1,3 @@
-import CategoryItem from "./CategoryItem";
 import { Categories } from "../../config/categoryApi";
 import { useState, useEffect } from "react";
 
@@ -15,7 +14,7 @@ const Category = () => {
 
   return (
     <>
-      {categories !== [] && (
+      {categories !== undefined && (
         <div className="flex justify-center p-8 gap-y-4 shadow-md border-t-2 border-primary rounded-md flex-col">
           <div className="flex flex-col gap-y-2">
             <h1 className="text-lg text-secondary">Categories</h1>

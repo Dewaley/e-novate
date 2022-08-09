@@ -4,7 +4,7 @@ import {
   AiOutlineMessage,
   AiOutlineArrowRight,
 } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { months } from "../../config/monthsApi";
 
 const BlogCard = ({ image, title, preamble, date, id }) => {
@@ -36,19 +36,21 @@ const BlogCard = ({ image, title, preamble, date, id }) => {
           </div>
         </div>
         <div>
-          <h3 className="text-xl py-2">
-            {title.length > 40 ? shortenedTitle : title}
+          <h3 className="text-xl w-fit py-2">
+            <Link to={`/blog/${id}`}>
+              {title.length > 40 ? shortenedTitle : title}
+            </Link>
           </h3>
           <p className="font-light text-sm">{preamble.slice(0, 250)}...</p>
         </div>
-        <div className="py-2 mt-4 mb-2">
-          <button
+        <div className="py-2 mt-4 mb-2 w-fit">
+          <Link
             className="flex items-center bg-transparent text-secondary font-light py-2 gap-x-2 rounded"
-            onClick={() => navigate(`/blog/${id}`)}
+            to={`/blog/${id}`}
           >
             <span>READ ON</span>
             <AiOutlineArrowRight />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

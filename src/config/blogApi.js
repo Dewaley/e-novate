@@ -1,1 +1,0 @@
-export const Blog = `https://e-novate.herokuapp.com/api/blog/view`;
