@@ -21,7 +21,7 @@ function App() {
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:id" element={<ArticlePage />} />
+        <Route path="/blog/article/:id" element={<ArticlePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

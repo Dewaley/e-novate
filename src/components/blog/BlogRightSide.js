@@ -2,7 +2,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import LatestPosts from './LatestPosts';
 import Category from './Category'
 
-const BlogRightSide = ({blogList}) => {
+const BlogRightSide = ({latestPosts}) => {
   return (
     <div className='md:w-1/3 flex flex-col gap-y-12 mb-8 w-full'>
       <div className='flex justify-center items-center border-[1px] border-[#263B5D]/50 py-10 px-4'>
@@ -28,7 +28,7 @@ const BlogRightSide = ({blogList}) => {
           <hr className='w-2/12 bg-primary h-1' />
         </div>
         <div className='flex flex-col gap-y-2'>
-          {blogList.slice(0,3).map((article) => (
+          {latestPosts.map((article) => (
             <LatestPosts
               image={article.post_picture}
               title={article.title}

@@ -1,18 +1,19 @@
 import { MdOutlinePlayLesson } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const CourseCard = ({ title, preamble, lessons, id, image }) => {
   const shortenedTitle = title.slice(0, 40) + "...";
   return (
     <div className="flex flex-col shadow-md rounded-md overflow-hidden w-full select-none">
       <img src={image} alt="" className="w-full" />
-      <div className="flex flex-col px-6 justify-between pt-4">
-        <header className="overflow-hidden">
+      <div className="flex flex-col px-6 justify-between pt-4 h-full">
+        <header className="overflow-hidden h-full">
           <h3 className="text-xl">
             {title.length > 40 ? shortenedTitle : title}
           </h3>
           <p className="font-light text-sm h-[10rem] overflow-hidden">
-            {preamble}
+            {preamble.length > 400 ? preamble.slice(0,400) + "..." : preamble}
           </p>
         </header>
         <footer className="flex justify-between items-center border-t-primary border-t-[1px] py-2 mt-4 mb-2">

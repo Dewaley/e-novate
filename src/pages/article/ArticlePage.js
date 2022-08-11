@@ -1,5 +1,4 @@
 import BlogRightSide from '../../components/blog/BlogRightSide';
-import { Blog } from '../../config/blogApi';
 import { useState, useEffect } from 'react';
 import NewsLetter from '../../components/universal/NewsLetter';
 import { useParams } from 'react-router-dom';
@@ -10,57 +9,33 @@ import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import AuthorCard from '../../components/article/AuthorCard';
 import { Link, useNavigate } from 'react-router-dom';
 
-const ArticlePage = () => {
+const ArticlePage = ({page}) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [blogList, setBlogList] = useState([]);
-  const [article, setArticle] = useState([]);
-  const [month, setMonth] = useState();
-  const [tags, setTags] = useState([]);
-  const [dateArray, setDateArray] = useState();
-  const [nextArticle, setNextArticle] = useState({});
-  const [prevArticle, setPrevArticle] = useState({});
-  const [index, setIndex] = useState(parseInt(id));
-  const fetchArticle = async () => {
-    const res = await fetch(Blog);
+  const [article, setArticle] = useState();
+  const [latestPosts,setLatestPosts] = useState([])
+  const fetchLatestPosts = async()=>{
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=1`)
     const dat = await res.json();
     const data = await dat.results
-    console.log(data)
-    setBlogList(data);
-    const numeration = data.findIndex((item) => {
-      return item.id === index;
-    });
-    console.log(numeration);
-    console.log(data);
-    setArticle(data[numeration]);
-    if (numeration > 0) {
-      setPrevArticle(data[numeration - 1]);
-    } else if (numeration <= 0) {
-      setPrevArticle({
-        id: numeration - 1,
-      });
-    }
-    if (numeration + 1 < data.length) {
-      setNextArticle(data[numeration + 1]);
-    } else if (numeration + 1 === data.length) {
-      setNextArticle({
-        id: numeration+1,
-      });
-    }
-    setTags(data[numeration].tags);
-    setDateArray(data[numeration].date_posted.slice(0, 10).split('-', 3));
-    setMonth(data[numeration].date_posted.slice(0, 10).split('-', 3)[1] - 1);
+    setLatestPosts(data)
+  }
+  const fetchArticle = async () => {
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/blog/view/${id}`);
+    const data = await res.json();
+    setArticle(data);
   };
   useEffect(() => {
     fetchArticle();
+    fetchLatestPosts()
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
     })
-  }, [index]);
+  }, []);
   return (
     <div>
-      {blogList !== [] && (
+      {article !== undefined && (
         <div className='flex flex-col items-center'>
           <div className='flex flex-col bg-primary items-center justify-center w-full mt-12 mb-12 py-4 text-white'>
             <h1 className='text-center text-3xl max-w-[80vw] sm:max-w-[45vw] md:max-w-[35vw]'>
@@ -81,15 +56,14 @@ const ArticlePage = () => {
           <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
             <div className='flex flex-col gap-y-8 md:w-2/3 mb-8 w-full'>
               <img src={article.post_picture} alt="" className="w-full"/>
-              {Number.isInteger(month) && (
                 <div className='flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary w-full border-b-[#263B5D]/20 border-b-[2px] pb-2 text-[#263238]/70'>
                   <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
                     <AiOutlineCalendar className='sm:text-lg text-base' />
-                    {months[month] + ' ' + dateArray[2] + ', ' + dateArray[0]}
+                    {months[new Date(article.date_posted).getMonth()] + ' ' + new Date(article.date_posted).getDate() + ', ' + new Date(article.date_posted).getFullYear()}
                   </span>
                   <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
                     <FiUser className='text-xl' />
-                    John Doe
+                    {article.author}
                   </span>
                   <div className='flex justify-between'>
                     <span className='flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base'>
@@ -98,17 +72,16 @@ const ArticlePage = () => {
                     </span>
                   </div>
                 </div>
-              )}
               <p>{article.article_body}</p>
               <div className='flex flex-wrap gap-x-2 gap-y-2'>
-                {tags.map((tag) => (
-                  <p className='p-2 border-[0.5px] border-primary rounded-md'>
-                    {tag}
-                  </p>
+                {article.category.map((cat) => (
+                  <span className='p-2 border-[0.5px] border-primary rounded-md'>
+                    {cat}
+                  </span>
                 ))}
               </div>
               <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mt-12' />
-              <div className='w-full flex flex-col md:flex-row justify-center items-center md:divide-x-[2px] divide-y-[2px] md:divide-y-0 divide-[#263B5D]/20'>
+              {/* <div className='w-full flex flex-col md:flex-row justify-center items-center md:divide-x-[2px] divide-y-[2px] md:divide-y-0 divide-[#263B5D]/20'>
                 <div className='md:w-1/2 flex justify-center p-2'>
                   {prevArticle !== {} ? (
                     <div>
@@ -157,8 +130,8 @@ const ArticlePage = () => {
                     </div>
                   )}
                 </div>
-              </div>
-              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mb-12' />
+              </div> 
+              <hr className='w-full border-b-[#263B5D]/20 border-b-[2px] mb-12' />*/}
               <AuthorCard
                 image={article.author_picture}
                 name={article.author}
@@ -207,7 +180,7 @@ const ArticlePage = () => {
                 </button>
               </form>
             </div>
-            <BlogRightSide blogList={blogList} />
+            <BlogRightSide latestPosts={latestPosts} />
           </div>
           <NewsLetter />
         </div>
