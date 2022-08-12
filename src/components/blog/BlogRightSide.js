@@ -33,8 +33,8 @@ const BlogRightSide = ({latestPosts}) => {
               image={article.post_picture}
               title={article.title}
               date={article.date_posted}
-              id={article.id}
-              key={article.id}
+              id={article.slug}
+              key={article.slug}
             />
           ))}
         </div>

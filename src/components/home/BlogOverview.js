@@ -25,8 +25,8 @@ const BlogOverview = () => {
               title={article.title}
               preamble={article.preamble}
               date={article.date_posted}
-              id={article.id}
-              key={article.id}
+              id={article.slug}
+              key={article.slug}
             />
           ))}
         </div>

@@ -12,9 +12,9 @@ const CoursesOverview = () => {
   const swiperNavPrevRef = useRef(null);
   const swiperNavNextRef = useRef(null);
   const fetchCourses = async () => {
-    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/?page=1`);
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/`);
     const data = await res.json();
-    setCourses(data.results);
+    setCourses(data);
   };
   useEffect(() => {
     fetchCourses();
@@ -26,7 +26,6 @@ const CoursesOverview = () => {
         <h4 className='text-secondary font-extralight my-2'>COURSES</h4>
         <p className='text-3xl my-2 mb-6'>We Offer These Courses</p>
       </header>
-      {courses !== undefined && (
         <div className='flex justify-center gap-x-4 w-[90vw] lg:min-w-[80vw] relative'>
           <Swiper
             breakpoints={{
@@ -63,7 +62,7 @@ const CoursesOverview = () => {
                     title={course.course_name}
                     preamble={course.course_preamble}
                     lessons={course.no_of_lessons}
-                    id={course.id}
+                    id={course.slug}
                     image={course.course_image}
                   />
                 </SwiperSlide>
@@ -83,7 +82,6 @@ const CoursesOverview = () => {
             <MdOutlineNavigateNext />
           </button>
         </div>
-      )}
     </section>
   );
 };

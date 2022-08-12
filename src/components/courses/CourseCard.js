@@ -1,6 +1,6 @@
 import { MdOutlinePlayLesson } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import Skeleton from 'react-loading-skeleton';
 
 const CourseCard = ({ title, preamble, lessons, id, image }) => {
   const shortenedTitle = title.slice(0, 40) + "...";
@@ -10,16 +10,18 @@ const CourseCard = ({ title, preamble, lessons, id, image }) => {
       <div className="flex flex-col px-6 justify-between pt-4 h-full">
         <header className="overflow-hidden h-full">
           <h3 className="text-xl">
-            {title.length > 40 ? shortenedTitle : title}
+            <Link to={`/courses/${id}`}>
+              {(title.length > 40 ? shortenedTitle : title) || <Skeleton/>}
+            </Link>
           </h3>
           <p className="font-light text-sm h-[10rem] overflow-hidden">
-            {preamble.length > 400 ? preamble.slice(0,400) + "..." : preamble}
+            {preamble.length > 400 ? preamble.slice(0, 400) + "..." : preamble || <Skeleton/>}
           </p>
         </header>
         <footer className="flex justify-between items-center border-t-primary border-t-[1px] py-2 mt-4 mb-2">
           <div className="flex items-end gap-x-0.5">
             <MdOutlinePlayLesson className="text-secondary text-2xl" />
-            <span className="font-light text-sm">{lessons + ""} lessons</span>
+            <span className="font-light text-sm">{lessons + "" || <Skeleton/>} lessons</span>
           </div>
           <Link
             to={`/courses/${id}`}
