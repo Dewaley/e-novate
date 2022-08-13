@@ -2,9 +2,11 @@ import NewsLetter from "../../components/universal/NewsLetter";
 import { AiOutlineSearch } from "react-icons/ai";
 import CourseCard from "../../components/courses/CourseCard";
 import { useEffect, useState } from "react";
+import { PuffLoader } from "react-spinners";
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
+  const [loading, setloading] = useState(true);
   const fetchCourses = async () => {
     const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/`);
     const data = await res.json();
@@ -12,10 +14,16 @@ const CoursesPage = () => {
   };
   useEffect(() => {
     fetchCourses();
+    window.scrollTo({
+      top: 0,
+    });
+    setTimeout(() => setloading(false), 2000);
   }, []);
   return (
     <>
-      {courses !== undefined && (
+    {loading ? (<div className="w-full h-screen bg-primary overflow-hidden flex items-center justify-center absolute top-0 z-[1000]">
+          <PuffLoader color={"#FF206E"} />
+        </div>) :(<div>{courses !== undefined && (
         <div className="flex flex-col items-center mb-12 gap-y-4">
           <header className="text-center font-light mt-6">
             <h4 className="text-secondary my-2">COURSES</h4>
@@ -57,7 +65,8 @@ const CoursesPage = () => {
           </div>
           <NewsLetter />
         </div>
-      )}
+      )}</div>)}
+      
     </>
   );
 };

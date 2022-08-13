@@ -16,11 +16,13 @@ import { useEffect, useState } from 'react';
 import { skillLevel } from '../../config/skillLevel';
 import InstructorCard from '../../components/courses/InstructorCard';
 import { InstructorList } from '../../config/courseApi';
+import { PuffLoader } from 'react-spinners';
 
 const CourseDetails = () => {
   const [course, setCourse] = useState([]);
   const [instructors, setInstructors] = useState([]);
   const [instructorInfo, setInstructorInfo] = useState([]);
+  const [loading,setloading] = useState(true)
   const [subMenu, setSubMenu] = useState('Overview');
   const { id } = useParams();
   const fetchCourse = async () => {
@@ -47,11 +49,13 @@ const CourseDetails = () => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
     });
+    setTimeout(()=>setloading(false),2000)
   }, []);
   return (
-    <div>
+    <>{loading ? (<div className="w-full h-screen bg-primary overflow-hidden flex items-center justify-center absolute top-0 z-[1000]">
+    <PuffLoader color={"#FF206E"} />
+  </div>) : (<div>
       {course && instructorInfo !== [] && (
         <div className='flex flex-col items-center'>
           <div className='text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]'>
@@ -296,7 +300,7 @@ const CourseDetails = () => {
           <NewsLetter />
         </div>
       )}
-    </div>
+    </div>)}</>
   );
 };
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import BlogRightSide from "../../components/blog/BlogRightSide";
 import Paginate from "../../components/courses/Paginate";
 import { useSearchParams } from "react-router-dom";
+import { PuffLoader } from "react-spinners";
 
 const BlogPage = () => {
   const [blogList, setBlogList] = useState([]);
@@ -11,6 +12,7 @@ const BlogPage = () => {
   const [page, setPage] = useState(1);
   const [latestPosts,setLatestPosts] = useState([])
   const [searchParams,setSearchParams] = useSearchParams()
+  const [loading,setLoading] = useState(true)
   const fetchBlog = async () => {
     const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=${page}`);
     const data = await res.json();
@@ -21,13 +23,18 @@ const BlogPage = () => {
     setSearchParams({ page: page})
   };
   useEffect(() => {
+    setLoading(true)
     fetchBlog();
     window.scrollTo({
       top: 0,
     });
+    setTimeout(()=>setLoading(false),2000)
   }, [page]);
   return (
-    <div>
+    <>
+      {loading ? (<div className="w-full h-screen bg-primary overflow-hidden flex items-center justify-center absolute top-0 z-[1000]">
+          <PuffLoader color={"#FF206E"} />
+        </div>): (<div>
       {blogList.results !== undefined && (
         <div className="flex flex-col items-center">
           <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-x-hidden">
@@ -56,7 +63,8 @@ const BlogPage = () => {
           <NewsLetter />
         </div>
       )}
-    </div>
+    </div>)}
+    </>
   );
 };
 
