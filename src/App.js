@@ -10,6 +10,7 @@ import ArticlePage from "./pages/article/ArticlePage";
 import LoginPage from "./pages/login/LoginPage";
 import ContactPage from "./pages/contact/ContactPage";
 import "./App.css";
+import 'animate.css';
 
 function App() {
   return (

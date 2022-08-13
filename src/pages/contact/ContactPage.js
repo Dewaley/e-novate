@@ -9,7 +9,7 @@ const ContactPage = () => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 5000);
   }, []);
   return (
     <>
@@ -18,7 +18,7 @@ const ContactPage = () => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div className="flex flex-col items-center text-primary gap-y-8 mt-8">
+        <div className="flex flex-col items-center text-primary gap-y-8 mt-8 animate__animated animate__fadeIn">
           <div className="flex flex-col items-center w-[80vw]">
             <h1 className="font-light text-secondary">CONTACT US</h1>
             <h4 className="text-xl mb-2">Have any question?</h4>

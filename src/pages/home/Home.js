@@ -19,7 +19,7 @@ const Home = () => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setloading(false), 2000);
+    setTimeout(() => setloading(false), 5000);
   }, []);
   return (
     <>
@@ -28,7 +28,7 @@ const Home = () => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div className="text-white overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8">
+        <div className="text-white overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8 animate__animated animate__fadeIn">
           <section className="flex flex-col md:flex-row justify-center gap-x-8 items-center bg-primary gap-y-4 px-6 md:px-12 pt-4 pb-6 text-white">
             <div>
               <h1 className="text-4xl md:max-w-[75%] pb-6">

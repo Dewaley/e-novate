@@ -11,7 +11,7 @@ const LoginPage = () => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 5000);
   }, []);
   const [hasAccount, setHasAccount] = useState(true);
   const img = hasAccount ? SignInPic : SignUpPic;
@@ -22,7 +22,7 @@ const LoginPage = () => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div className="flex flex-col items-center text-primary">
+        <div className="flex flex-col items-center text-primary animate__animated animate__fadeIn">
           <div className="w-[90vw] block md:hidden mt-6">
             <p className="text-right">
               {hasAccount

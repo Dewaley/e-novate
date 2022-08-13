@@ -17,7 +17,7 @@ const AboutPage = () => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setloading(false), 2000);
+    setTimeout(() => setloading(false), 5000);
   }, []);
   return (
     <>
@@ -26,7 +26,7 @@ const AboutPage = () => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div className="text-primary overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8">
+        <div className="text-primary overflow-x-hidden flex flex-col justify-center items-center text-primary scroll-smooth gap-y-8 animate__animated animate__fadeIn">
           <article className="flex flex-col md:flex-row justify-center gap-x-8 items-center gap-y-4 w-[90vw] pt-4 pb-6">
             <img
               src={picture1}

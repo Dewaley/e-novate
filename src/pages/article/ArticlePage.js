@@ -36,7 +36,7 @@ const ArticlePage = ({ page }) => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 5000);
   }, []);
   return (
     <>
@@ -45,7 +45,7 @@ const ArticlePage = ({ page }) => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div>
+        <div className="animate__animated animate__fadeIn">
           {article !== undefined && (
             <div className="flex flex-col items-center">
               <div className="flex flex-col bg-primary items-center justify-center w-full mt-12 mb-12 py-4 text-white">
