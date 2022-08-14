@@ -40,26 +40,25 @@ const CommentForm = () => {
       newError.email = false;
       newError.comment = false;
       setError(newError);
-      const postData = {
-        name: data.name.trim(),
-        comment_text: data.comment.trim(),
-        comment_email: data.email.trim(),
-      };
-      const myJSON = JSON.stringify(postData);
-      console.log(myJSON);
-      let axiosConfig = {
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          name: data.name.trim(),
+          comment_text: data.comment.trim(),
+          comment_email: data.email.trim(),
+        }),
         headers: {
-          'Content-Type' : 'application/json',
-          "Access-Control-Allow-Origin": "*",
-        }
-      };
-      axios({
-        method: "post",
-        url: url,
-        headers: axiosConfig,
-        data: postData,
+          "Content-type": "application/json; charset=UTF-8",
+        },
       })
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          res.json();
+          const newData = { ...data };
+          newData.name = "";
+          newData.email = "";
+          newData.comment = "";
+          setData(newData);
+        })
         .catch((error) => console.log(error));
     }
   };

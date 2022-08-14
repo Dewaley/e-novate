@@ -55,7 +55,7 @@ const ArticlePage = () => {
     }
     fetchLatestPosts();
     setTimeout(() => setLoading(false), 5000);
-  }, []);
+  }, [id]);
   return (
     <>
       {loading ? (
