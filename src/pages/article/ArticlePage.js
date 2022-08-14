@@ -53,6 +53,9 @@ const ArticlePage = () => {
     } else {
       fetchArticle();
     }
+    window.scrollTo({
+      top: 0,
+    });
     fetchLatestPosts();
     setTimeout(() => setLoading(false), 5000);
   }, [id]);
