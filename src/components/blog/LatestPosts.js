@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { months } from "../../config/monthsApi";
-import Skeleton from 'react-loading-skeleton';
 
 const LatestPosts = ({ image, title, date, id }) => {
   const formattedDate = new Date(date);
@@ -21,11 +20,11 @@ const LatestPosts = ({ image, title, date, id }) => {
             " " +
             formattedDate.getDate() +
             ", " +
-            formattedDate.getFullYear()) || <Skeleton/>}
+            formattedDate.getFullYear())}
         </h4>
         <h1 className="font-light text-lg">
           <Link to={`/blog/article/${id}`} className="w-fit">
-            {(title.length > 40 ? shortenedTitle : title) || <Skeleton/>}
+            {(title.length > 40 ? shortenedTitle : title)}
           </Link>
         </h1>
       </div>

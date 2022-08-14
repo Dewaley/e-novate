@@ -3,11 +3,11 @@ import NewsLetter from "../../components/universal/NewsLetter";
 import Features from "../../components/home/Features";
 import Offer from "../../components/home/Offer";
 import { MdOutlineTouchApp } from "react-icons/md";
-import { BsHeadset, BsHeart } from "react-icons/bs";
+import { BsHeadset } from "react-icons/bs";
 import { IoIosLock } from "react-icons/io";
 import { TbBellRinging } from "react-icons/tb";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { AiOutlineBook } from "react-icons/ai";
+// import { FaChalkboardTeacher } from "react-icons/fa";
+// import { AiOutlineBook } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
@@ -48,7 +48,7 @@ const AboutPage = () => {
               </p>
             </main>
           </article>
-          <section className="flex flex-col md:flex-row md:w-[90vw] bg-primary text-secondary md:justify-between py-14 px-16 rounded-xl gap-y-12 text-center">
+          {/* <section className="flex flex-col md:flex-row md:w-[90vw] bg-primary text-secondary md:justify-between py-14 px-16 rounded-xl gap-y-12 text-center">
             <div className="flex flex-col items-center">
               <span className="text-3xl">
                 <FaChalkboardTeacher />
@@ -85,7 +85,7 @@ const AboutPage = () => {
               </span>
               <span className="text-xl font-light">Classes</span>
             </div>
-          </section>
+          </section> */}
           <Features />
           <div className="flex flex-col justify-center items-center mb-8">
             <header className="text-center font-light">

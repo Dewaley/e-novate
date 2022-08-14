@@ -7,22 +7,35 @@ import { useSearchParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
 const BlogPage = () => {
-  const [blogList, setBlogList] = useState([]);
+  const [blogList, setBlogList] = useState({});
+  const [filtered,setFiltered] = useState([]);
   const [pages, setPages] = useState([]);
   const [page, setPage] = useState(1);
   const [latestPosts, setLatestPosts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
   const fetchBlog = async () => {
-    const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=${page}`
-    );
-    const data = await res.json();
-    setBlogList(data);
-    if (page === 1) {
-      setLatestPosts(data.results);
+    if (search !== "") {
+      const res = await fetch(
+        process.env.REACT_APP_ENOVATE_API +
+          `/blog/view/?search=${search}`
+      );
+      const data = await res.json();
+      setFiltered(data);
+      console.log(data)
+      setSearchParams({ search: search, page: page });
+    } else {
+      const res = await fetch(
+        process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=${page}`
+      );
+      const data = await res.json();
+      setBlogList(data);
+      if (page === 1) {
+        setLatestPosts(data.results);
+      }
+      setSearchParams({ page: page });
     }
-    setSearchParams({ page: page });
   };
   useEffect(() => {
     setLoading(true);
@@ -39,11 +52,30 @@ const BlogPage = () => {
           <PuffLoader color={"#FF206E"} />
         </div>
       ) : (
-        <div className="animate__animated animate__fadeIn">
+        <div className="animate__animated animate__fadeIn w-full overflow-x-hidden">
           {blogList.results !== undefined && (
             <div className="flex flex-col items-center">
-              <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-screen overflow-x-hidden">
-                <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
+              <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8">
+                {searchParams.get("search") ? (<div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
+                  {filtered.results.map((article) => (
+                    <BlogCard
+                      image={article.post_picture}
+                      title={article.title}
+                      preamble={article.preamble}
+                      date={article.date_posted}
+                      id={article.slug}
+                      key={article.slug}
+                      author={article.author}
+                    />
+                  ))}
+                  <Paginate
+                    count={filtered.count}
+                    pages={pages}
+                    setPages={setPages}
+                    page={page}
+                    setPage={setPage}
+                  />
+                </div>) : (<div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
                   {blogList.results.map((article) => (
                     <BlogCard
                       image={article.post_picture}
@@ -62,8 +94,12 @@ const BlogPage = () => {
                     page={page}
                     setPage={setPage}
                   />
-                </div>
-                <BlogRightSide latestPosts={latestPosts} />
+                </div>)}
+                <BlogRightSide
+                  latestPosts={latestPosts}
+                  setSearch={setSearch}
+                  searchFn={fetchBlog}
+                />
               </div>
               <NewsLetter />
             </div>

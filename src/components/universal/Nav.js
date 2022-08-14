@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { BiLogIn } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
 import OutsideClickHandler from "react-outside-click-handler";
-import { useNavigate, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import logo from "../../images/universal/logo.png";
 
 const Nav = () => {
   const [hamburger, setHamburger] = useState(false);
-  const navigate = useNavigate();
-  const pathname = window.location.pathname;
   useEffect(() => {
     if (hamburger === true) {
       document.body.style.overflowY = "hidden";
@@ -16,67 +15,63 @@ const Nav = () => {
       document.body.style.overflowY = "unset";
     }
   }, [hamburger]);
+  let defaultClassName = "border-b-2 border-transparent cursor-pointer px-2";
+  let activeClassName = "border-secondary border-b-2 cursor-pointer px-2";
   return (
     <nav className="text-white sticky top-0 z-[100]">
       <div className="text-white bg-primary flex justify-between items-center h-16 md:px-10 border-b-white border-b-[1px] overflow-hidden w-full px-4">
-        <h1 className="text-2xl">
-          <Link to="/">
-            <span className="text-secondary">E-</span>novate Labs
-          </Link>
-        </h1>
+        <NavLink to="/">
+          <img src={logo} className="h-8" alt="" />
+        </NavLink>
         <div>
-          <ul className="md:flex items-center gap-x-6 hidden">
-            <Link
+          <ul className="md:flex items-center gap-x-4 hidden">
+            <NavLink
               to="/"
-              className={`cursor-pointer ${
-                pathname === "/" && "border-b-2 border-secondary"
-              } px-2`}
+              className={({ isActive }) =>
+                isActive ? activeClassName : defaultClassName
+              }
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/about"
-              className={`cursor-pointer ${
-                pathname.slice(0, 6) === "/about" &&
-                "border-b-2 border-secondary"
-              } px-2`}
+              className={({ isActive }) =>
+                isActive ? activeClassName : defaultClassName
+              }
             >
               About Us
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/courses"
-              className={`cursor-pointer ${
-                pathname.slice(0, 8) === "/courses" &&
-                "border-b-2 border-secondary"
-              } px-2`}
+              className={({ isActive }) =>
+                isActive ? activeClassName : defaultClassName
+              }
             >
               Courses
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/blog"
-              className={`cursor-pointer ${
-                pathname.slice(0, 5) === "/blog" &&
-                "border-b-2 border-secondary"
-              } px-2`}
+              className={({ isActive }) =>
+                isActive ? activeClassName : defaultClassName
+              }
             >
               Blog
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contact"
-              className={`cursor-pointer ${
-                pathname.slice(0, 8) === "/contact" &&
-                "border-b-2 border-secondary"
-              } px-2`}
+              className={({ isActive }) =>
+                isActive ? activeClassName : defaultClassName
+              }
             >
               Contact
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/login"
               className="cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded"
             >
               <BiLogIn />
               login
-            </Link>
+            </NavLink>
           </ul>
           <button
             className="md:hidden rounded border-white border-2 cursor-pointer flex justify-center"
@@ -87,75 +82,69 @@ const Nav = () => {
         </div>
       </div>
       <div
-        className={`absolute flex justify-center transition-[top] duration-500 left-[50%] translate-x-[-50%] mx-auto w-full md:hidden z-50 ${
-          hamburger ? "top-20" : "-top-60"
+        className={`absolute flex justify-center transition-[top] duration-500 left-[50%] translate-x-[-50%] mx-auto w-full md:hidden ${
+          hamburger ? "top-20 z-[50]" : "-top-80 z-[1]"
         }`}
       >
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
-          <nav className="bg-primary text-center rounded py-2 relative min-w-[80vw]">
-            <h1 className="text-xl mb-2">
-              <Link to="/">
-                <span className="text-secondary">E-</span>novate Labs
-              </Link>
-            </h1>
+          <nav className="bg-primary text-center rounded py-2 relative min-w-[80vw] flex flex-col gap-y-2 items-center">
+            <NavLink to="/">
+              <img src={logo} className="h-8" alt="" />
+            </NavLink>
             <ul className="flex flex-col justify-center items-center gap-y-2">
-              <Link
+              <NavLink
                 to="/"
-                className={`cursor-pointer ${
-                  pathname === "/" && "border-b-2 border-secondary"
-                } px-2`}
+                className={({ isActive }) =>
+                  isActive ? activeClassName : defaultClassName
+                }
                 onClick={() => setHamburger(false)}
               >
                 Home
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/about"
-                className={`cursor-pointer ${
-                  pathname.slice(0, 6) === "/about" &&
-                  "border-b-2 border-secondary"
-                } px-2`}
+                className={({ isActive }) =>
+                  isActive ? activeClassName : defaultClassName
+                }
                 onClick={() => setHamburger(false)}
               >
                 About Us
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/courses"
-                className={`cursor-pointer ${
-                  pathname.slice(0, 8) === "/courses" &&
-                  "border-b-2 border-secondary"
-                } px-2`}
+                className={({ isActive }) =>
+                  isActive ? activeClassName : defaultClassName
+                }
                 onClick={() => setHamburger(false)}
               >
                 Courses
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/blog"
-                className={`cursor-pointer ${
-                  pathname.slice(0, 5) === "/blog" &&
-                  "border-b-2 border-secondary"
-                } px-2`}
+                className={({ isActive }) =>
+                  isActive ? activeClassName : defaultClassName
+                }
                 onClick={() => setHamburger(false)}
               >
                 Blog
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/contact"
-                className={`cursor-pointer ${
-                  pathname.slice(0, 8) === "/contact" &&
-                  "border-b-2 border-secondary"
-                } px-2`}
+                className={({ isActive }) =>
+                  isActive ? activeClassName : defaultClassName
+                }
                 onClick={() => setHamburger(false)}
               >
                 Contact
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/login"
                 className="cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded"
                 onClick={() => setHamburger(false)}
               >
                 <BiLogIn />
                 login
-              </Link>
+              </NavLink>
             </ul>
             <IoCloseOutline
               className="absolute top-2 right-[5vw] text-2xl cursor-pointer"
