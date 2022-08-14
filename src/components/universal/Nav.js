@@ -19,12 +19,12 @@ const Nav = () => {
   let activeClassName = "border-secondary border-b-2 cursor-pointer px-2";
   return (
     <nav className="text-white sticky top-0 z-[100]">
-      <div className="text-white bg-primary flex justify-between items-center h-16 md:px-10 border-b-white border-b-[1px] overflow-hidden w-full px-4">
+      <div className="text-white bg-primary flex justify-between items-center h-16 md:px-10 border-b-white border-b-[1px] overflow-hidden w-full px-3">
         <NavLink to="/">
           <img src={logo} className="h-8" alt="" />
         </NavLink>
         <div>
-          <ul className="md:flex items-center gap-x-4 hidden">
+          <ul className="md:flex items-center gap-x-3 hidden">
             <NavLink
               to="/"
               className={({ isActive }) =>

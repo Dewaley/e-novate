@@ -8,6 +8,7 @@ import { months } from "../../config/monthsApi";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "../../components/courses/Paginate";
 import BlogCard from "../../components/blog/BlogCard";
+import CommentForm from "../../components/article/CommentForm";
 // import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import AuthorCard from "../../components/article/AuthorCard";
 import { Link } from "react-router-dom";
@@ -29,7 +30,6 @@ const ArticlePage = () => {
     );
     const data = await res.json();
     setBlogList(data);
-    console.log(data);
     setSearchParams({ search: search, page: page });
   };
   const fetchLatestPosts = async () => {
@@ -54,7 +54,6 @@ const ArticlePage = () => {
       fetchArticle();
     }
     fetchLatestPosts();
-    console.log(searchParams);
     setTimeout(() => setLoading(false), 5000);
   }, []);
   return (
@@ -143,8 +142,8 @@ const ArticlePage = () => {
                     </div>
                     <p>{article?.article_body}</p>
                     <div className="flex flex-wrap gap-x-2 gap-y-2">
-                      {article.category?.map((cat) => (
-                        <span className="p-2 border-[0.5px] border-primary rounded-md">
+                      {article.category?.map((cat,index) => (
+                        <span key={index} className="p-2 border-[0.5px] border-primary rounded-md">
                           {cat}
                         </span>
                       ))}
@@ -210,44 +209,7 @@ const ArticlePage = () => {
                       twitter={article?.twitter_link}
                       linkedin={article?.linkedin_link}
                     />
-                    <form className="bg-[#c4c4c4]/20 p-2 flex flex-col items-center gap-y-4 p-8 rounded-md mb-12">
-                      <div className="flex flex-col gap-y-0.5 w-full">
-                        <label htmlFor="" className="font-bold">
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          className="p-2 rounded outline-none focus:outline-primary sm:w-1/2"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-y-0.5 w-full">
-                        <label htmlFor="" className="font-bold">
-                          Email
-                        </label>
-                        <input
-                          type="text"
-                          className="p-2 rounded outline-none focus:outline-primary sm:w-1/2"
-                          placeholder="johndoe@gmail.com"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-y-0.5 w-full">
-                        <label htmlFor="" className="font-bold">
-                          Comment
-                        </label>
-                        <textarea
-                          rows={8}
-                          className="p-2 rounded outline-none focus:outline-primary resize-none"
-                          placeholder="Leave a comment..."
-                        ></textarea>
-                      </div>
-                      <button
-                        className="bg-secondary px-8 py-2 text-white font-bold rounded mt-4"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </form>
+                    <CommentForm/>
                   </div>
                 )}
                 <BlogRightSide

@@ -32,13 +32,17 @@ const Home = () => {
           <section className="flex flex-col md:flex-row justify-center gap-x-8 items-center bg-primary gap-y-4 px-6 md:px-12 pt-4 pb-6 text-white">
             <div>
               <h1 className="text-4xl md:max-w-[75%] pb-6">
-                Convenient easy way of learning new skills
+                Learn a fast selling IT skill today – Make waves in the digital
+                world
               </h1>
               <p className="opacity-60 pb-4 lg:max-w-[75%] font-light">
-                Consectetur proident occaecat enim magna amet ipsum ex enim
-                incididunt culpa consectetur non cupidatat. Veniam laboris duis
-                laboris mollit nisi sit ea amet ex. Velit fugiat commodo nisi
-                sunt veniam amet irure ex velit duis nulla tempor velit et.{" "}
+                The digital space is fast evolving, ever growing and filled with
+                opportunities offering financial freedom to youngsters. However,
+                emerging into this vast and diverse world of technology can be
+                quite overwhelming and sometimes complicated. This is why at
+                E-Novate Labs, we have deliberately put together a comprehensive
+                step by step guide to make your journey into the IT world soft,
+                smooth and easy.{" "}
               </p>
               <Link
                 to="/courses"
@@ -47,7 +51,7 @@ const Home = () => {
                 <span className="border-white border-2 rounded">
                   <AiOutlineBars />
                 </span>
-                Courses
+                Enroll Now
               </Link>
             </div>
             <img

@@ -34,17 +34,26 @@ const AboutPage = () => {
               className="md:max-w-sm lg:w-1/2 lg:max-w-none"
             />
             <main>
-              <h1 className="text-4xl pb-2">Our Vision</h1>
+              <h1 className="text-4xl pb-2">About Us</h1>
               <p className="opacity-60 pb-4 font-light">
-                &nbsp;&nbsp;&nbsp;Consectetur proident occaecat enim magna amet
-                ipsum ex enim incididunt culpa consectetur non cupidatat. Veniam
-                laboris duis laboris mollit nisi sit ea amet ex. Velit fugiat
-                commodo nisi sunt veniam amet irure ex velit duis nulla tempor
-                velit et. <br />
-                &nbsp;&nbsp;&nbsp;Labore ad consectetur officia magna voluptate
-                veniam. Qui aliqua culpa occaecat elit commodo in veniam
-                excepteur pariatur. Dolor excepteur ad velit minim eiusmod
-                ullamco duis ut dolore.
+                &nbsp;&nbsp;&nbsp;We are a platform birthed and designed to
+                harness the exceptional potentials of Nigeria’s youthful
+                population. Having noticed the underlying and unexplored skills,
+                potentials, brilliance, tenacity and intelligence of this
+                dynamic populace, the sole objective of the E- Novate labs is to
+                build and nurture a sustainable system that would empower and
+                equip these youths with IT specific skills &#123;particularly in
+                the software development niche&#125; that would help them dive
+                easily into the ever expanding and revolving world of
+                information and digital technology. <br />
+                &nbsp;&nbsp;&nbsp;Our Vision is to reduce unemployment and
+                idleness, foster self-discovery, skill exploration, mastery and
+                expertise, while fashioning Nigeria as one of the world leading
+                solutions for IT innovations. <br />
+                &nbsp;&nbsp;&nbsp;Our services includes but are not limited to:
+                software development trainings including front-end and back-end,
+                mentorship to participants, and facilitation of healthy
+                competitions aimed at innovative discoveries and solutions.
               </p>
             </main>
           </article>
