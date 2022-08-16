@@ -144,7 +144,7 @@ const ArticlePage = () => {
                   ) : (
                     <PlaceholderLoading
                       shape="rect"
-                      width={(document.documentElement.clientWidth * 2) / 3}
+                      width={1000}
                       height={document.documentElement.clientHeight * 0.8}
                     />
                   )}
