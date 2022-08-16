@@ -316,10 +316,10 @@ const ArticlePage = () => {
                     image={article.author_picture}
                     name={article.author}
                     bio={article.author_bio}
-                    facebook={article.facebook_link}
-                    instagram={article.instagram_link}
-                    twitter={article.twitter_link}
-                    linkedin={article.linkedin_link}
+                    facebook={article.author_facebook}
+                    instagram={article.author_instagram}
+                    twitter={article.author_twitter}
+                    linkedin={article.author_linkedin}
                   />
                   <CommentForm />
                 </div>
