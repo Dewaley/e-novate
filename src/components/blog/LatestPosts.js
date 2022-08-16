@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { months } from "../../config/monthsApi";
+import PlaceholderLoading from "react-placeholder-loading";
 
 const LatestPosts = ({ image, title, date, id }) => {
   const formattedDate = new Date(date);
@@ -16,15 +17,17 @@ const LatestPosts = ({ image, title, date, id }) => {
       </div>
       <div>
         <h4 className="font-extralight text-sm">
-          {(months[formattedDate.getMonth()] +
+          {months[formattedDate.getMonth()] +
             " " +
             formattedDate.getDate() +
             ", " +
-            formattedDate.getFullYear())}
+            formattedDate.getFullYear()}
         </h4>
         <h1 className="font-light text-lg">
           <Link to={`/blog/article/${id}`} className="w-fit">
-            {(title.length > 40 ? shortenedTitle : title)}
+            {(title.length > 40 ? shortenedTitle : title) || (
+              <PlaceholderLoading shape="circle" width={60} height={60} />
+            )}
           </Link>
         </h1>
       </div>
