@@ -13,19 +13,13 @@ const ContactPage = () => {
   }, []);
   return (
     <>
-      {loading ? (
-        <div className="w-full h-screen bg-primary overflow-hidden flex items-center justify-center absolute top-0 z-[1000]">
-          <PuffLoader color={"#FF206E"} />
-        </div>
-      ) : (
         <div className="flex flex-col items-center text-primary gap-y-8 mt-8 animate__animated animate__fadeIn">
           <div className="flex flex-col items-center w-[80vw]">
             <h1 className="font-light text-secondary">CONTACT US</h1>
-            <h4 className="text-xl mb-2">Have any question?</h4>
+            <h4 className="text-xl mb-2">Have any questions?</h4>
             <hr className="w-2/12 md:max-w-[100px] bg-secondary h-1" />
             <p className="text-center text-sm md:text-base md:max-w-[500px]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. sit amet
-              consectetur adipisicing elit.
+              Let us know by reaching out to us on any of the platforms below.
             </p>
           </div>
           <div className="flex flex-col gap-y-8 md:flex-row md:items-center md:gap-x-2 w-[80vw] mb-8">
@@ -118,7 +112,6 @@ const ContactPage = () => {
           </div>
           <NewsLetter />
         </div>
-      )}
     </>
   );
 };

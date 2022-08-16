@@ -19,7 +19,6 @@ const CoursesOverview = () => {
     );
     const data = await res.json();
     setCourses(data);
-    console.log(data);
   };
   useEffect(() => {
     fetchCourses();
