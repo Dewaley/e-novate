@@ -8,9 +8,7 @@ import { IoIosLock } from "react-icons/io";
 import { TbBellRinging } from "react-icons/tb";
 // import { FaChalkboardTeacher } from "react-icons/fa";
 // import { AiOutlineBook } from "react-icons/ai";
-import { useEffect, useState } from "react";
-import { PuffLoader } from "react-spinners";
-import PlaceholderLoading from "react-placeholder-loading";
+import { useEffect } from "react";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -29,7 +27,7 @@ const AboutPage = () => {
           />
           <main>
             <h1 className="text-4xl pb-2">About Us</h1>
-            <p className="opacity-60 pb-4 font-light">
+            <p className="opacity-60 pb-4 font-medium">
               &nbsp;&nbsp;&nbsp;We are a platform birthed and designed to
               harness the exceptional potentials of Nigeria’s youthful
               population. Having noticed the underlying and unexplored skills,
@@ -52,80 +50,77 @@ const AboutPage = () => {
           </main>
         </article>
         {/* <section className="flex flex-col md:flex-row md:w-[90vw] bg-primary text-secondary md:justify-between py-14 px-16 rounded-xl gap-y-12 text-center">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl">
-                <FaChalkboardTeacher />
-              </span>
-              <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
-                15
-              </span>
-              <span className="text-xl font-light">Tutors</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl">
-                <AiOutlineBook />
-              </span>
-              <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
-                4
-              </span>
-              <span className="text-xl font-light">Courses</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl">
-                <BsHeart />
-              </span>
-              <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
-                45
-              </span>
-              <span className="text-xl font-light">Students</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl">
-                <AiOutlineBook />
-              </span>
-              <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
-                109
-              </span>
-              <span className="text-xl font-light">Classes</span>
-            </div>
-          </section> */}
-          <PlaceholderLoading shape="circle" width={60} height={60} />
+          <div className="flex flex-col items-center">
+            <span className="text-3xl">
+              <FaChalkboardTeacher />
+            </span>
+            <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
+              15
+            </span>
+            <span className="text-xl font-light">Tutors</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-3xl">
+              <AiOutlineBook />
+            </span>
+            <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
+              4
+            </span>
+            <span className="text-xl font-light">Courses</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-3xl">
+              <BsHeart />
+            </span>
+            <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
+              45
+            </span>
+            <span className="text-xl font-light">Students</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-3xl">
+              <AiOutlineBook />
+            </span>
+            <span className="text-4xl pb-2 px-2 mb-1 border-b-2 border-secondary">
+              109
+            </span>
+            <span className="text-xl font-light">Classes</span>
+          </div>
+        </section> */}
         <Features />
         <div className="flex flex-col justify-center items-center mb-8">
           <header className="text-center font-light">
             <h4 className="text-secondary my-2">COURSES</h4>
             <p className="text-3xl my-2 max-w-[80vw] md:max-w-[70vw] lg:max-w-[50vw] mb-6">
-              Trainings are designed to provide you with the greatest possible
-              experience.
+              Trainings are designed and incorporated with flexibility to
+              provide you with the greatest possible experience.
             </p>
           </header>
           <div className="grid grid-cols-1 md:grid-cols-2 w-[90vw] gap-16">
             <Offer
               icon={<MdOutlineTouchApp />}
-              heading={"Anywhere anytime access"}
+              heading={"Easy Access"}
               body={
-                "Laboris exercitation nostrud ipsum ex culpa exercitation quis ipsum est. Laboris exercitation nostrud ipsum "
+                "Each coursework is flexible and can be easily accessed anywhere and anytime."
               }
             />
             <Offer
               icon={<BsHeadset />}
-              heading={"On-site and remote support"}
+              heading={"Mentorship"}
               body={
-                "Laboris exercitation nostrud ipsum ex culpa exercitation quis ipsum est. Laboris exercitation nostrud ipsum "
+                "Access to free mentorship from prominent people in the industry."
               }
             />
             <Offer
               icon={<IoIosLock />}
-              heading={"Restrict content sharing"}
-              body={
-                "Laboris exercitation nostrud ipsum ex culpa exercitation quis ipsum est. Laboris exercitation nostrud ipsum "
-              }
+              heading={"Certifications"}
+              body={"Get certified after course completion."}
             />
             <Offer
               icon={<TbBellRinging />}
-              heading={"On-time notifications"}
+              heading={"Reminders and notifications"}
               body={
-                "Laboris exercitation nostrud ipsum ex culpa exercitation quis ipsum est. Laboris exercitation nostrud ipsum "
+                "This keeps you on board and helps you track your progress. It enables easy course completion."
               }
             />
           </div>
