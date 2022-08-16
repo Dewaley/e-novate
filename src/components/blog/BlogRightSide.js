@@ -1,6 +1,5 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import LatestPosts from "./LatestPosts";
-import PlaceholderLoading from "react-placeholder-loading";
 
 const BlogRightSide = ({ latestPosts, setSearch, search, searchFn }) => {
   return (

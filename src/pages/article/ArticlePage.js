@@ -12,11 +12,9 @@ import CommentForm from "../../components/article/CommentForm";
 // import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import AuthorCard from "../../components/article/AuthorCard";
 import { Link } from "react-router-dom";
-import { PuffLoader } from "react-spinners";
 import PlaceholderLoading from "react-placeholder-loading";
 
 const ArticlePage = () => {
-  const pathname = window.location.pathname;
   const { id } = useParams();
   const [article, setArticle] = useState([]);
   const [latestPosts, setLatestPosts] = useState([]);
@@ -24,7 +22,6 @@ const ArticlePage = () => {
   const [pages, setPages] = useState([]);
   const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const fetchBlog = async (search) => {
@@ -54,9 +51,6 @@ const ArticlePage = () => {
     setArticle(data);
   };
   useEffect(() => {
-    console.log(searchParams.get("search"));
-    console.log(search)
-    console.log(pathname);
     if (typeof searchParams.get("search") === "string") {
       fetchBlog(searchParams.get("search"));
     } else {
@@ -66,8 +60,7 @@ const ArticlePage = () => {
       top: 0,
     });
     fetchLatestPosts();
-    setTimeout(() => setLoading(false), 5000);
-  }, []);
+  }, [searchParams]);
   return (
     <>
       <div className="animate__animated animate__fadeIn">

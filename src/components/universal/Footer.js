@@ -2,8 +2,8 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
 import {
   FaFacebookF,
-  FaWhatsapp,
-  FaLinkedinIn,
+  // FaWhatsapp,
+  // FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa";
 import { AiOutlineArrowRight } from "react-icons/ai";
