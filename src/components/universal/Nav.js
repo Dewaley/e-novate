@@ -65,13 +65,13 @@ const Nav = () => {
             >
               Contact
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/login"
               className="cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded"
             >
               <BiLogIn />
               login
-            </NavLink>
+            </NavLink> */}
           </ul>
           <button
             className="md:hidden rounded border-white border-2 cursor-pointer flex justify-center"
@@ -137,14 +137,14 @@ const Nav = () => {
               >
                 Contact
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 to="/login"
                 className="cursor-pointer flex items-center gap-x-1 bg-secondary p-1 rounded"
                 onClick={() => setHamburger(false)}
               >
                 <BiLogIn />
                 login
-              </NavLink>
+              </NavLink> */}
             </ul>
             <IoCloseOutline
               className="absolute top-2 right-[5vw] text-2xl cursor-pointer"

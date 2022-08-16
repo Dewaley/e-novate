@@ -17,8 +17,7 @@ const Features = () => {
             <div>
               <h3 className="text-lg">Extensive Curriculum</h3>
               <p className="text-sm font-light">
-                Laboris exercitation nostrud ipsum ex culpa exercitation quis
-                ipsum est.
+              We have designed a thorough and comprehensive step by step guide just for you
               </p>
             </div>
           </div>
@@ -27,8 +26,7 @@ const Features = () => {
             <div>
               <h3 className="text-lg">Expert Tutors</h3>
               <p className="text-sm font-light">
-                Laboris exercitation nostrud ipsum ex culpa exercitation quis
-                ipsum est.
+              Our tutors are experts with vast experience and expertise in the software engineering field.
               </p>
             </div>
           </div>

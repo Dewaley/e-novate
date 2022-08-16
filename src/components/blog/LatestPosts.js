@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { months } from "../../config/monthsApi";
-import PlaceholderLoading from "react-placeholder-loading";
 
 const LatestPosts = ({ image, title, date, id }) => {
   const formattedDate = new Date(date);
@@ -25,9 +24,7 @@ const LatestPosts = ({ image, title, date, id }) => {
         </h4>
         <h1 className="font-light text-lg">
           <Link to={`/blog/article/${id}`} className="w-fit">
-            {(title.length > 40 ? shortenedTitle : title) || (
-              <PlaceholderLoading shape="circle" width={60} height={60} />
-            )}
+            {(title.length > 40 ? shortenedTitle : title)}
           </Link>
         </h1>
       </div>

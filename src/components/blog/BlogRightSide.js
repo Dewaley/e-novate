@@ -1,6 +1,6 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import LatestPosts from "./LatestPosts";
-import Category from "./Category";
+import PlaceholderLoading from "react-placeholder-loading";
 
 const BlogRightSide = ({ latestPosts, setSearch, search, searchFn }) => {
   return (
@@ -37,19 +37,20 @@ const BlogRightSide = ({ latestPosts, setSearch, search, searchFn }) => {
           <h1 className="text-lg text-secondary">Latest Posts</h1>
           <hr className="w-2/12 bg-primary h-1" />
         </div>
-        <div className="flex flex-col gap-y-2">
-          {latestPosts.map((article) => (
-            <LatestPosts
-              image={article?.post_picture}
-              title={article?.title}
-              date={article?.date_posted}
-              id={article?.slug}
-              key={article?.slug}
-            />
-          ))}
-        </div>
+        {latestPosts && (
+          <div className="flex flex-col gap-y-2">
+            {latestPosts.map((article) => (
+              <LatestPosts
+                image={article.post_picture}
+                title={article.title}
+                date={article.date_posted}
+                id={article.slug}
+                key={article.slug}
+              />
+            ))}
+          </div>
+        )}
       </div>
-      <Category />
     </div>
   );
 };

@@ -129,8 +129,8 @@ const ArticlePage = () => {
                       ) : (
                         <div>
                           <h1 className="text-2xl text-primary">
-                            Your search {text} doesn't match any of our
-                            documents
+                            Your search, "{text}" doesn't match any of our
+                            articles
                           </h1>
                         </div>
                       )}
