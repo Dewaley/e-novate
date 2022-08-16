@@ -21,7 +21,7 @@ const Nav = () => {
     <nav className="text-white sticky top-0 z-[100]">
       <div className="text-white bg-primary flex justify-between items-center h-16 md:px-10 border-b-white border-b-[1px] overflow-hidden w-full px-3">
         <NavLink to="/">
-          <img src={logo} className="h-8" alt="" />
+          <img src={logo} className="h-12" alt="" />
         </NavLink>
         <div>
           <ul className="md:flex items-center gap-x-3 hidden">
@@ -89,7 +89,7 @@ const Nav = () => {
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
           <nav className="bg-primary text-center rounded py-2 relative min-w-[80vw] flex flex-col gap-y-2 items-center">
             <NavLink to="/">
-              <img src={logo} className="h-8" alt="" />
+              <img src={logo} className="h-12" alt="" />
             </NavLink>
             <ul className="flex flex-col justify-center items-center gap-y-2">
               <NavLink
