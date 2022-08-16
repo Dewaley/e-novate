@@ -18,10 +18,10 @@ const Nav = () => {
   let defaultClassName = "border-b-2 border-transparent cursor-pointer px-2";
   let activeClassName = "border-secondary border-b-2 cursor-pointer px-2";
   return (
-    <nav className="text-white sticky top-0 z-[100]">
-      <div className="text-white bg-primary flex justify-between items-center h-16 md:px-10 border-b-white border-b-[1px] overflow-hidden w-full px-3">
+    <nav className="text-primary sticky top-0 z-[100]">
+      <div className="text-primary bg-white flex justify-between items-center h-16 md:px-10 border-b-primary border-b-[1px] overflow-hidden w-full px-3">
         <NavLink to="/">
-          <img src={logo} className="h-12" alt="" />
+          <img src={logo} className="h-8" alt="" />
         </NavLink>
         <div>
           <ul className="md:flex items-center gap-x-3 hidden">
@@ -74,10 +74,10 @@ const Nav = () => {
             </NavLink> */}
           </ul>
           <button
-            className="md:hidden rounded border-white border-2 cursor-pointer flex justify-center"
+            className="md:hidden rounded border-primary border-2 cursor-pointer flex justify-center"
             onClick={() => setHamburger(true)}
           >
-            <GiHamburgerMenu className="bg-white text-primary rounded p-0.5 m-0.5" />
+            <GiHamburgerMenu className="bg-primary text-white rounded p-0.5 m-0.5" />
           </button>
         </div>
       </div>
@@ -87,9 +87,9 @@ const Nav = () => {
         }`}
       >
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
-          <nav className="bg-primary text-center rounded py-2 relative min-w-[80vw] flex flex-col gap-y-2 items-center">
+          <nav className="bg-white text-center rounded py-2 relative min-w-[80vw] flex flex-col gap-y-2 items-center shadow-md">
             <NavLink to="/">
-              <img src={logo} className="h-12" alt="" />
+              <img src={logo} className="h-8" alt="" />
             </NavLink>
             <ul className="flex flex-col justify-center items-center gap-y-2">
               <NavLink
