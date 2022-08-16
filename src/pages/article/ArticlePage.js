@@ -16,6 +16,7 @@ import { PuffLoader } from "react-spinners";
 import PlaceholderLoading from "react-placeholder-loading";
 
 const ArticlePage = () => {
+  const pathname = window.location.pathname;
   const { id } = useParams();
   const [article, setArticle] = useState([]);
   const [latestPosts, setLatestPosts] = useState([]);
@@ -27,15 +28,15 @@ const ArticlePage = () => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const fetchBlog = async (search) => {
+    if (searchParams.get("search") !== search) {
+      setSearchParams({ search: search, page: page });
+    }
     const res = await fetch(
       process.env.REACT_APP_ENOVATE_API + `/blog/view/?search=${search}`
     );
     const data = await res.json();
     setBlogList(data);
     setText(search);
-    if(searchParams.get("search") !== search) {
-    setSearchParams({ search: search, page: page });
-    }
   };
   const fetchLatestPosts = async () => {
     const res = await fetch(
@@ -53,8 +54,10 @@ const ArticlePage = () => {
     setArticle(data);
   };
   useEffect(() => {
-    console.log(searchParams.get("search"))
-    if (searchParams.get("search")) {
+    console.log(searchParams.get("search"));
+    console.log(search)
+    console.log(pathname);
+    if (typeof searchParams.get("search") === "string") {
       fetchBlog(searchParams.get("search"));
     } else {
       fetchArticle();
@@ -64,13 +67,13 @@ const ArticlePage = () => {
     });
     fetchLatestPosts();
     setTimeout(() => setLoading(false), 5000);
-  }, [id]);
+  }, []);
   return (
     <>
       <div className="animate__animated animate__fadeIn">
         <div className="flex flex-col items-center">
           <div className="flex flex-col bg-primary items-center justify-center w-full mt-12 mb-12 py-4 text-white">
-            {blogList.results !== [] ? (
+            {typeof searchParams.get("search") !== "string" ? (
               <h1 className="text-center text-3xl max-w-[80vw] sm:max-w-[45vw] md:max-w-[35vw]">
                 {article.title || (
                   <div className="flex flex-col gap-y-2">
@@ -99,7 +102,7 @@ const ArticlePage = () => {
           <div className="text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]">
             <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-full overflow-hidden">
               {searchParams.get("search") ? (
-                <div>
+                <div className="flex flex-col gap-y-8">
                   {blogList.results !== undefined && (
                     <div>
                       {blogList.results.length > 0 ? (
@@ -135,7 +138,7 @@ const ArticlePage = () => {
                   )}
                 </div>
               ) : (
-                <div>
+                <div className="flex flex-col gap-y-8">
                   {article.post_picture ? (
                     <img src={article.post_picture} alt="" className="w-full" />
                   ) : (
@@ -325,7 +328,7 @@ const ArticlePage = () => {
             <BlogRightSide
               latestPosts={latestPosts}
               setSearch={setSearch}
-              searchFn={fetchBlog}
+              searchFn={() => fetchBlog(search)}
             />
           </div>
           <NewsLetter />
