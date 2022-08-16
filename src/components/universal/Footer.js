@@ -1,104 +1,96 @@
-import { IoLocationOutline } from 'react-icons/io5';
-import { MdOutlineMailOutline } from 'react-icons/md';
+import { IoLocationOutline } from "react-icons/io5";
+import { MdOutlineMailOutline } from "react-icons/md";
 import {
   FaFacebookF,
   FaWhatsapp,
   FaLinkedinIn,
   FaInstagram,
-} from 'react-icons/fa';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { BsTelephone } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+} from "react-icons/fa";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsTelephone } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='bg-primary flex justify-center items-center w-full'>
-      <div className='text-white flex flex-col md:flex-row justify-center gap-x-4 py-4 w-[90vw] font-light'>
-        <div className='md:w-1/3 flex flex-col justify-between gap-y-4'>
-          <div className='flex flex-col gap-y-2 md:mb-4'>
-            <h5 className='tetx-lg font-normal'>About Us</h5>
-            <p className='text-sm'>
-              Laboris exercitation nostrud ipsum ex culpa exercitation quis
-              ipsum est. Laboris exercitation nostrud ipsum .Laboris
-              exercitation nostrud ipsum ex culpa exercitation quis ipsum est.
-              ipsum ex culpa exercitation quis ipsum est.
+    <div className="bg-primary flex justify-center items-center w-full">
+      <div className="text-white flex flex-col md:flex-row justify-center gap-x-4 py-4 w-[90vw] font-light">
+        <div className="md:w-1/3 flex flex-col justify-between gap-y-4">
+          <div className="flex flex-col gap-y-2 md:mb-4">
+            <h5 className="tetx-lg font-normal">About Us</h5>
+            <p className="text-sm">
+              We are a platform birthed and designed to harness the exceptional
+              potentials of Nigeria’s youthful population. <br />
+              Our Vision is to reduce unemployment and idleness, foster
+              self-discovery, skill exploration, mastery and expertise, while
+              fashioning Nigeria as one of the world leading solutions for IT
+              innovations.
             </p>
-            <div className='flex gap-x-2'>
-              <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+            <div className="flex gap-x-2">
+              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaFacebookF />
-              </span>
-              <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
+              </a>
+              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaInstagram />
-              </span>
-              <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
-                <FaLinkedinIn />
-              </span>
-              <span className='flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm'>
-                <FaWhatsapp />
-              </span>
+              </a>
             </div>
           </div>
-          <span className='hidden md:block text-xs'>
+          <span className="hidden md:block text-xs">
             &#169;2022. E-novate Labs. All Rights Reserved
           </span>
-          <hr className='w-[60vw] h-2 md:hidden' />
+          <hr className="w-[60vw] h-2 md:hidden" />
         </div>
-        <div className='md:w-1/3 flex flex-col md:items-center gap-y-4'>
-          <ul className='flex flex-col gap-y-2'>
-            <h1 className='text-lg font-normal'>Corporate</h1>
-            <Link to='/about'>About us</Link>
-            <Link to='/contact'>Contact us</Link>
-            <Link to='/'>Projects</Link>
-            <Link to='/'>Terms and Conditions</Link>
-            <Link to='/'>Privacy policy</Link>
+        <div className="md:w-1/3 flex flex-col md:items-center gap-y-4">
+          <ul className="flex flex-col gap-y-2">
+            <h1 className="text-lg font-normal">Corporate</h1>
+            <Link to="/about">About us</Link>
+            <Link to="/contact">Contact us</Link>
+            <Link to="/">Projects</Link>
+            <Link to="/">Terms and Conditions</Link>
+            <Link to="/">Privacy policy</Link>
           </ul>
-          <hr className='w-[60vw] h-2 md:hidden' />
+          <hr className="w-[60vw] h-2 md:hidden" />
         </div>
-        <div className='md:1/3 flex flex-col justify-between gap-y-4'>
-          <div className='flex flex-col md:mb-4 gap-y-2'>
-            <h2 className='text-lg font-normal'>Contact Us</h2>
-            <ul className='flex flex-col gap-y-2'>
-              <li>
-                <a href='tel:08033530335' className='flex items-center gap-x-2'>
+        <div className="md:1/3 flex flex-col justify-between gap-y-4">
+          <div className="flex flex-col md:mb-4 gap-y-2">
+            <h2 className="text-lg font-normal">Contact Us</h2>
+            <address className="flex flex-col gap-y-2">
+                <a href="tel:08033530335" className="flex items-center gap-x-2">
                   <span>
-                    <BsTelephone className='text-secondary' />
+                    <BsTelephone className="text-secondary" />
                   </span>
                   <p>0803 353 0335</p>
                 </a>
-              </li>
-              <li>
                 <a
-                  href='mailto:villageSquareOnline@gmail.com'
-                  className='flex items-center gap-x-2'
+                  href="mailto:villageSquareOnline@gmail.com"
+                  className="flex items-center gap-x-2"
                 >
                   <span>
-                    <MdOutlineMailOutline className='text-secondary' />
+                    <MdOutlineMailOutline className="text-secondary" />
                   </span>
-                  <p className='break-all'>VillageSquareOnline@gmail.com</p>
+                  <p className="break-all">VillageSquareOnline@gmail.com</p>
                 </a>
-              </li>
-              <li className='flex items-center gap-x-2'>
+              <p className="flex items-center gap-x-2">
                 <span>
-                  <IoLocationOutline className='text-secondary' />
+                  <IoLocationOutline className="text-secondary" />
                 </span>
-                <p>Ivan 5, VCH Estate, Lekki, Lagos, Nigeria.</p>
-              </li>
-            </ul>
+                <span>Ivan 5, VCH Estate, Lekki, Lagos, Nigeria.</span>
+              </p>
+            </address>
           </div>
-          <hr className='w-[60vw] h-2 md:hidden' />
+          <hr className="w-[60vw] h-2 md:hidden" />
           <div>
-            <h1 className='mb-2'>Subscribe to our Newsletter</h1>
-            <form className='border-2 border-white rounded-lg flex w-fit p-1'>
+            <h1 className="mb-2">Subscribe to our Newsletter</h1>
+            <form className="border-2 border-white rounded-lg flex w-fit p-1">
               <input
-                type='text'
-                name=''
-                id=''
-                placeholder='E-mail Address'
-                className='border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5 w-[160px] sm:w-auto'
+                type="text"
+                name=""
+                id=""
+                placeholder="E-mail Address"
+                className="border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5 w-[160px] sm:w-auto"
               />
               <button
-                type='submit'
-                className='p-1 bg-secondary rounded text-white flex justify-center items-center'
+                type="submit"
+                className="p-1 bg-secondary rounded text-white flex justify-center items-center"
               >
                 <AiOutlineArrowRight />
               </button>
