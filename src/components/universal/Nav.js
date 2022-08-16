@@ -88,9 +88,6 @@ const Nav = () => {
       >
         <OutsideClickHandler onOutsideClick={() => setHamburger(false)}>
           <nav className="bg-white text-center rounded py-2 relative min-w-[80vw] flex flex-col gap-y-2 items-center shadow-md">
-            <NavLink to="/">
-              <img src={logo} className="h-8" alt="" />
-            </NavLink>
             <ul className="flex flex-col justify-center items-center gap-y-2">
               <NavLink
                 to="/"
