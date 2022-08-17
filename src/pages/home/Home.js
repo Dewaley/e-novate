@@ -9,17 +9,14 @@ import CoursesOverview from "../../components/home/CoursesOverview";
 import Testimonials from "../../components/home/Testimonials";
 import BlogOverview from "../../components/home/BlogOverview";
 import NewsLetter from "../../components/universal/NewsLetter";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { PuffLoader } from "react-spinners";
 
 const Home = () => {
-  const [loading, setloading] = useState(true);
   useEffect(() => {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setloading(false), 5000);
   }, []);
   return (
     <>
@@ -61,21 +58,21 @@ const Home = () => {
             icon={<HiOutlineDocumentDuplicate />}
             heading={"Courses Materials"}
             body={
-              "Free access to course materials to aid your every learning process"
+              "Free access to course materials to aid your every learning process."
             }
           />
           <Offer
             icon={<TiUser />}
             heading={"Mentorship"}
             body={
-              "Free access to course materials to aid your every learning process"
+              "Access to free mentorship from prominent people in the industry."
             }
           />
           <Offer
             icon={<TbCertificate />}
             heading={"Certification"}
             body={
-              "Free access to course materials to aid your every learning process"
+              "Get certified after course completion."
             }
           />
         </div>

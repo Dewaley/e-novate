@@ -16,21 +16,26 @@ const BlogPage = () => {
   const [blogList, setBlogList] = useState({});
   const [filtered, setFiltered] = useState([]);
   const [pages, setPages] = useState([]);
-  const [page, setPage] = useState(1);
   const [latestPosts, setLatestPosts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
-  const filter = async (search) => {
-    if (searchParams.get("search") !== search) {
-      setSearchParams({ search: search, page: page });
+  const filter = async (search, page) => {
+    if (page === null) {
+      setSearchParams({
+        page: 1,
+      });
+    } else {
+      if (searchParams.get("search") !== search) {
+        setSearchParams({ search: search, page: page });
+      }
+      const res = await fetch(
+        process.env.REACT_APP_ENOVATE_API + `/blog/view/?search=${search}`
+      );
+      const data = await res.json();
+      setFiltered(data);
+      setText(search);
     }
-    const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/?search=${search}`
-    );
-    const data = await res.json();
-    setFiltered(data);
-    setText(search);
   };
   const fetchLatestPosts = async () => {
     const res = await fetch(
@@ -40,13 +45,11 @@ const BlogPage = () => {
     const data = await dat.results;
     setLatestPosts(data);
   };
-  const fetchBlog = async () => {
-    if (isNaN(searchParams.get("page"))) {
-      const res = await fetch(
-        process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=1`
-      );
-      const data = await res.json();
-      setBlogList(data);
+  const fetchBlog = async (page) => {
+    if (page === null) {
+      setSearchParams({
+        page: 1,
+      });
     } else {
       const res = await fetch(
         process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=${page}`
@@ -57,9 +60,9 @@ const BlogPage = () => {
   };
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
-      filter(searchParams.get("search"));
+      filter(searchParams.get("search"), searchParams.get("page"));
     } else {
-      fetchBlog();
+      fetchBlog(searchParams.get("page"));
     }
     window.scrollTo({
       top: 0,
@@ -68,7 +71,7 @@ const BlogPage = () => {
   }, [searchParams]);
   return (
     <>
-      <div className="animate__animated animate__fadeIn w-full overflow-x-hidden">
+      <div className="animate__animated animate__fadeIn w-full overflow-x-hidden flex items-center flex-col">
         {blogList.results !== undefined ? (
           <div className="flex flex-col">
             <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8">
@@ -94,8 +97,8 @@ const BlogPage = () => {
                               count={filtered.count}
                               pages={pages}
                               setPages={setPages}
-                              page={page}
-                              setPage={setPage}
+                              page={searchParams.get("page")}
+                              setPage={(e) => setSearchParams({ page: e })}
                             />
                           </div>
                         ) : (
@@ -126,8 +129,8 @@ const BlogPage = () => {
                       count={blogList.count}
                       pages={pages}
                       setPages={setPages}
-                      page={page}
-                      setPage={setPage}
+                      page={searchParams.get("page")}
+                      setPage={(e) => setSearchParams({ page: e })}
                     />
                   </div>
                 )}
@@ -144,11 +147,7 @@ const BlogPage = () => {
             <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8 w-[90vw]">
               <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-full overflow-hidden">
                 <div className="flex flex-col gap-y-8 rounded-md shadow-md overflow-hidden">
-                  <PlaceholderLoading
-                    shape="rect"
-                    width={1000}
-                    height={document.documentElement.clientHeight * 0.8}
-                  />
+                  <PlaceholderLoading shape="rect" width={1000} height={400} />
                   <div className="flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary px-2">
                     <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">
                       <AiOutlineCalendar className="sm:text-lg text-base" />
