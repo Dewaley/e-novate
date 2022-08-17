@@ -21,11 +21,9 @@ const BlogPage = () => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const filter = async (search, page) => {
-    if (page === null) {
-      setSearchParams({
-        page: 1,
-      });
-    } else {
+    if (page === undefined) {
+      setSearchParams({ search: search, page: 1 });
+    }  else {
       if (searchParams.get("search") !== search) {
         setSearchParams({ search: search, page: page });
       }

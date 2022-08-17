@@ -14,12 +14,11 @@ const CoursesPage = () => {
   const [text, setText] = useState("");
   const [courses, setCourses] = useState([]);
   const filter = async (search, page) => {
-    if (page === null) {
-      setSearchParams({
-        page: 1,
-      });
+    if (page === undefined) {
+      setSearchParams({ search: search, page: 1 });
     } else {
       if (searchParams.get("search") !== search) {
+        console.log(page);
         setSearchParams({ search: search, page: page });
       }
       const res = await fetch(
@@ -31,7 +30,7 @@ const CoursesPage = () => {
     }
   };
   const fetchCourses = async (page) => {
-    if (page === null) {
+    if (page === null || undefined) {
       setSearchParams({
         page: 1,
       });
