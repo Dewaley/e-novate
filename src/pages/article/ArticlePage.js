@@ -60,7 +60,7 @@ const ArticlePage = () => {
       top: 0,
     });
     fetchLatestPosts();
-  }, [searchParams]);
+  }, [searchParams,id]);
   return (
     <>
       <div className="animate__animated animate__fadeIn">
