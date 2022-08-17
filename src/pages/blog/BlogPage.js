@@ -58,6 +58,9 @@ const BlogPage = () => {
       setBlogList(data);
     }
   };
+  useEffect(()=> {
+    fetchLatestPosts();
+  },[])
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
       filter(searchParams.get("search"), searchParams.get("page"));
@@ -67,7 +70,6 @@ const BlogPage = () => {
     window.scrollTo({
       top: 0,
     });
-    fetchLatestPosts();
   }, [searchParams]);
   return (
     <>
@@ -102,12 +104,10 @@ const BlogPage = () => {
                             />
                           </div>
                         ) : (
-                          <div>
                             <h1 className="text-2xl text-primary">
                               Your search, "{text}" doesn't match any of our
                               articles
                             </h1>
-                          </div>
                         )}
                       </div>
                     )}
