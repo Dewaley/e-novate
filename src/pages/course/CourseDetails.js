@@ -19,7 +19,7 @@ import { InstructorList } from "../../config/courseApi";
 import PlaceholderLoading from "react-placeholder-loading";
 
 const CourseDetails = () => {
-  const [course, setCourse] = useState([]);
+  const [course, setCourse] = useState({});
   const [instructors, setInstructors] = useState([]);
   const [instructorInfo, setInstructorInfo] = useState([]);
   const [loading, setloading] = useState(true);
@@ -44,8 +44,11 @@ const CourseDetails = () => {
   };
   useEffect(() => {
     fetchCourse();
-    fetchData(instructors);
   }, []);
+  useEffect(() => {
+    fetchData(instructors);
+    console.log(instructorInfo);
+  }, [instructors]);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -55,7 +58,7 @@ const CourseDetails = () => {
   return (
     <>
       <div className="animate__animated animate__fadeIn flex flex-col items-center">
-        {course !== {} && instructorInfo !== [] ? (
+        {instructorInfo.length > 0 ? (
           <div className="text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]">
             <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
               <h1 className="text-4xl">{course.course_name}</h1>
@@ -81,16 +84,18 @@ const CourseDetails = () => {
                 >
                   Instructor(s)
                 </li>
-                {course.course_feedback && course.course_feedback.length > 0 && (<li
-                  className={`py-4 ${
-                    subMenu === "Feedback" && `border-b-2 border-secondary`
-                  }`}
-                  onClick={() => {
-                    setSubMenu("Feedback");
-                  }}
-                >
-                  Feedback
-                </li>)}
+                {course.course_feedback && course.course_feedback.length > 0 && (
+                  <li
+                    className={`py-4 ${
+                      subMenu === "Feedback" && `border-b-2 border-secondary`
+                    }`}
+                    onClick={() => {
+                      setSubMenu("Feedback");
+                    }}
+                  >
+                    Feedback
+                  </li>
+                )}
               </ul>
               {subMenu === "Description" && <p>{course.course_overview}</p>}
               {subMenu === "Instructor(s)" && (
@@ -121,7 +126,6 @@ const CourseDetails = () => {
                 </div>
                 <div className="flex flex-col md:flex-row justify-between">
                   <ul className="md:w-1/2">
-                    
                     <li className="flex items-center gap-x-2 my-2">
                       <p className="w-6 h-6">
                         <BsCheckLg className="text-secondary text-xl" />
@@ -283,14 +287,17 @@ const CourseDetails = () => {
         ) : (
           <div className="text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]">
             <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw] overflow-hidden">
-              <PlaceholderLoading shape="rect" width={1000} height={400} />
+              <PlaceholderLoading shape="rect" width={1000} height={50} />
               <div className="flex flex-col gap-y-2 px-2">
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
+                <PlaceholderLoading shape="rect" width={1000} height={10} />
+                <PlaceholderLoading shape="rect" width={1000} height={10} />
               </div>
+              <hr />
               <PlaceholderLoading shape="rect" width={1000} height={400} />
               <ul className="flex justify-between items-center border-[1px] border-[#666666]/[0.6] sm:px-4 px-1 rounded-lg text-sm sm:text-base">
                 <li className="py-4">Description</li>
@@ -305,7 +312,119 @@ const CourseDetails = () => {
                 <PlaceholderLoading shape="rect" width={1000} height={10} />
               </div>
             </div>
-            <div className="md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]"></div>
+            <div className="md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]">
+              <div className="flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md">
+                <FiUsers className="text-xl text-secondary" />
+                <span>Students Enrolled: </span>
+                <PlaceholderLoading shape="rect" width={100} height={20} />
+              </div>
+              <div className="flex flex-col items-center p-8 border-t-2 border-primary rounded-md shadow-md gap-y-2">
+                <div className="flex gap-x-2 items-end">
+                  <span className="text-lg">Price:</span>
+                </div>
+                <button className="bg-secondary text-white w-1/2 p-1 rounded-md">
+                  Pay
+                </button>
+              </div>
+              <div className="p-8 border-t-2 border-primary rounded-md shadow-md flex flex-col gap-y-2">
+                <div className="flex flex-col gap-y-2">
+                  <h1 className="text-lg">This Course Includes:</h1>
+                  <hr className="w-2/12 bg-primary h-1" />
+                </div>
+                <ul className="flex flex-col gap-y-2">
+                  <li className="flex justify-between items-center">
+                    <div className="flex gap-x-2 items-center">
+                      <span>
+                        <BsBarChartLine className="text-secondary text-xl" />
+                      </span>
+                      <span>Skill Level</span>
+                    </div>
+                    <PlaceholderLoading shape="rect" width={50} height={20} />
+                  </li>
+                  {instructorInfo.map((instructor) => (
+                    <li className="flex justify-between items-center">
+                      <div className="flex gap-x-2 items-center">
+                        <span>
+                          <FiUser className="text-secondary text-xl" />
+                        </span>
+                        <span>Tutor</span>
+                      </div>
+                      <PlaceholderLoading shape="rect" width={50} height={20} />
+                    </li>
+                  ))}
+                  <li className="flex justify-between items-center">
+                    <div className="flex gap-x-2 items-center">
+                      <span>
+                        <BiTimeFive className="text-secondary text-xl" />
+                      </span>
+                      <span>Duration</span>
+                    </div>
+                    <PlaceholderLoading shape="rect" width={50} height={20} />
+                  </li>
+                  <li className="flex justify-between items-center">
+                    <div className="flex gap-x-2 items-center">
+                      <span>
+                        <MdOutlinePlayLesson className="text-secondary text-xl" />
+                      </span>
+                      <span>Lessons</span>
+                    </div>
+                    <PlaceholderLoading shape="rect" width={50} height={20} />
+                  </li>
+                  <li className="flex justify-between items-center">
+                    <div className="flex gap-x-2 items-center">
+                      <span>
+                        <TbCertificate className="text-secondary text-xl" />
+                      </span>
+                      <span>Certificate</span>
+                    </div>
+                    <PlaceholderLoading shape="rect" width={50} height={20} />
+                  </li>
+                </ul>
+              </div>
+              <div className="p-8 border-t-2 border-primary rounded-md shadow-md flex justify-between items-center">
+                <span>Share</span>
+                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
+                  <FaFacebookF />
+                </span>
+                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
+                  <FaInstagram />
+                </span>
+                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
+                  <FaLinkedinIn />
+                </span>
+                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
+                  <FaWhatsapp />
+                </span>
+              </div>
+              <div className="p-8 border-t-2 border-primary rounded-md shadow-md">
+                <div className="flex flex-col gap-y-2">
+                  <h1 className="text-lg">Requirements</h1>
+                  <hr className="w-2/12 bg-primary h-1" />
+                </div>
+                <ul>
+                  <li className="flex items-center gap-x-2 my-2">
+                    <p className="w-6 h-6">
+                      <BsCheckLg className="text-secondary text-xl" />
+                    </p>
+                    <span>No previous knowledge of Front-End required.</span>
+                  </li>
+                  <li className="flex items-center gap-x-2 my-2">
+                    <p className="w-6 h-6">
+                      <BsCheckLg className="text-secondary text-xl" />
+                    </p>
+                    <span>
+                      A working device e.g. Laptop, phone or tablet e.t.c
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-x-2 my-2">
+                    <p className="w-6 h-6">
+                      <BsCheckLg className="text-secondary text-xl" />
+                    </p>
+                    <span>Internet Access</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         )}
         <NewsLetter />
