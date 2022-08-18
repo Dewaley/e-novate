@@ -21,12 +21,11 @@ const BlogPage = () => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const filter = async (search, page) => {
-    if (page === undefined) {
+    if (page === null || page === undefined) {
       setSearchParams({ search: search, page: 1 });
-    }  else {
-      if (searchParams.get("search") !== search) {
-        setSearchParams({ search: search, page: page });
-      }
+    } else if (searchParams.get("search") !== search) {
+      setSearchParams({ search: search, page: page });
+    } else {
       const res = await fetch(
         process.env.REACT_APP_ENOVATE_API + `/blog/view/?search=${search}`
       );
@@ -44,7 +43,7 @@ const BlogPage = () => {
     setLatestPosts(data);
   };
   const fetchBlog = async (page) => {
-    if (page === null) {
+    if (page === null || page === undefined) {
       setSearchParams({
         page: 1,
       });
@@ -56,9 +55,9 @@ const BlogPage = () => {
       setBlogList(data);
     }
   };
-  useEffect(()=> {
+  useEffect(() => {
     fetchLatestPosts();
-  },[])
+  }, []);
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
       filter(searchParams.get("search"), searchParams.get("page"));
@@ -72,7 +71,7 @@ const BlogPage = () => {
   return (
     <>
       <div className="animate__animated animate__fadeIn w-full overflow-x-hidden flex items-center flex-col">
-        {blogList.results !== undefined ? (
+        {blogList.results !== undefined || filtered.results !== undefined ? (
           <div className="flex flex-col">
             <div className="text-primary flex flex-col items-center md:items-start md:flex-row pt-12 px-8 gap-x-8 md:mb-8">
               <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-full overflow-hidden">
@@ -102,10 +101,10 @@ const BlogPage = () => {
                             />
                           </div>
                         ) : (
-                            <h1 className="text-2xl text-primary">
-                              Your search, "{text}" doesn't match any of our
-                              articles
-                            </h1>
+                          <h1 className="text-2xl text-primary">
+                            Your search, "{text}" doesn't match any of our
+                            articles
+                          </h1>
                         )}
                       </div>
                     )}
@@ -187,7 +186,7 @@ const BlogPage = () => {
                   <PlaceholderLoading
                     shape="rect"
                     width={1000}
-                    height={document.documentElement.clientHeight * 0.8}
+                    height={400}
                   />
                   <div className="flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary px-2">
                     <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">

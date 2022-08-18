@@ -14,23 +14,24 @@ const CoursesPage = () => {
   const [text, setText] = useState("");
   const [courses, setCourses] = useState([]);
   const filter = async (search, page) => {
-    if (page === undefined) {
+    if (page === null || page === undefined) {
+      console.log(page);
       setSearchParams({ search: search, page: 1 });
+    } else if (searchParams.get("search") !== search) {
+      console.log(page);
+      setSearchParams({ search: search, page: page });
     } else {
-      if (searchParams.get("search") !== search) {
-        console.log(page);
-        setSearchParams({ search: search, page: page });
-      }
       const res = await fetch(
         process.env.REACT_APP_ENOVATE_API + `/course/view/?search=${search}`
       );
       const data = await res.json();
+      console.log(data)
       setFiltered(data);
       setText(search);
     }
   };
   const fetchCourses = async (page) => {
-    if (page === null || undefined) {
+    if (page === null || page === undefined) {
       setSearchParams({
         page: 1,
       });
@@ -44,6 +45,7 @@ const CoursesPage = () => {
   };
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
+      console.log("boy");
       filter(searchParams.get("search"), searchParams.get("page"));
     } else {
       fetchCourses(searchParams.get("page"));
@@ -56,10 +58,10 @@ const CoursesPage = () => {
     <div className="animate__animated animate__fadeIn">
       <header className="text-center font-light my-6">
         <h4 className="text-secondary my-2">COURSES</h4>
-        <h2 className="text-3xl my-2 mb-6">We Offer These Courses</h2>
+        <h2 className="text-3xl my-2 mb-6">Become a Pro with any of our outlined courses</h2>
       </header>
       <div className="flex flex-col items-center mb-12 gap-y-4">
-        {courses.results !== undefined ? (
+        {courses.results !== undefined || filtered.results !== undefined  ? (
           <div>
             {searchParams.get("search") ? (
               <div>
