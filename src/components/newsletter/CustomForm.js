@@ -1,33 +1,42 @@
-import React from "react";
+import { useState } from "react";
 
 const CustomForm = ({ status, message, onValidated }) => {
   let email;
+  const [error, setError] = useState(false);
   const validateEmail = (mail) =>
     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.trim());
   const submit = () => {
-    if (email && validateEmail(email.value)) {
+    if (validateEmail(email.value) === false) {
+      setError(true);
+    } else if (email && validateEmail(email.value)) {
+      setError(false);
       onValidated({
         EMAIL: email.value,
       });
-      alert("sent");
-    } else {
-      alert("no");
     }
   };
   return (
     <div className="flex justify-center flex-col">
-      {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
-      {status === "error" && (
-        <div
-          style={{ color: "red" }}
-          dangerouslySetInnerHTML={{ __html: message }}
-        />
-      )}
-      {status === "success" && (
-        <div
-          style={{ color: "green" }}
-          dangerouslySetInnerHTML={{ __html: message }}
-        />
+      {error === true ? (
+        <div style={{ color: "red" }}>Please enter a valid email address</div>
+      ) : (
+        <div>
+          {status === "sending" && (
+            <div style={{ color: "blue" }}>sending...</div>
+          )}
+          {status === "error" && (
+            <div
+              style={{ color: "red" }}
+              dangerouslySetInnerHTML={{ __html: message }}
+            />
+          )}
+          {status === "success" && (
+            <div
+              style={{ color: "green" }}
+              dangerouslySetInnerHTML={{ __html: message }}
+            />
+          )}
+        </div>
       )}
       <div className="bg-white py-2 px-2 md:m-0 w-fit rounded-full">
         <input
@@ -43,7 +52,7 @@ const CustomForm = ({ status, message, onValidated }) => {
           type="submit"
           className="bg-secondary text-white p-3 rounded-full"
         >
-          Submit
+          Submita
         </button>
       </div>
     </div>
