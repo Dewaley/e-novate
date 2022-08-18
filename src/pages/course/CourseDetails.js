@@ -55,7 +55,7 @@ const CourseDetails = () => {
   return (
     <>
       <div className="animate__animated animate__fadeIn flex flex-col items-center">
-        {course && instructorInfo !== [] ? (
+        {course !== {} && instructorInfo !== [] ? (
           <div className="text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]">
             <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
               <h1 className="text-4xl">{course.course_name}</h1>
@@ -121,9 +121,7 @@ const CourseDetails = () => {
                 </div>
                 <div className="flex flex-col md:flex-row justify-between">
                   <ul className="md:w-1/2">
-                    {course.topics.filter((topic,index) => {
-                      return index%2 !== 0
-                    })}
+                    
                     <li className="flex items-center gap-x-2 my-2">
                       <p className="w-6 h-6">
                         <BsCheckLg className="text-secondary text-xl" />
