@@ -15,7 +15,7 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
       <div className="flex flex-col justify-between h-full">
         <div className="flex flex-col justify-between mx-6 h-full">
           <div className="">
-            <h3 className="text-xl my-2 w-fit">
+            <h3 className="text-xl w-fit h-[3.5rem] overflow-hidden flex items-center">
               <Link to={`/blog/article/${id}`} className="w-fit">
                 {title.length > 40 ? shortenedTitle : title}
               </Link>

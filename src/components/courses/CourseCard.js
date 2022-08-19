@@ -8,7 +8,7 @@ const CourseCard = ({ title, preamble, lessons, id, image }) => {
       <img src={image} alt="" className="w-full" />
       <div className="flex flex-col px-6 justify-between pt-4 h-full">
         <header className="overflow-hidden h-full">
-          <h3 className="text-xl">
+          <h3 className="text-xl h-[3.5rem] overflow-hidden flex items-center">
             <Link to={`/courses/${id}`}>
               {title.length > 40 ? shortenedTitle : title}
             </Link>
