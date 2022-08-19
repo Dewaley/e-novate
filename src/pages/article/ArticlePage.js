@@ -138,7 +138,7 @@ const ArticlePage = () => {
                     <PlaceholderLoading
                       shape="rect"
                       width={1000}
-                      height={document.documentElement.clientHeight * 0.8}
+                      height={300}
                     />
                   )}
                   <div className="flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary w-full border-b-[#263B5D]/20 border-b-[2px] pb-2 text-[#263238]/70">
@@ -181,7 +181,7 @@ const ArticlePage = () => {
                       </span>
                     </div>
                   </div>
-                  {<p>{article.article_body}</p> || (
+                  {<div dangerouslySetInnerHTML={{ __html: article.article_body }}/> || (
                     <div className="flex flex-col gap-y-2">
                       <PlaceholderLoading
                         shape="rect"
