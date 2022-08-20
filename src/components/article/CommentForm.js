@@ -1,23 +1,24 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MdError } from "react-icons/md";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const CommentForm = () => {
-  const [captchaValue,setCaptchaValue] = useState(false)
+  const captchaRef = useRef(null);
   const [error, setError] = useState({
     name: false,
     email: false,
-    comment: false,
   });
   const [data, setData] = useState({
     name: "",
     email: "",
     comment: "",
-    captcha: false,
   });
   const url = process.env.REACT_APP_ENOVATE_API + "/blog/comment/";
   const handleSubmit = (e) => {
     e.preventDefault();
+    const token = captchaRef.current.getValue();
+    console.log(typeof token)
+    captchaRef.current.reset();
     const newError = { ...error };
     if (data.name.trim() === "") {
       newError.name = true;
@@ -36,7 +37,7 @@ const CommentForm = () => {
     if (
       data.name !== "" &&
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email) &&
-      data.comment !== "" && captchaValue
+      data.comment !== ""
     ) {
       newError.name = false;
       newError.email = false;
@@ -48,13 +49,14 @@ const CommentForm = () => {
           name: data.name.trim(),
           comment_text: data.comment.trim(),
           comment_email: data.email.trim(),
-          captcha: captchaValue,
+          recaptcha: token
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((res) => {
+          console.log(res.json())
           res.json();
           const newData = { ...data };
           newData.name = "";
@@ -65,9 +67,6 @@ const CommentForm = () => {
         .catch((error) => console.log(error));
     }
   };
-  const captchaHandler = ()=> {
-    setCaptchaValue(true)
-  }
   const handleChange = (e) => {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
@@ -142,12 +141,16 @@ const CommentForm = () => {
           }`}
           placeholder="Leave a comment..."
         ></textarea>
-        <ReCAPTCHA sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8" onChange={()=>captchaHandler()} />
+        <ReCAPTCHA
+          sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8"
+          ref={captchaRef}
+          onChange={()=>console.log(captchaRef.current.getValue())}
+        />
       </div>
       <button
-        className="bg-secondary px-8 py-2 text-white font-bold rounded mt-4"
+        className="bg-secondary px-8 py-2 text-white font-bold rounded mt-4 cursor-pointer"
         type="submit"
-        disabled={captchaValue}
+        onClick={(e) => handleSubmit(e)}
       >
         Submit
       </button>
