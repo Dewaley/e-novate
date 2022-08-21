@@ -233,21 +233,6 @@ const CourseDetails = () => {
                   </li>
                 </ul>
               </div>
-              <div className="p-8 border-t-2 border-primary rounded-md shadow-md flex justify-between items-center">
-                <span>Share</span>
-                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
-                  <FaFacebookF />
-                </span>
-                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
-                  <FaInstagram />
-                </span>
-                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
-                  <FaLinkedinIn />
-                </span>
-                <span className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-lg">
-                  <FaWhatsapp />
-                </span>
-              </div>
               <div className="p-8 border-t-2 border-primary rounded-md shadow-md">
                 <div className="flex flex-col gap-y-2">
                   <h1 className="text-lg">Requirements</h1>
