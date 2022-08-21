@@ -14,7 +14,7 @@ const BlogOverview = () => {
       process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=1`
     );
     const data = await res.json();
-    setBlogList(data.results);
+    setBlogList(data.results.slice(0,3));
   };
   useEffect(() => {
     fetchBlog();

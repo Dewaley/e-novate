@@ -22,7 +22,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       ) : (
         <div>
           {status === "sending" && (
-            <div style={{ color: "blue" }}>sending...</div>
+            <div style={{ color: "white" }}>sending...</div>
           )}
           {status === "error" && (
             <div
@@ -32,7 +32,7 @@ const CustomForm = ({ status, message, onValidated }) => {
           )}
           {status === "success" && (
             <div
-              style={{ color: "green" }}
+              style={{ color: "white" }}
               dangerouslySetInnerHTML={{ __html: message }}
             />
           )}
@@ -52,7 +52,7 @@ const CustomForm = ({ status, message, onValidated }) => {
           type="submit"
           className="bg-secondary text-white p-3 rounded-full"
         >
-          Submita
+          Submit
         </button>
       </div>
     </div>

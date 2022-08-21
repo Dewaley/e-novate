@@ -2,22 +2,25 @@ import { useState, useRef } from "react";
 import { MdError } from "react-icons/md";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const CommentForm = () => {
+const CommentForm = ({ post }) => {
+  console.log(post)
   const captchaRef = useRef(null);
   const [error, setError] = useState({
     name: false,
     email: false,
   });
+  let token = "";
   const [data, setData] = useState({
     name: "",
-    email: "",
-    comment: "",
+    comment_email: "",
+    comment_text: "",
+    recaptcha: token,
+    post: post,
   });
   const url = process.env.REACT_APP_ENOVATE_API + "/blog/comment/";
   const handleSubmit = (e) => {
     e.preventDefault();
-    const token = captchaRef.current.getValue();
-    console.log(typeof token)
+    token = captchaRef.current.getValue();
     captchaRef.current.reset();
     const newError = { ...error };
     if (data.name.trim() === "") {
@@ -25,19 +28,23 @@ const CommentForm = () => {
     }
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-        data.email.trim()
+        data.comment_email.trim()
       ) === false
     ) {
       newError.email = true;
     }
-    if (data.comment.trim() === "") {
+    if (data.comment_text.trim() === "") {
       newError.comment = true;
     }
     setError(newError);
+    console.log(data)
     if (
       data.name !== "" &&
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email) &&
-      data.comment !== ""
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+        data.comment_email
+      ) &&
+      data.comment_text !== "" &&
+      data.recaptcha !== ""
     ) {
       newError.name = false;
       newError.email = false;
@@ -47,21 +54,20 @@ const CommentForm = () => {
         method: "POST",
         body: JSON.stringify({
           name: data.name.trim(),
-          comment_text: data.comment.trim(),
-          comment_email: data.email.trim(),
-          recaptcha: token
+          comment_text: data.comment_text.trim(),
+          comment_email: data.comment_email.trim(),
+          recaptcha: data.recaptcha,
+          post: data.post,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((res) => {
-          console.log(res.json())
-          res.json();
           const newData = { ...data };
           newData.name = "";
-          newData.email = "";
-          newData.comment = "";
+          newData.comment_email = "";
+          newData.comment_text = "";
           setData(newData);
         })
         .catch((error) => console.log(error));
@@ -114,7 +120,7 @@ const CommentForm = () => {
         <input
           onChange={(e) => handleChange(e)}
           value={data.email}
-          id="email"
+          id="comment_email"
           type="text"
           className={`p-2 rounded outline-none focus:outline-primary sm:w-1/2 ${
             error.email === true && "outline-red-500 focus:outline-red-500"
@@ -134,18 +140,24 @@ const CommentForm = () => {
         <textarea
           onChange={(e) => handleChange(e)}
           value={data.comment}
-          id="comment"
+          id="comment_text"
           rows={8}
           className={`p-2 rounded outline-none focus:outline-primary resize-none ${
             error.comment === true && "outline-red-500 focus:outline-red-500"
           }`}
           placeholder="Leave a comment..."
         ></textarea>
-        <ReCAPTCHA
-          sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8"
-          ref={captchaRef}
-          onChange={()=>console.log(captchaRef.current.getValue())}
-        />
+        <div className="mt-2">
+          <ReCAPTCHA
+            sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8"
+            ref={captchaRef}
+            onChange={() => {
+              const newData = { ...data };
+              newData.recaptcha = captchaRef.current.getValue();
+              setData(newData);
+            }}
+          />
+        </div>
       </div>
       <button
         className="bg-secondary px-8 py-2 text-white font-bold rounded mt-4 cursor-pointer"

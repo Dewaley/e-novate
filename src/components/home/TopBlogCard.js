@@ -20,9 +20,7 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
                 {title.length > 40 ? shortenedTitle : title}
               </Link>
             </h3>
-            <p className="font-light text-sm mb-4 h-[7.5rem] overflow-hidden">
-              {preamble}
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: preamble.slice(0, 250) + "..." }} />
           </div>
           <div className="flex justify-between">
             <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">
@@ -31,11 +29,15 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
             </span>
             <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">
               <AiOutlineCalendar className="sm:text-lg text-base" />
-              {months[formattedDate.getMonth()] + " " + formattedDate.getDate() + ", " + formattedDate.getFullYear()}
+              {months[formattedDate.getMonth()] +
+                " " +
+                formattedDate.getDate() +
+                ", " +
+                formattedDate.getFullYear()}
             </span>
           </div>
         </div>
-        <div className="border-t-primary border-t-[1px] py-2 mt-1 mb-2 mx-6">
+        <div className="border-t-primary border-t-[1px] py-2 mt-2 mb-2 mx-6">
           <Link
             to={`/blog/article/${id}`}
             className="flex items-center bg-secondary text-white font-light text-sm px-4 py-2 gap-x-2 rounded w-fit"

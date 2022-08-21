@@ -26,10 +26,16 @@ const Footer = () => {
               innovations.
             </p>
             <div className="flex gap-x-2">
-              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
+              <a
+                href="https://www.facebook.com/enovateng/"
+                className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm"
+              >
                 <FaFacebookF />
               </a>
-              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
+              <a
+                href="https://www.instagram.com/enovate_ng/"
+                className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm"
+              >
                 <FaInstagram />
               </a>
             </div>
@@ -54,21 +60,21 @@ const Footer = () => {
           <div className="flex flex-col md:mb-4 gap-y-2">
             <h2 className="text-lg font-normal">Contact Us</h2>
             <address className="flex flex-col gap-y-2">
-                <a href="tel:08033530335" className="flex items-center gap-x-2">
-                  <span>
-                    <BsTelephone className="text-secondary" />
-                  </span>
-                  <p>0803 353 0335</p>
-                </a>
-                <a
-                  href="mailto:villageSquareOnline@gmail.com"
-                  className="flex items-center gap-x-2"
-                >
-                  <span>
-                    <MdOutlineMailOutline className="text-secondary" />
-                  </span>
-                  <p className="break-all">VillageSquareOnline@gmail.com</p>
-                </a>
+              <a href="tel:08033530335" className="flex items-center gap-x-2">
+                <span>
+                  <BsTelephone className="text-secondary" />
+                </span>
+                <p>0803 353 0335</p>
+              </a>
+              <a
+                href="mailto:villageSquareOnline@gmail.com"
+                className="flex items-center gap-x-2"
+              >
+                <span>
+                  <MdOutlineMailOutline className="text-secondary" />
+                </span>
+                <p className="break-all">VillageSquareOnline@gmail.com</p>
+              </a>
               <p className="flex items-center gap-x-2">
                 <span>
                   <IoLocationOutline className="text-secondary" />

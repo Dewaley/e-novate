@@ -314,7 +314,7 @@ const ArticlePage = () => {
                     twitter={article.author_twitter}
                     linkedin={article.author_linkedin}
                   />
-                  <CommentForm />
+                 {article?.id && <CommentForm post={article.id}/>}
                 </div>
               )}
             </div>

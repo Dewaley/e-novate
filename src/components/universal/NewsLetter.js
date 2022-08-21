@@ -21,7 +21,6 @@ const NewsLetter = () => {
             message={message}
             onValidated={(formData) => {
               subscribe(formData);
-              console.log(formData);
             }}
           />
         )}
