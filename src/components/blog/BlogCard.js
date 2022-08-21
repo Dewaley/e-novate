@@ -38,7 +38,7 @@ const BlogCard = ({ image, title, preamble, date, id, author }) => {
         </div>
         <div>
           <h3 className="text-xl w-fit py-2">
-            <Link to={`/blog/article/${id}`}>
+            <Link to={`/blog/article/${id}`} className="no-underline">
               {title.length > 40
                 ? title.slice(0, 40) + "..."
                 : title || (
@@ -58,7 +58,7 @@ const BlogCard = ({ image, title, preamble, date, id, author }) => {
           </p>
         </div>
         <Link
-          className="flex items-center bg-transparent text-secondary font-light py-2 gap-x-2 rounded mb-2 w-fit"
+          className="flex items-center bg-transparent text-secondary font-light py-2 gap-x-2 rounded mb-2 w-fit no-underline"
           to={`/blog/article/${id}`}
         >
           <span>READ ON</span>

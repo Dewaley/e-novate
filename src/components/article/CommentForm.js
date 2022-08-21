@@ -3,7 +3,6 @@ import { MdError } from "react-icons/md";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const CommentForm = ({ post }) => {
-  console.log(post)
   const captchaRef = useRef(null);
   const [error, setError] = useState({
     name: false,

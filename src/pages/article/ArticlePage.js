@@ -24,6 +24,15 @@ const ArticlePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
+  const [comments, setComments] = useState();
+  const [commentCount,setCommentCount] = useState(3)
+  const fetchComments = async (id) => {
+    const res = await fetch(
+      process.env.REACT_APP_ENOVATE_API + "/blog/comment"
+    );
+    const data = await res.json();
+    setComments(data);
+  };
   const fetchBlog = async (search) => {
     if (searchParams.get("search") !== search) {
       setSearchParams({ search: search, page: page });
@@ -55,12 +64,13 @@ const ArticlePage = () => {
       fetchBlog(searchParams.get("search"));
     } else {
       fetchArticle();
+      fetchComments();
     }
     window.scrollTo({
       top: 0,
     });
     fetchLatestPosts();
-  }, [searchParams,id]);
+  }, [searchParams, id]);
   return (
     <>
       <div className="animate__animated animate__fadeIn">
@@ -81,12 +91,18 @@ const ArticlePage = () => {
               </h1>
             )}
             <div className="flex items-center gap-x-1 uppercase">
-              <Link className="text-[#ffffff]/50 font-bold text-lg" to="/">
+              <Link
+                className="text-[#ffffff]/50 font-bold text-lg no-underline"
+                to="/"
+              >
                 Home
               </Link>
               <span className="text-2xl">/</span>
-              <Link className="text-[#ffffff]/50 font-bold text-lg" to="/blog">
-                Blog
+              <Link
+                className="text-[#ffffff]/50 font-bold text-lg no-underline"
+                to="/blog"
+              >
+                Blog{commentCount}
               </Link>
               <span className="text-2xl">/</span>
               <span className="font-bold text-lg">Blog Post</span>
@@ -181,7 +197,11 @@ const ArticlePage = () => {
                       </span>
                     </div>
                   </div>
-                  {<div dangerouslySetInnerHTML={{ __html: article.article_body }}/> || (
+                  {(
+                    <div
+                      dangerouslySetInnerHTML={{ __html: article.article_body }}
+                    />
+                  ) || (
                     <div className="flex flex-col gap-y-2">
                       <PlaceholderLoading
                         shape="rect"
@@ -314,7 +334,61 @@ const ArticlePage = () => {
                     twitter={article.author_twitter}
                     linkedin={article.author_linkedin}
                   />
-                 {article?.id && <CommentForm post={article.id}/>}
+                  {comments?.length > 0 && (
+                    <div>
+                      <h1>Comments({comments.count})</h1>
+                      <div className="bg-[#c4c4c4]/20 p-2 flex flex-col gap-y-4 p-8 rounded-md mb-12">
+                        {comments
+                          .filter((comment) => comment.post === article?.id)
+                          .map((comment) => (
+                            <div>
+                              <div className="flex justify-between items-center">
+                                <span className="text-xl capitalize">
+                                  {comment.name}
+                                </span>
+                                <span className="text-secondary">
+                                  {new Date(comment.comment_date).getDate() +
+                                    " " +
+                                    months[
+                                      new Date(comment.comment_date).getMonth()
+                                    ] +
+                                    ", " +
+                                    new Date(
+                                      comment.comment_date
+                                    ).getFullYear()}
+                                </span>
+                              </div>
+                              <p>{comment.comment_text}</p>
+                            </div>
+                          ))
+                          .slice(0, commentCount)}
+                        <div className="flex justify-between items-center">
+                          {comments.length > 3 &&
+                            commentCount < comments.length && (
+                              <span
+                                className="text-secondary cursor-pointer"
+                                onClick={() => {
+                                  setCommentCount(prevCount=>prevCount+3);
+                                  console.log("lemgth", comments.length);
+                                  console.log("count", commentCount);
+                                }}
+                              >
+                                View more
+                              </span>
+                            )}
+                          {comments.length > 3 && commentCount > 3 && (
+                            <span
+                              className="text-secondary cursor-pointer text-right"
+                              onClick={() => setCommentCount(prevCount =>prevCount - 3)}
+                            >
+                              View less
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {article?.id && <CommentForm post={article.id} />}
                 </div>
               )}
             </div>

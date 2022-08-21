@@ -32,7 +32,7 @@ const InstructorCard = ({
         <p>{bio}</p>
         <span className='flex items-center gap-x-1'>
           <AiOutlineMail className='text-secondary' />
-          <span>{email}</span>
+          <a href={`mailto:${email}`} className="no-underline">{email}</a>
         </span>
         <div className='flex items-center gap-x-2'>
           <a

@@ -15,8 +15,8 @@ const Nav = () => {
       document.body.style.overflowY = "unset";
     }
   }, [hamburger]);
-  let defaultClassName = "border-b-2 border-transparent cursor-pointer px-2";
-  let activeClassName = "border-secondary border-b-2 cursor-pointer px-2";
+  let defaultClassName = "border-b-2 border-transparent cursor-pointer px-2 no-underline";
+  let activeClassName = "border-secondary border-b-2 cursor-pointer px-2 no-underline";
   return (
     <nav className="text-primary sticky top-0 z-[100]">
       <div className="text-primary bg-white flex justify-between items-center h-16 md:px-10 border-b-primary border-b-[1px] overflow-hidden w-full px-3">

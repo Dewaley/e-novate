@@ -229,7 +229,7 @@ const BlogPage = () => {
                   <PlaceholderLoading
                     shape="rect"
                     width={1000}
-                    height={document.documentElement.clientHeight * 0.8}
+                    height={300}
                   />
                   <div className="flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4 text-secondary px-2">
                     <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">

@@ -14,15 +14,20 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
       <img src={image} alt="" className="w-full" />
       <div className="flex flex-col justify-between h-full">
         <div className="flex flex-col justify-between mx-6 h-full">
-          <div className="">
-            <h3 className="text-xl w-fit h-[3.5rem] overflow-hidden flex items-center">
-              <Link to={`/blog/article/${id}`} className="w-fit">
+          <div className="pt-4">
+            <h3 className="text-xl w-fit h-[3.5rem] overflow-hidden">
+              <Link to={`/blog/article/${id}`} className="w-fit no-underline">
                 {title.length > 40 ? shortenedTitle : title}
               </Link>
             </h3>
-            <div dangerouslySetInnerHTML={{ __html: preamble.slice(0, 250) + "..." }} />
+            <div
+              className="h-[10rem] text-sm overflow-hidden"
+              dangerouslySetInnerHTML={{
+                __html: preamble,
+              }}
+            />
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-1">
             <span className="flex items-center gap-x-0.5 sm:gap-x-2 text-sm sm:text-base">
               <AiOutlineMessage className="sm:text-lg text-base" />
               Comments
@@ -37,10 +42,10 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
             </span>
           </div>
         </div>
-        <div className="border-t-primary border-t-[1px] py-2 mt-2 mb-2 mx-6">
+        <div className="border-t-primary border-t-[1px] py-2 mt-1 mb-2 mx-6">
           <Link
             to={`/blog/article/${id}`}
-            className="flex items-center bg-secondary text-white font-light text-sm px-4 py-2 gap-x-2 rounded w-fit"
+            className="flex items-center bg-secondary text-white font-light text-sm px-4 py-2 gap-x-2 rounded w-fit no-underline"
           >
             <span>Read on</span>
             <AiOutlineArrowRight />

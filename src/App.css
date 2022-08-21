@@ -25,6 +25,9 @@ h3 {
 h4 {
   font-size: 1.25rem;
 }
+a {
+  text-decoration: underline;
+}
 @media (min-width: 640px) {
   .swiper-pagination {
     display: none;

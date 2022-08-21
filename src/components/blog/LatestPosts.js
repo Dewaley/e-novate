@@ -23,7 +23,7 @@ const LatestPosts = ({ image, title, date, id }) => {
             formattedDate.getFullYear()}
         </h4>
         <h1 className="font-light text-lg">
-          <Link to={`/blog/article/${id}`} className="w-fit">
+          <Link to={`/blog/article/${id}`} className="w-fit no-underline">
             {(title.length > 40 ? shortenedTitle : title)}
           </Link>
         </h1>

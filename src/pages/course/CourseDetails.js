@@ -22,7 +22,6 @@ const CourseDetails = () => {
   const [course, setCourse] = useState({});
   const [instructors, setInstructors] = useState([]);
   const [instructorInfo, setInstructorInfo] = useState([]);
-  const [loading, setloading] = useState(true);
   const [subMenu, setSubMenu] = useState("Description");
   const { id } = useParams();
   const fetchCourse = async () => {
@@ -43,17 +42,14 @@ const CourseDetails = () => {
     setInstructorInfo(idRequests);
   };
   useEffect(() => {
-    fetchCourse();
-  }, []);
-  useEffect(() => {
     fetchData(instructors);
-    console.log(instructorInfo);
   }, [instructors]);
   useEffect(() => {
+    fetchCourse();
+
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setloading(false), 5000);
   }, []);
   return (
     <>
@@ -62,12 +58,14 @@ const CourseDetails = () => {
           <div className="text-primary flex flex-col  items-center md:items-start md:flex-row pt-12 md:mb-8 gap-x-8 overflow-hidden w-[90vw]">
             <div className="flex flex-col gap-y-8 md:w-2/3 mb-8 w-[90vw]">
               <h1 className="text-4xl">{course.course_name}</h1>
-              <p>{course.course_preamble}</p>
+              <div
+                dangerouslySetInnerHTML={{ __html: course.course_preamble }}
+              />
               <hr />
               <img src={course.course_image} alt="" />
               <ul className="flex justify-between items-center border-[1px] border-[#666666]/[0.6] sm:px-4 px-1 rounded-lg text-sm sm:text-base">
                 <li
-                  className={`py-4 ${
+                  className={`cursor-pointer py-4 ${
                     subMenu === "Description" && `border-b-2 border-secondary`
                   }`}
                   onClick={() => setSubMenu("Description")}
@@ -75,7 +73,7 @@ const CourseDetails = () => {
                   Description
                 </li>
                 <li
-                  className={`py-4 ${
+                  className={`cursor-pointer py-4 ${
                     subMenu === "Instructor(s)" && `border-b-2 border-secondary`
                   }`}
                   onClick={() => {
@@ -86,7 +84,7 @@ const CourseDetails = () => {
                 </li>
                 {course.course_feedback && course.course_feedback.length > 0 && (
                   <li
-                    className={`py-4 ${
+                    className={`cursor-pointer py-4 ${
                       subMenu === "Feedback" && `border-b-2 border-secondary`
                     }`}
                     onClick={() => {
@@ -97,7 +95,11 @@ const CourseDetails = () => {
                   </li>
                 )}
               </ul>
-              {subMenu === "Description" && <p>{course.course_overview}</p>}
+              {subMenu === "Description" && (
+                <div
+                  dangerouslySetInnerHTML={{ __html: course.course_overview }}
+                />
+              )}
               {subMenu === "Instructor(s)" && (
                 <div className="px-4">
                   <div className="px-2 mb-4 flex flex-col">
@@ -126,50 +128,42 @@ const CourseDetails = () => {
                 </div>
                 <div className="flex flex-col md:flex-row justify-between">
                   <ul className="md:w-1/2">
-                    <li className="flex items-center gap-x-2 my-2">
-                      <p className="w-6 h-6">
-                        <BsCheckLg className="text-secondary text-xl" />
-                      </p>
-                      <p>Programming Principles, and Techniques</p>
-                    </li>
-                    <li className="flex items-center gap-x-2 my-2">
-                      <p className="w-6 h-6">
-                        <BsCheckLg className="text-secondary text-xl" />
-                      </p>
-                      <p>Web hosting.</p>
-                    </li>
+                    {course?.topics
+                      .filter((topic, index) => index % 2 === 0)
+                      .map((topic) => (
+                        <li className="flex items-center gap-x-2 my-2">
+                          <p className="w-6 h-6">
+                            <BsCheckLg className="text-secondary text-xl" />
+                          </p>
+                          <p>{topic}</p>
+                        </li>
+                      ))}
                   </ul>
                   <ul className="md:w-1/2">
-                    <li className="flex items-center gap-x-2 my-2">
-                      <p className="w-6 h-6">
-                        <BsCheckLg className="text-secondary text-xl" />
-                      </p>
-                      <p>GIt and Version Control.</p>
-                    </li>
-                    <li className="flex items-center gap-x-2 my-2">
-                      <p className="w-6 h-6">
-                        <BsCheckLg className="text-secondary text-xl" />
-                      </p>
-                      <p>HTML, CSS and Javascript</p>
-                    </li>
-                    <li className="flex items-center gap-x-2 my-2">
-                      <p className="w-6 h-6">
-                        <BsCheckLg className="text-secondary text-xl" />
-                      </p>
-                      <p>Working With React</p>
-                    </li>
+                    {course?.topics
+                      .filter((topic, index) => index % 2 !== 0)
+                      .map((topic) => (
+                        <li className="flex items-center gap-x-2 my-2">
+                          <p className="w-6 h-6">
+                            <BsCheckLg className="text-secondary text-xl" />
+                          </p>
+                          <p>{topic}</p>
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
             </div>
             <div className="md:w-1/3 flex flex-col gap-y-12 mb-8 w-[90vw]">
-              <div className="flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md">
-                <FiUsers className="text-xl text-secondary" />
-                <span>Students Enrolled: </span>
-                <span className="text-secondary">
-                  {course.students_enrolled}
-                </span>
-              </div>
+              {course?.students_enrolled !== 0 && (
+                <div className="flex justify-center items-center p-8 gap-x-2 shadow-md border-t-2 border-primary rounded-md">
+                  <FiUsers className="text-xl text-secondary" />
+                  <span>Students Enrolled: </span>
+                  <span className="text-secondary">
+                    {course.students_enrolled}
+                  </span>
+                </div>
+              )}
               <div className="flex flex-col items-center p-8 border-t-2 border-primary rounded-md shadow-md gap-y-2">
                 <div className="flex gap-x-2 items-end">
                   <span className="text-lg">Price:</span>
@@ -260,26 +254,14 @@ const CourseDetails = () => {
                   <hr className="w-2/12 bg-primary h-1" />
                 </div>
                 <ul>
-                  <li className="flex items-center gap-x-2 my-2">
-                    <p className="w-6 h-6">
-                      <BsCheckLg className="text-secondary text-xl" />
-                    </p>
-                    <span>No previous knowledge of Front-End required.</span>
-                  </li>
-                  <li className="flex items-center gap-x-2 my-2">
-                    <p className="w-6 h-6">
-                      <BsCheckLg className="text-secondary text-xl" />
-                    </p>
-                    <span>
-                      A working device e.g. Laptop, phone or tablet e.t.c
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-x-2 my-2">
-                    <p className="w-6 h-6">
-                      <BsCheckLg className="text-secondary text-xl" />
-                    </p>
-                    <span>Internet Access</span>
-                  </li>
+                  {course?.course_requirements.map((requirement) => (
+                    <li className="flex items-center gap-x-2 my-2">
+                      <p className="w-6 h-6">
+                        <BsCheckLg className="text-secondary text-xl" />
+                      </p>
+                      <p>{requirement}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

@@ -26,16 +26,10 @@ const Footer = () => {
               innovations.
             </p>
             <div className="flex gap-x-2">
-              <a
-                href="https://www.facebook.com/enovateng/"
-                className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm"
-              >
+              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaFacebookF />
               </a>
-              <a
-                href="https://www.instagram.com/enovate_ng/"
-                className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm"
-              >
+              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaInstagram />
               </a>
             </div>
@@ -48,11 +42,11 @@ const Footer = () => {
         <div className="md:w-1/3 flex flex-col md:items-center gap-y-4">
           <ul className="flex flex-col gap-y-2">
             <h1 className="text-lg font-normal">Corporate</h1>
-            <Link to="/about">About us</Link>
-            <Link to="/contact">Contact us</Link>
-            <Link to="/">Projects</Link>
-            <Link to="/">Terms and Conditions</Link>
-            <Link to="/">Privacy policy</Link>
+            <Link to="/about" className="no-underline">About us</Link>
+            <Link to="/contact" className="no-underline">Contact us</Link>
+            <Link to="/" className="no-underline">Projects</Link>
+            <Link to="/" className="no-underline">Terms and Conditions</Link>
+            <Link to="/" className="no-underline">Privacy policy</Link>
           </ul>
           <hr className="w-[60vw] h-2 md:hidden" />
         </div>
@@ -60,21 +54,21 @@ const Footer = () => {
           <div className="flex flex-col md:mb-4 gap-y-2">
             <h2 className="text-lg font-normal">Contact Us</h2>
             <address className="flex flex-col gap-y-2">
-              <a href="tel:08033530335" className="flex items-center gap-x-2">
-                <span>
-                  <BsTelephone className="text-secondary" />
-                </span>
-                <p>0803 353 0335</p>
-              </a>
-              <a
-                href="mailto:villageSquareOnline@gmail.com"
-                className="flex items-center gap-x-2"
-              >
-                <span>
-                  <MdOutlineMailOutline className="text-secondary" />
-                </span>
-                <p className="break-all">VillageSquareOnline@gmail.com</p>
-              </a>
+                <a href="tel:08033530335" className="flex items-center gap-x-2 no-underline">
+                  <span>
+                    <BsTelephone className="text-secondary" />
+                  </span>
+                  <p>0803 353 0335</p>
+                </a>
+                <a
+                  href="mailto:villageSquareOnline@gmail.com"
+                  className="flex items-center gap-x-2 no-underline"
+                >
+                  <span>
+                    <MdOutlineMailOutline className="text-secondary" />
+                  </span>
+                  <p className="break-all">VillageSquareOnline@gmail.com</p>
+                </a>
               <p className="flex items-center gap-x-2">
                 <span>
                   <IoLocationOutline className="text-secondary" />
@@ -85,7 +79,7 @@ const Footer = () => {
           </div>
           <hr className="w-[60vw] h-2 md:hidden" />
           <div>
-            <h1 className="mb-2">Subscribe to our Newsletter</h1>
+            <h1 className="mb-2 text-base">Subscribe to our Newsletter</h1>
             <form className="border-2 border-white rounded-lg flex w-fit p-1">
               <input
                 type="text"

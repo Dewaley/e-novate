@@ -15,7 +15,7 @@ const Paginate = ({ count, pages, setPages, page, setPage }) => {
           <span
             key={item}
             className={`cursor-pointer w-8 h-8  flex justify-center items-center ${
-              page === item
+              item === parseInt(page)
                 ? "bg-secondary text-white"
                 : "border-[1px] border-primary text-primary"
             }`}
