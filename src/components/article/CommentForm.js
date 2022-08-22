@@ -36,7 +36,6 @@ const CommentForm = ({ post }) => {
       newError.comment = true;
     }
     setError(newError);
-    console.log(data)
     if (
       data.name !== "" &&
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
@@ -69,7 +68,6 @@ const CommentForm = ({ post }) => {
           newData.comment_text = "";
           setData(newData);
         })
-        .catch((error) => console.log(error));
     }
   };
   const handleChange = (e) => {
@@ -96,7 +94,6 @@ const CommentForm = ({ post }) => {
         <input
           onChange={(e) => {
             handleChange(e);
-            console.log(e.target.value);
           }}
           value={data.name}
           id="name"
@@ -118,7 +115,7 @@ const CommentForm = ({ post }) => {
         </label>
         <input
           onChange={(e) => handleChange(e)}
-          value={data.email}
+          value={data.comment_email}
           id="comment_email"
           type="text"
           className={`p-2 rounded outline-none focus:outline-primary sm:w-1/2 ${
@@ -138,7 +135,7 @@ const CommentForm = ({ post }) => {
         </label>
         <textarea
           onChange={(e) => handleChange(e)}
-          value={data.comment}
+          value={data.comment_text}
           id="comment_text"
           rows={8}
           className={`p-2 rounded outline-none focus:outline-primary resize-none ${

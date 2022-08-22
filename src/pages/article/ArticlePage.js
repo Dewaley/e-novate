@@ -25,13 +25,29 @@ const ArticlePage = () => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const [comments, setComments] = useState();
-  const [commentCount,setCommentCount] = useState(3)
+  const [commentCount, setCommentCount] = useState(3);
+  const viewLess = () => {
+    if (commentCount - 3 < 3) {
+      let control = commentCount - 3;
+      setCommentCount((prev) => prev - control);
+    } else {
+      setCommentCount((prev) => prev - 3);
+    }
+  };
+  const viewMore = () => {
+    if (commentCount + 3 > comments.length) {
+      let control = comments.length - commentCount;
+      setCommentCount((prev) => prev + control);
+    } else {
+      setCommentCount((prev) => prev + 3);
+    }
+  };
   const fetchComments = async (id) => {
     const res = await fetch(
       process.env.REACT_APP_ENOVATE_API + "/blog/comment"
     );
     const data = await res.json();
-    setComments(data);
+    setComments(data.filter((comment) => comment.post === article?.id));
   };
   const fetchBlog = async (search) => {
     if (searchParams.get("search") !== search) {
@@ -102,7 +118,7 @@ const ArticlePage = () => {
                 className="text-[#ffffff]/50 font-bold text-lg no-underline"
                 to="/blog"
               >
-                Blog{commentCount}
+                Blog
               </Link>
               <span className="text-2xl">/</span>
               <span className="font-bold text-lg">Blog Post</span>
@@ -336,10 +352,9 @@ const ArticlePage = () => {
                   />
                   {comments?.length > 0 && (
                     <div>
-                      <h1>Comments({comments.count})</h1>
+                      <h1>Comments({comments?.length})</h1>
                       <div className="bg-[#c4c4c4]/20 p-2 flex flex-col gap-y-4 p-8 rounded-md mb-12">
                         {comments
-                          .filter((comment) => comment.post === article?.id)
                           .map((comment) => (
                             <div>
                               <div className="flex justify-between items-center">
@@ -368,9 +383,7 @@ const ArticlePage = () => {
                               <span
                                 className="text-secondary cursor-pointer"
                                 onClick={() => {
-                                  setCommentCount(prevCount=>prevCount+3);
-                                  console.log("lemgth", comments.length);
-                                  console.log("count", commentCount);
+                                  viewMore();
                                 }}
                               >
                                 View more
@@ -379,7 +392,7 @@ const ArticlePage = () => {
                           {comments.length > 3 && commentCount > 3 && (
                             <span
                               className="text-secondary cursor-pointer text-right"
-                              onClick={() => setCommentCount(prevCount =>prevCount - 3)}
+                              onClick={() => viewLess()}
                             >
                               View less
                             </span>

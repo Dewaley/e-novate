@@ -36,7 +36,7 @@ const Home = () => {
           </p>
           <Link
             to="/courses"
-            className="flex items-center gap-x-2.5 bg-secondary p-2 rounded w-fit"
+            className="flex items-center gap-x-2.5 bg-secondary p-2 rounded w-fit no-underline"
           >
             <span className="border-white border-2 rounded">
               <AiOutlineBars />

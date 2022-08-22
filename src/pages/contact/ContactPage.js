@@ -56,10 +56,8 @@ const ContactPage = () => {
         body: formData,
       }).then((res) => res.json());
       if (res.success) {
-        console.log("Success", res);
         setResult(res.message);
       } else {
-        console.log("Error", res);
         setResult(res.message);
       }
       const newData = { ...data };
@@ -71,13 +69,10 @@ const ContactPage = () => {
       setData(newData);
     }
   };
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(true);
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => setLoading(false), 5000);
   }, []);
   return (
     <>
@@ -112,6 +107,7 @@ const ContactPage = () => {
             onSubmit={onSubmit}
             className="flex flex-col gap-y-2 border-[2px] border-[#C4C4C4]/25 rounded-md p-2 md:w-7/12"
           >
+            <span className="text-center">{result}</span>
             <div className="flex flex-col md:flex-row md:justify-between gap-y-2 gap-x-2">
               <div className="flex flex-col gap-y-2">
                 <label
@@ -128,7 +124,6 @@ const ContactPage = () => {
                 <input
                   onChange={(e) => {
                     handleChange(e);
-                    console.log(e.target.value);
                   }}
                   type="text"
                   name="full_name"
@@ -153,7 +148,6 @@ const ContactPage = () => {
                 <input
                   onChange={(e) => {
                     handleChange(e);
-                    console.log(e.target.value);
                   }}
                   type="text"
                   name="email"
@@ -172,7 +166,6 @@ const ContactPage = () => {
                 <input
                   onChange={(e) => {
                     handleChange(e);
-                    console.log(e.target.value);
                   }}
                   value={data.phone}
                   type="text"
@@ -197,7 +190,6 @@ const ContactPage = () => {
                 <input
                   onChange={(e) => {
                     handleChange(e);
-                    console.log(e.target.value);
                   }}
                   value={data.subject}
                   type="text"
@@ -220,7 +212,6 @@ const ContactPage = () => {
               <textarea
                 onChange={(e) => {
                   handleChange(e);
-                  console.log(e.target.value);
                 }}
                 id="message"
                 value={data.message}
