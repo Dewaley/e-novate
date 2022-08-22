@@ -47,14 +47,18 @@ const BlogCard = ({ image, title, preamble, date, id, author }) => {
             </Link>
           </h3>
           <p className="font-light text-sm">
-            {preamble.length > 400
-              ? preamble.slice(0, 400) + "..."
-              : preamble || (
-                  <div className="flex flex-col gap-y-2">
-                    <PlaceholderLoading shape="rect" width={250} height={10} />
-                    <PlaceholderLoading shape="rect" width={250} height={10} />
-                  </div>
-                )}
+            {(
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: preamble,
+                }}
+              />
+            ) || (
+              <div className="flex flex-col gap-y-2">
+                <PlaceholderLoading shape="rect" width={250} height={10} />
+                <PlaceholderLoading shape="rect" width={250} height={10} />
+              </div>
+            )}
           </p>
         </div>
         <Link

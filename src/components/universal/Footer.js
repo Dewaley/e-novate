@@ -6,11 +6,14 @@ import {
   // FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import FooterCustomForm from "./FooterCustomForm"
 
 const Footer = () => {
+  const url =
+    "https://gmail.us12.list-manage.com/subscribe/post?u=f5f562864969fd7842b22ecc9&amp;id=3253eb51e1&amp;f_id=0012b1e0f0";
   return (
     <div className="bg-primary flex justify-center items-center w-full">
       <div className="text-white flex flex-col md:flex-row justify-center gap-x-4 py-4 w-[90vw] font-light">
@@ -67,7 +70,7 @@ const Footer = () => {
                   <span>
                     <MdOutlineMailOutline className="text-secondary" />
                   </span>
-                  <p className="break-all">VillageSquareOnline@gmail.com</p>
+                  <p className="break-all">ng.enovate@gmail.com</p>
                 </a>
               <p className="flex items-center gap-x-2">
                 <span>
@@ -80,21 +83,18 @@ const Footer = () => {
           <hr className="w-[60vw] h-2 md:hidden" />
           <div>
             <h1 className="mb-2 text-base">Subscribe to our Newsletter</h1>
-            <form className="border-2 border-white rounded-lg flex w-fit p-1">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="E-mail Address"
-                className="border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5 w-[160px] sm:w-auto"
-              />
-              <button
-                type="submit"
-                className="p-1 bg-secondary rounded text-white flex justify-center items-center"
-              >
-                <AiOutlineArrowRight />
-              </button>
-            </form>
+            <MailchimpSubscribe
+        url={url}
+        render={({ subscribe, status, message }) => (
+          <FooterCustomForm
+            status={status}
+            message={message}
+            onValidated={(formData) => {
+              subscribe(formData);
+            }}
+          />
+        )}
+      />
           </div>
         </div>
       </div>

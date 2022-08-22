@@ -1,6 +1,7 @@
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { useState } from "react";
 
-const CustomForm = ({ status, message, onValidated }) => {
+const FooterCustomForm = ({ status, message, onValidated }) => {
   let email;
   const [error, setError] = useState(false);
   const validateEmail = (mail) =>
@@ -18,7 +19,7 @@ const CustomForm = ({ status, message, onValidated }) => {
   };
   return (
     <div className="flex justify-center flex-col">
-      {error === true ? (
+        {error === true ? (
         <div style={{ color: "red" }}>Please enter a valid email address</div>
       ) : (
         <div>
@@ -39,25 +40,27 @@ const CustomForm = ({ status, message, onValidated }) => {
           )}
         </div>
       )}
-      <div className="bg-white py-2 px-2 md:m-0 w-fit rounded-full flex overflow-hidden">
+      <div className="border-2 border-white rounded-lg flex w-fit p-1">
         <input
-          ref={(node) => (email = node)}
+            ref={(node) => (email = node)}
           type="text"
+          name=""
+          id=""
           placeholder="E-mail Address"
-          className="border-none w-[50vw] sm:w-auto outline-none text-primary mr-0.5 placeholder:text-primary pl-2"
+          className="border-none bg-transparent outline-none text-white mr-0.5 placeholder:text-white p-0.5 w-[160px] sm:w-auto"
         />
         <button
+          type="submit"
           onClick={() => {
             submit();
           }}
-          type="submit"
-          className="bg-secondary text-white p-3 rounded-full"
+          className="p-1 bg-secondary rounded text-white flex justify-center items-center"
         >
-          Submit
+          <AiOutlineArrowRight />
         </button>
       </div>
     </div>
   );
 };
 
-export default CustomForm;
+export default FooterCustomForm;

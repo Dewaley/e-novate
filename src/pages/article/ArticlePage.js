@@ -47,7 +47,9 @@ const ArticlePage = () => {
       process.env.REACT_APP_ENOVATE_API + "/blog/comment"
     );
     const data = await res.json();
-    const filteredData = data.filter((comment) => comment.post === articleData.id);
+    const filteredData = data.filter(
+      (comment) => comment.post === articleData.id
+    );
     setComments(filteredData);
   };
   const fetchBlog = async (search) => {
@@ -216,6 +218,7 @@ const ArticlePage = () => {
                   </div>
                   {(
                     <div
+                      className="main"
                       dangerouslySetInnerHTML={{ __html: article.article_body }}
                     />
                   ) || (

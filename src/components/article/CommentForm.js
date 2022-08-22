@@ -66,7 +66,12 @@ const CommentForm = ({ post }) => {
         newData.comment_email = "";
         newData.comment_text = "";
         setData(newData);
-      });
+      }).then(()=>{
+        window.scrollTo({
+          top: 0,
+        });
+        window.location.reload()
+      })
     }
   };
   const handleChange = (e) => {

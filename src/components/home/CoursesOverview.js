@@ -28,7 +28,10 @@ const CoursesOverview = () => {
     <section className="flex flex-col justify-center items-center mb-12">
       <header className="text-center font-light">
         <h4 className="text-secondary font-extralight my-2">COURSES</h4>
-        <p className="text-3xl my-2 mb-6">We Offer These Courses</p>
+        <p className="text-3xl my-2 mb-6">
+          Become a <span className="font-semibold">Pro</span> with any of our
+          outlined courses
+        </p>
       </header>
       <div className="flex justify-center gap-x-4 w-[90vw] lg:min-w-[80vw] relative">
         {courses.results ? (
