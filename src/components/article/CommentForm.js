@@ -60,14 +60,13 @@ const CommentForm = ({ post }) => {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-      })
-        .then((res) => {
-          const newData = { ...data };
-          newData.name = "";
-          newData.comment_email = "";
-          newData.comment_text = "";
-          setData(newData);
-        })
+      }).then((res) => {
+        const newData = { ...data };
+        newData.name = "";
+        newData.comment_email = "";
+        newData.comment_text = "";
+        setData(newData);
+      });
     }
   };
   const handleChange = (e) => {
@@ -145,6 +144,7 @@ const CommentForm = ({ post }) => {
         ></textarea>
         <div className="mt-2">
           <ReCAPTCHA
+            className="scale-75 md:transform-none"
             sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8"
             ref={captchaRef}
             onChange={() => {

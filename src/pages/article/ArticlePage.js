@@ -42,12 +42,13 @@ const ArticlePage = () => {
       setCommentCount((prev) => prev + 3);
     }
   };
-  const fetchComments = async (id) => {
+  const fetchComments = async (articleData) => {
     const res = await fetch(
       process.env.REACT_APP_ENOVATE_API + "/blog/comment"
     );
     const data = await res.json();
-    setComments(data.filter((comment) => comment.post === article?.id));
+    const filteredData = data.filter((comment) => comment.post === articleData.id);
+    setComments(filteredData);
   };
   const fetchBlog = async (search) => {
     if (searchParams.get("search") !== search) {
@@ -74,13 +75,13 @@ const ArticlePage = () => {
     );
     const data = await res.json();
     setArticle(data);
+    fetchComments(data);
   };
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
       fetchBlog(searchParams.get("search"));
     } else {
       fetchArticle();
-      fetchComments();
     }
     window.scrollTo({
       top: 0,
