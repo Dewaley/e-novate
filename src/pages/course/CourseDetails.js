@@ -30,6 +30,9 @@ const CourseDetails = () => {
     setCourse(data);
     setInstructors(data.course_instructors);
   };
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   const getInstructorById = async (instructor) => {
     const res = await fetch(InstructorList(instructor));
     const data = await res.json();
@@ -169,7 +172,7 @@ const CourseDetails = () => {
                   <span className="text-lg">Price:</span>
                   <span className="text-4xl md:text-xl lg:text-4xl">
                     {course.course_price_currency}
-                    {course.course_price}
+                    {numberWithCommas(course.course_price)}
                   </span>
                 </div>
                 <button className="bg-secondary text-white w-1/2 p-1 rounded-md">

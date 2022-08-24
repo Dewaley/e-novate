@@ -58,7 +58,7 @@ const CoursesPage = () => {
     <div className="animate__animated animate__fadeIn">
       <header className="text-center font-light my-6">
         <h4 className="text-secondary my-2">COURSES</h4>
-        <h2 className="text-3xl my-2 mb-6">Become a <span className="font-semibold">Pro</span> with any of our outlined courses</h2>
+        <h2 className="text-3xl my-2 mb-6">Become a <span className="font-semibold">PRO</span> with any of our outlined courses</h2>
       </header>
       <div className="flex flex-col items-center mb-12 gap-y-4">
         {courses.results !== undefined || filtered.results !== undefined  ? (

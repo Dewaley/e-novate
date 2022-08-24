@@ -7,6 +7,7 @@ const CommentForm = ({ post }) => {
   const [error, setError] = useState({
     name: false,
     email: false,
+    recaptcha: false,
   });
   let token = "";
   const [data, setData] = useState({
@@ -36,6 +37,10 @@ const CommentForm = ({ post }) => {
       newError.comment = true;
     }
     setError(newError);
+    if (data.recaptcha === "") {
+      newError.recaptcha = true;
+    }
+    setError(newError);
     if (
       data.name !== "" &&
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
@@ -60,18 +65,20 @@ const CommentForm = ({ post }) => {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-      }).then((res) => {
-        const newData = { ...data };
-        newData.name = "";
-        newData.comment_email = "";
-        newData.comment_text = "";
-        setData(newData);
-      }).then(()=>{
-        window.scrollTo({
-          top: 0,
-        });
-        window.location.reload()
       })
+        .then((res) => {
+          const newData = { ...data };
+          newData.name = "";
+          newData.comment_email = "";
+          newData.comment_text = "";
+          setData(newData);
+        })
+        .then(() => {
+          window.location.reload();
+          window.scrollTo({
+            top: 0,
+          });
+        });
     }
   };
   const handleChange = (e) => {
@@ -148,6 +155,7 @@ const CommentForm = ({ post }) => {
           placeholder="Leave a comment..."
         ></textarea>
         <div className="mt-2">
+          {error.recaptcha === true && <p className="text-red-500">Please tick the box below</p>}
           <ReCAPTCHA
             className="scale-75 md:transform-none"
             sitekey="6LdY1nUhAAAAAB1vECNVoZCd5DOR2idnO298_Qi8"
