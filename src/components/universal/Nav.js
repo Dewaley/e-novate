@@ -24,7 +24,7 @@ const Nav = () => {
           <img src={logo} className="h-8" alt="" />
         </NavLink>
         <div>
-          <ul className="md:flex items-center gap-x-3 lg:gap-x-6 hidden">
+          <ul className="md:flex items-center gap-x-3 lg:gap-x-8 hidden">
             <NavLink
               to="/"
               className={({ isActive }) =>
