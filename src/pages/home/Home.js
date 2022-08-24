@@ -51,7 +51,7 @@ const Home = () => {
         />
       </section>
       <Features />
-      <div className="flex flex-col md:flex-row justify-center  max-w-[90vw] lg:max-w-[80vw] gap-x-8 gap-y-8 my-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 max-w-[90vw] lg:max-w-[80vw] gap-x-8 gap-y-8 my-8">
         <Offer
           icon={<HiOutlineDocumentDuplicate />}
           heading={"Courses Materials"}

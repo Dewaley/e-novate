@@ -22,7 +22,7 @@ const BlogOverview = () => {
   return (
     <section className="flex flex-col justify-center mb-12">
       <div className="text-center font-light">
-        <h4 className="text-secondary my-2 font-extralight">BLOG</h4>
+        <h4 className="text-secondary my-2 font-light">BLOG</h4>
         <p className="text-3xl my-2 mb-6">Latest Blog Posts</p>
       </div>
       {blogList.length > 0 ? (

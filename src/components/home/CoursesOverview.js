@@ -27,7 +27,7 @@ const CoursesOverview = () => {
   return (
     <section className="flex flex-col justify-center items-center mb-12">
       <header className="text-center font-light">
-        <h4 className="text-secondary font-extralight my-2">COURSES</h4>
+        <h4 className="text-secondary font-light my-2">COURSES</h4>
         <p className="text-3xl my-2 mb-6">
           Become a <span className="font-semibold">PRO</span> with any of our
           outlined courses

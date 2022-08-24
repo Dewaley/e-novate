@@ -89,7 +89,7 @@ const ContactPage = () => {
           <div className="flex flex-col gap-y-2 md:w-5/12">
             <div className="flex flex-col gap-y-2">
               <span className="mb-1 text-lg text-secondary">Email</span>
-              <span>VillageSquareOnline@gmail.com</span>
+              <span>ng.enovate@gmail.com</span>
               <hr />
             </div>
             <div className="flex flex-col gap-y-2">

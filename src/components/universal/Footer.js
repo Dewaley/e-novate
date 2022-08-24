@@ -64,7 +64,7 @@ const Footer = () => {
                   <p>0803 353 0335</p>
                 </a>
                 <a
-                  href="mailto:villageSquareOnline@gmail.com"
+                  href="mailto:ng.enovate@gmail.com"
                   className="flex items-center gap-x-2 no-underline"
                 >
                   <span>
