@@ -103,7 +103,7 @@ const CoursesPage = () => {
                       </div>
                     ) : (
                       <h1 className="text-2xl text-primary">
-                        Your search, "{text}" doesn't match any of our articles
+                        Your search, "{text}" doesn't match any of our available courses
                       </h1>
                     )}
                   </div>
