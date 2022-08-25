@@ -10,7 +10,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import NewsLetter from "../../components/universal/NewsLetter";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { SingleCourse } from "../../config/courseApi";
 import { useEffect, useState } from "react";
 import { skillLevel } from "../../config/skillLevel";
@@ -19,6 +19,7 @@ import { InstructorList } from "../../config/courseApi";
 import PlaceholderLoading from "react-placeholder-loading";
 
 const CourseDetails = () => {
+  const navigate = useNavigate()
   const [course, setCourse] = useState({});
   const [instructors, setInstructors] = useState([]);
   const [instructorInfo, setInstructorInfo] = useState([]);
@@ -32,7 +33,7 @@ const CourseDetails = () => {
   };
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+  }
   const getInstructorById = async (instructor) => {
     const res = await fetch(InstructorList(instructor));
     const data = await res.json();
@@ -175,7 +176,7 @@ const CourseDetails = () => {
                     {numberWithCommas(course.course_price)}
                   </span>
                 </div>
-                <button className="bg-secondary text-white w-1/2 p-1 rounded-md">
+                <button className="bg-secondary text-white w-1/2 p-1 rounded-md" onClick={()=>navigate(`/payment/${id}`)}>
                   Pay
                 </button>
               </div>

@@ -10,6 +10,7 @@ import BlogPage from "./pages/blog/BlogPage";
 import ArticlePage from "./pages/article/ArticlePage";
 import LoginPage from "./pages/login/LoginPage";
 import ContactPage from "./pages/contact/ContactPage";
+import Payment from "./pages/payment/Payment";
 import "./App.css";
 import "animate.css";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/blog/article/:id" element={<ArticlePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/payment/:id" element={<Payment />} />
       </Routes>
       <Footer />
     </Router>
