@@ -32,7 +32,7 @@ const Payment = () => {
     text: "Pay Now",
     onSuccess: () =>
       alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! Don't leave :("),
+    onClose: () => alert("Are you sure you want to quit payment?"),
   };
 
   return (
