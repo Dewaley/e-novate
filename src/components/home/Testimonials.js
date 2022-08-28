@@ -20,6 +20,7 @@ const Testimonials = () => {
           job={testimonials[count].job}
         />
         <div className="flex flex gap-x-2 text-secondary text-4xl justify-center">
+          {count}
           <button
             onClick={() => {
               if (count > 0) {
@@ -32,7 +33,7 @@ const Testimonials = () => {
           </button>
           <button
             onClick={() => {
-              if (count < testimonials.length) {
+              if (count < testimonials.length - 1) {
                 setCount((prev) => prev + 1);
               }
             }}
