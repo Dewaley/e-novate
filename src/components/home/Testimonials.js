@@ -40,7 +40,7 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex justify-center">
+        <div className="flex flex-row justify-center">
           <span className="flex gap-x-2 text-secondary text-4xl">
             <button ref={swiperNavPrevRef}>
               <MdOutlineNavigateBefore />
