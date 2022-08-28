@@ -1,10 +1,11 @@
-import { Categories } from "../../config/categoryApi";
 import { useState, useEffect } from "react";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
   const fetchCategories = async () => {
-    const res = await fetch(Categories);
+    const res = await fetch(
+      process.env.REACT_APP_ENOVATE_API + "/blog/category/view"
+    );
     const data = await res.json();
     setCategories(data.results);
   };

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { PaystackButton } from "react-paystack";
-import { SingleCourse } from "../../config/courseApi";
 import { useParams } from "react-router-dom";
 import "./App.css";
 
@@ -13,7 +12,7 @@ const Payment = () => {
   const [phone, setPhone] = useState("");
 
   const fetchCourse = async (id) => {
-    const res = await fetch(SingleCourse(id));
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/${id}`);
     const data = await res.json();
     setAmount(data.course_price * 100);
   };

@@ -11,11 +11,9 @@ import {
 } from "react-icons/fa";
 import NewsLetter from "../../components/universal/NewsLetter";
 import { useParams,useNavigate } from "react-router-dom";
-import { SingleCourse } from "../../config/courseApi";
 import { useEffect, useState } from "react";
 import { skillLevel } from "../../config/skillLevel";
 import InstructorCard from "../../components/courses/InstructorCard";
-import { InstructorList } from "../../config/courseApi";
 import PlaceholderLoading from "react-placeholder-loading";
 
 const CourseDetails = () => {
@@ -26,7 +24,7 @@ const CourseDetails = () => {
   const [subMenu, setSubMenu] = useState("Description");
   const { id } = useParams();
   const fetchCourse = async () => {
-    const res = await fetch(SingleCourse(id));
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/${id}`);
     const data = await res.json();
     setCourse(data);
     setInstructors(data.course_instructors);
@@ -35,7 +33,7 @@ const CourseDetails = () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   const getInstructorById = async (instructor) => {
-    const res = await fetch(InstructorList(instructor));
+    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/instructor/view/${instructor}`);
     const data = await res.json();
     return data;
   };
