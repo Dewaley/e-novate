@@ -8,8 +8,8 @@ import "swiper/css/navigation";
 import { testimonials } from "../../config/testimonials";
 
 const Testimonials = () => {
-  const swiperNavPrevRef = useRef(null);
-  const swiperNavNextRef = useRef(null);
+  const swipeNavPrevRef = useRef(null);
+  const swipeNavNextRef = useRef(null);
   return (
     <section className="flex flex-col md:flex-row items-center justify-center gap-y-8 w-[90vw] md:w-[80vw] gap-x-8 mb-8">
       <header className="text-center md:basis-1/2 md:text-left md:max-w-sm">
@@ -26,8 +26,8 @@ const Testimonials = () => {
           }}
           modules={[Navigation]}
           navigation={{
-            prevEl: swiperNavPrevRef.current,
-            nextEl: swiperNavNextRef.current,
+            prevEl: swipeNavPrevRef.current,
+            nextEl: swipeNavNextRef.current,
           }}
         >
           {testimonials.map((testimonial) => (
@@ -40,15 +40,13 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex flex-row justify-center">
-          <span className="flex gap-x-2 text-secondary text-4xl">
-            <button ref={swiperNavPrevRef}>
-              <MdOutlineNavigateBefore />
-            </button>
-            <button ref={swiperNavNextRef}>
-              <MdOutlineNavigateNext />
-            </button>
-          </span>
+        <div className="flex flex gap-x-2 text-secondary text-4xl justify-center">
+          <button ref={swipeNavPrevRef}>
+            <MdOutlineNavigateBefore />
+          </button>
+          <button ref={swipeNavNextRef}>
+            <MdOutlineNavigateNext />
+          </button>
         </div>
       </div>
     </section>
