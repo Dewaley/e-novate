@@ -1,15 +1,12 @@
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import { useRef } from "react";
+import { useState } from "react";
 import Testimonial from "./Testimonial";
 import "swiper/css";
 import "swiper/css/navigation";
 import { testimonials } from "../../config/testimonials";
 
 const Testimonials = () => {
-  const swipeNavPrevRef = useRef(null);
-  const swipeNavNextRef = useRef(null);
+  const [count, setCount] = useState(0);
   return (
     <section className="flex flex-col md:flex-row items-center justify-center gap-y-8 w-[90vw] md:w-[80vw] gap-x-8 mb-8">
       <header className="text-center md:basis-1/2 md:text-left md:max-w-sm">
@@ -17,38 +14,29 @@ const Testimonials = () => {
         <p className="text-lg">Here what people have to say regarding us.</p>
       </header>
       <div className="md:basis-1/2 max-w-lg w-full">
-        <Swiper
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-          }}
-          modules={[Navigation]}
-          navigation={{
-            prevEl: swipeNavPrevRef.current,
-            nextEl: swipeNavNextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = swipeNavPrevRef.current;
-            swiper.params.navigation.nextEl = swipeNavNextRef.current;
-          }}
-        >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide>
-              <Testimonial
-                name={testimonial.name}
-                body={testimonial.body}
-                job={testimonial.job}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <Testimonial
+          name={testimonials[count].name}
+          body={testimonials[count].body}
+          job={testimonials[count].job}
+        />
         <div className="flex flex gap-x-2 text-secondary text-4xl justify-center">
-          <button ref={swipeNavPrevRef}>
+          <button
+            onClick={() => {
+              if (count > 0) {
+                console.log(testimonials[count].name)
+                setCount((prev) => prev - 1);
+              }
+            }}
+          >
             <MdOutlineNavigateBefore />
           </button>
-          <button ref={swipeNavNextRef}>
+          <button
+            onClick={() => {
+              if (count < testimonials.length) {
+                setCount((prev) => prev + 1);
+              }
+            }}
+          >
             <MdOutlineNavigateNext />
           </button>
         </div>
