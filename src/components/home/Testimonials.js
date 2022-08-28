@@ -29,6 +29,10 @@ const Testimonials = () => {
             prevEl: swipeNavPrevRef.current,
             nextEl: swipeNavNextRef.current,
           }}
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = swipeNavPrevRef.current;
+            swiper.params.navigation.nextEl = swipeNavNextRef.current;
+          }}
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide>
