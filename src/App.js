@@ -13,6 +13,11 @@ import ContactPage from "./pages/contact/ContactPage";
 import Payment from "./pages/payment/Payment";
 import UserDashboardLayout from "./layout/UserDashboardLayout";
 import DashboardHome from "./pages/DashboardHome";
+import DashboardCourses from "./pages/DashboardCourses";
+import DashboardExercises from "./pages/DashboardExercises";
+import DashboardProfile from "./pages/DashboardProfile";
+import DashboardResources from "./pages/DashboardResources";
+import DashboardCertifications from "./pages/DashboardCertifications";
 import "./App.css";
 import "animate.css";
 
@@ -32,6 +37,11 @@ function App() {
         <Route path="/payment/:id" element={<Payment />} /> */}
         <Route path="dashboard" element={<UserDashboardLayout />}>
           <Route path="home" element={<DashboardHome />} />
+          <Route path="profile" element={<DashboardProfile />} />
+          <Route path="courses" element={<DashboardCourses />} />
+          <Route path="resources" element={<DashboardResources />} />
+          <Route path="exercises" element={<DashboardExercises />} />
+          <Route path="certifications" element={<DashboardCertifications />} />
         </Route>
       </Routes>
       {/* <Footer /> */}

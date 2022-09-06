@@ -64,7 +64,7 @@ const index = () => {
           </li>
           <li>
             <NavLink
-              to="certification"
+              to="certifications"
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
               <TbCertificate className="text-xl" />
