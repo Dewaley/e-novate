@@ -11,15 +11,17 @@ import ArticlePage from "./pages/article/ArticlePage";
 import LoginPage from "./pages/login/LoginPage";
 import ContactPage from "./pages/contact/ContactPage";
 import Payment from "./pages/payment/Payment";
+import UserDashboardLayout from "./layout/UserDashboardLayout";
+import DashboardHome from "./pages/DashboardHome";
 import "./App.css";
 import "animate.css";
 
 function App() {
   return (
     <Router>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
@@ -27,9 +29,12 @@ function App() {
         <Route path="/blog/article/:id" element={<ArticlePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/payment/:id" element={<Payment />} />
+        <Route path="/payment/:id" element={<Payment />} /> */}
+        <Route path="dashboard" element={<UserDashboardLayout />}>
+          <Route path="home" element={<DashboardHome />} />
+        </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }
