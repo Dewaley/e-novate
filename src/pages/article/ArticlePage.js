@@ -275,14 +275,14 @@ const ArticlePage = () => {
                       />
                     </div>
                   )}
-                  {article.category ? (
+                  {article.tags ? (
                     <div className="flex flex-wrap gap-x-2 gap-y-2">
-                      {article.category?.map((cat, index) => (
+                      {article.tags?.map((tag, index) => (
                         <span
                           key={index}
                           className="p-2 border-[0.5px] border-primary rounded-md"
                         >
-                          {cat}
+                          {tag}
                         </span>
                       ))}
                     </div>
