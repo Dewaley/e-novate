@@ -17,12 +17,16 @@ const AuthorCard = ({
   return (
     <div className="bg-[#c4c4c4]/20 p-2 flex gap-x-4 p-8 rounded-md mb-4">
       <div>
-        {image ? <span
-          style={{
-            backgroundImage: `url(${image})`,
-          }}
-          className="flex w-12 h-12 rounded-full bg-center bg-cover"
-        ></span> : <PlaceholderLoading shape="circle" width={50} height={50} />}
+        {image ? (
+          <span
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+            className="flex w-12 h-12 rounded-full bg-center bg-cover"
+          ></span>
+        ) : (
+          <PlaceholderLoading shape="circle" width={50} height={50} />
+        )}
       </div>
       <div className="flex flex-col gap-y-2 overflow-hidden">
         <h1 className="text-3xl">
@@ -63,24 +67,32 @@ const AuthorCard = ({
           <div className="flex items-center gap-x-2">
             <a
               href={`${facebook}`}
+              target="_blank"
+              rel="noreferrer"
               className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-primary text-xl"
             >
               <FaFacebookF />
             </a>
             <a
               href={`${instagram}`}
+              target="_blank"
+              rel="noreferrer"
               className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-primary text-xl"
             >
               <FaInstagram />
             </a>
             <a
               href={`${linkedin}`}
+              target="_blank"
+              rel="noreferrer"
               className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-primary text-xl"
             >
               <FaLinkedinIn />
             </a>
             <a
               href={`${twitter}`}
+              target="_blank"
+              rel="noreferrer"
               className="flex justify-center items-center w-7 h-7 rounded-full text-white bg-primary text-xl"
             >
               <FaTwitter />

@@ -37,24 +37,32 @@ const InstructorCard = ({
         <div className='flex items-center gap-x-2'>
           <a
             href={`${facebook}`}
+            target="_blank"
+            rel="noreferrer"
             className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
           >
             <FaFacebookF />
           </a>
           <a
             href={`${instagram}`}
+            target="_blank"
+            rel="noreferrer"
             className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
           >
             <FaInstagram />
           </a>
           <a
             href={`${linkedin}`}
+            target="_blank"
+            rel="noreferrer"
             className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
           >
             <FaLinkedinIn />
           </a>
           <a
             href={`${twitter}`}
+            target="_blank"
+            rel="noreferrer"
             className='flex justify-center items-center w-7 h-7 rounded-full text-white bg-secondary text-xl'
           >
             <FaTwitter />

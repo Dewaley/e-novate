@@ -29,10 +29,10 @@ const Footer = () => {
               innovations.
             </p>
             <div className="flex gap-x-2">
-              <a href="https://www.facebook.com/enovateng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
+              <a href="https://www.facebook.com/enovateng/" target="_blank" rel="noreferrer" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaFacebookF />
               </a>
-              <a href="https://www.instagram.com/enovate_ng/" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
+              <a href="https://www.instagram.com/enovate_ng/" target="_blank" rel="noreferrer" className="flex justify-center items-center w-6 h-6 rounded-full text-primary bg-white text-sm">
                 <FaInstagram />
               </a>
             </div>
