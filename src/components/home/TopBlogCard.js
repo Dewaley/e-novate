@@ -21,7 +21,7 @@ const TopBlogCard = ({ image, title, preamble, date, id }) => {
               </Link>
             </h3>
             <div
-              className="h-[10rem] text-sm overflow-hidden"
+              className="h-[9.75rem] !text-sm overflow-hidden"
               dangerouslySetInnerHTML={{
                 __html: preamble,
               }}
