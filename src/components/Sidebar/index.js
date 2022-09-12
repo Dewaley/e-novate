@@ -13,13 +13,14 @@ const index = () => {
     "no-underline flex gap-x-2 items-center pl-4 text-secondary bg-secondary/25 py-2 border-l-2 border-secondary transition-all";
 
   return (
-    <div className="w-[15%] bg-primary h-screen overflow-hidden text-white flex flex-col items-center justify-between py-6 text-sm">
+    <div className="w-[20%] bg-primary h-screen overflow-hidden text-white flex flex-col items-center justify-between py-8 text-sm">
       <nav className="flex flex-col gap-y-4">
         <img src={logo} alt="" />
         <ul className="flex flex-col gap-y-2">
           <li>
             <NavLink
-              to="home"
+              to=""
+              end
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
               <MdOutlineDashboard className="text-xl" />

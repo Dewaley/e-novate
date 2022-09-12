@@ -36,7 +36,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/payment/:id" element={<Payment />} /> */}
         <Route path="dashboard" element={<UserDashboardLayout />}>
-          <Route path="home" element={<DashboardHome />} />
+          <Route index element={<DashboardHome />} />
           <Route path="profile" element={<DashboardProfile />} />
           <Route path="courses" element={<DashboardCourses />} />
           <Route path="resources" element={<DashboardResources />} />
