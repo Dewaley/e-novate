@@ -13,68 +13,68 @@ const index = () => {
     "no-underline flex gap-x-2 items-center pl-4 text-secondary bg-secondary/25 py-2 border-l-2 border-secondary transition-all";
 
   return (
-    <div className="w-[20%] bg-primary h-screen overflow-hidden text-white flex flex-col items-center justify-between py-8 text-sm">
-      <nav className="flex flex-col gap-y-4">
-        <img src={logo} alt="" />
-        <ul className="flex flex-col gap-y-2">
+    <div className={`w-[70%] max-w-[15rem] md:max-w-none md:w-[20%] bg-primary h-screen overflow-hidden text-white flex flex-col items-center justify-between py-8 text-sm absolute md:relative -left-[15rem] md:left-0`}>
+      <nav className='flex flex-col gap-y-4'>
+        <img src={logo} alt='' />
+        <ul className='flex flex-col gap-y-2'>
           <li>
             <NavLink
-              to=""
+              to=''
               end
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <MdOutlineDashboard className="text-xl" />
+              <MdOutlineDashboard className='text-xl' />
               Dashboard
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="profile"
+              to='profile'
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <RiUserFill className="text-xl" />
+              <RiUserFill className='text-xl' />
               Profile
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="courses"
+              to='courses'
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <FaFolder className="text-xl" />
+              <FaFolder className='text-xl' />
               Courses
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="resources"
+              to='resources'
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <ImBook className="text-xl" />
+              <ImBook className='text-xl' />
               Resources
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="exercises"
+              to='exercises'
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <FaTasks className="text-xl" />
+              <FaTasks className='text-xl' />
               Exercises
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="certifications"
+              to='certifications'
               className={({ isActive }) => (isActive ? activeLink : link)}
             >
-              <TbCertificate className="text-xl" />
+              <TbCertificate className='text-xl' />
               Certifications
             </NavLink>
           </li>
         </ul>
       </nav>
-      <button className="px-6 py-2 rounded bg-secondary w-fit">Log out</button>
+      <button className='px-6 py-2 rounded bg-secondary w-fit'>Log out</button>
     </div>
   );
 };

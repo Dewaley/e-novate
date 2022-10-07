@@ -35,7 +35,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/payment/:id" element={<Payment />} /> */}
-        <Route path="dashboard" element={<UserDashboardLayout />}>
+        <Route path="dashboard/user" element={<UserDashboardLayout />}>
           <Route index element={<DashboardHome />} />
           <Route path="profile" element={<DashboardProfile />} />
           <Route path="courses" element={<DashboardCourses />} />

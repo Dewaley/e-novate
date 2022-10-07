@@ -1,13 +1,13 @@
-import Sidebar from "../components/Sidebar"
-import { Outlet } from "react-router-dom"
+import Sidebar from "../components/Sidebar/Sidebar";
+import { Outlet } from "react-router-dom";
 
 const UserDashboardLayout = () => {
   return (
-    <div className="flex">
-        <Sidebar/>
-        <Outlet/>
+    <div className='flex flex-col md:flex-row'>
+      <Sidebar />
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default UserDashboardLayout
+export default UserDashboardLayout;
