@@ -1,5 +1,6 @@
 {
   "name": "mockup",
+  "homepage":"https://e-novate.tech/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

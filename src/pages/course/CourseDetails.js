@@ -177,6 +177,7 @@ const CourseDetails = () => {
                 <button className="bg-secondary text-white w-1/2 p-1 rounded-md" onClick={()=>navigate(`/payment/${id}`)}>
                   Pay
                 </button>
+                <span><a href="https://forms.gle/fNCw2cyztT4jJPCd7" target="_blank" rel="noreferrer" >Click here to apply for a discount</a></span>
               </div>
               <div className="p-8 border-t-2 border-primary rounded-md shadow-md flex flex-col gap-y-2">
                 <div className="flex flex-col gap-y-2">
