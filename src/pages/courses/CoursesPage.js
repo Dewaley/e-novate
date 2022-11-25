@@ -15,17 +15,14 @@ const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const filter = async (search, page) => {
     if (page === null || page === undefined) {
-      console.log(page);
       setSearchParams({ search: search, page: 1 });
     } else if (searchParams.get("search") !== search) {
-      console.log(page);
       setSearchParams({ search: search, page: page });
     } else {
       const res = await fetch(
         process.env.REACT_APP_ENOVATE_API + `/course/view/?search=${search}`
       );
       const data = await res.json();
-      console.log(data)
       setFiltered(data);
       setText(search);
     }
@@ -45,7 +42,6 @@ const CoursesPage = () => {
   };
   useEffect(() => {
     if (typeof searchParams.get("search") === "string") {
-      console.log("boy");
       filter(searchParams.get("search"), searchParams.get("page"));
     } else {
       fetchCourses(searchParams.get("page"));
@@ -55,22 +51,25 @@ const CoursesPage = () => {
     });
   }, [searchParams]);
   return (
-    <div className="animate__animated animate__fadeIn">
-      <header className="text-center font-light my-6">
-        <h4 className="text-secondary my-2">COURSES</h4>
-        <h2 className="text-3xl my-2 mb-6">Become a <span className="font-semibold">PRO</span> with any of our outlined courses</h2>
+    <div className='animate__animated animate__fadeIn'>
+      <header className='text-center font-light my-6'>
+        <h4 className='text-secondary my-2'>COURSES</h4>
+        <h2 className='text-3xl my-2 mb-6'>
+          Become a <span className='font-semibold'>PRO</span> with any of our
+          outlined courses
+        </h2>
       </header>
-      <div className="flex flex-col items-center mb-12 gap-y-4">
-        {courses.results !== undefined || filtered.results !== undefined  ? (
+      <div className='flex flex-col items-center mb-12 gap-y-4'>
+        {courses.results !== undefined || filtered.results !== undefined ? (
           <div>
             {searchParams.get("search") ? (
               <div>
                 {filtered.results !== undefined ? (
                   <div>
                     {filtered.results.length > 0 ? (
-                      <div className="flex flex-col items-center mb-12 gap-y-4 animate__animated animate__fadeIn">
-                        <div className="flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4">
-                          <p className="order-2 md:order-1">
+                      <div className='flex flex-col items-center mb-12 gap-y-4 animate__animated animate__fadeIn'>
+                        <div className='flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4'>
+                          <p className='order-2 md:order-1'>
                             Showing {filtered.results.length} of{" "}
                             {filtered.results.length} results
                           </p>
@@ -79,7 +78,7 @@ const CoursesPage = () => {
                             searchFn={() => filter(search)}
                           />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6">
+                        <div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
                           {filtered.results.map((course) => {
                             return (
                               <CourseCard
@@ -102,18 +101,19 @@ const CoursesPage = () => {
                         />
                       </div>
                     ) : (
-                      <h1 className="text-2xl text-primary">
-                        Your search, "{text}" doesn't match any of our available courses
+                      <h1 className='text-2xl text-primary'>
+                        Your search, "{text}" doesn't match any of our available
+                        courses
                       </h1>
                     )}
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center mb-12 gap-y-4">
-                    <div className="flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4">
-                      <p className="order-2 md:order-1">Showing results</p>
+                  <div className='flex flex-col items-center mb-12 gap-y-4'>
+                    <div className='flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4'>
+                      <p className='order-2 md:order-1'>Showing results</p>
                       <CoursesSearch />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6">
+                    <div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
                       <CourseCardLoader />
                       <CourseCardLoader />
                       <CourseCardLoader />
@@ -122,18 +122,18 @@ const CoursesPage = () => {
                 )}
               </div>
             ) : (
-              <div className="flex flex-col items-center mb-12 gap-y-4 animate__animated animate__fadeIn">
-                <div className="flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4">
-                  <p className="order-2 md:order-1">
-                    Showing {courses.results.length} of {courses.results.length}{" "}
-                    results
+              <div className='flex flex-col items-center mb-12 gap-y-4 animate__animated animate__fadeIn'>
+                <div className='flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4'>
+                  <p className='order-2 md:order-1'>
+                    Showing {courses?.results?.length} of{" "}
+                    {courses?.results?.length} results
                   </p>
                   <CoursesSearch
                     setSearch={setSearch}
                     searchFn={() => filter(search)}
                   />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6">
+                <div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
                   {courses.results.map((course) => {
                     return (
                       <CourseCard
@@ -158,12 +158,12 @@ const CoursesPage = () => {
             )}
           </div>
         ) : (
-          <div className="flex flex-col items-center mb-12 gap-y-4">
-            <div className="flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4">
-              <p className="order-2 md:order-1">Showing results</p>
+          <div className='flex flex-col items-center mb-12 gap-y-4'>
+            <div className='flex flex-col md:justify-between md:items-center md:flex-row gap-y-4 w-[90vw] mb-4'>
+              <p className='order-2 md:order-1'>Showing results</p>
               <CoursesSearch />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6">
+            <div className='grid grid-cols-1 md:grid-cols-3 w-[90vw] gap-6 mb-6'>
               <CourseCardLoader />
               <CourseCardLoader />
               <CourseCardLoader />
