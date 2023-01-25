@@ -17,7 +17,7 @@ const CommentForm = ({ post }) => {
     recaptcha: token,
     post: post,
   });
-  const url = process.env.REACT_APP_ENOVATE_API + "/blog/comment/";
+  const url = `https://e-novate.onrender.com/api` + "/blog/comment/";
   const handleSubmit = (e) => {
     e.preventDefault();
     token = captchaRef.current.getValue();

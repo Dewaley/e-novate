@@ -24,7 +24,7 @@ const CourseDetails = () => {
   const [subMenu, setSubMenu] = useState("Description");
   const { id } = useParams();
   const fetchCourse = async () => {
-    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/course/view/${id}`);
+    const res = await fetch(`https://e-novate.onrender.com/api` + `/course/view/${id}`);
     const data = await res.json();
     setCourse(data);
     setInstructors(data.course_instructors);
@@ -33,7 +33,7 @@ const CourseDetails = () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   const getInstructorById = async (instructor) => {
-    const res = await fetch(process.env.REACT_APP_ENOVATE_API + `/instructor/view/${instructor}`);
+    const res = await fetch(`https://e-novate.onrender.com/api` + `/instructor/view/${instructor}`);
     const data = await res.json();
     return data;
   };

@@ -11,7 +11,7 @@ const BlogOverview = () => {
   const [blogList, setBlogList] = useState([]);
   const fetchBlog = async () => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=1`
+      `https://e-novate.onrender.com/api` + `/blog/view/?page=1`
     );
     const data = await res.json();
     setBlogList(data.results.slice(0,3));

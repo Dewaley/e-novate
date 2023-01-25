@@ -4,7 +4,7 @@ const Category = () => {
   const [categories, setCategories] = useState([]);
   const fetchCategories = async () => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + "/blog/category/view"
+      `https://e-novate.onrender.com/api` + "/blog/category/view"
     );
     const data = await res.json();
     setCategories(data.results);

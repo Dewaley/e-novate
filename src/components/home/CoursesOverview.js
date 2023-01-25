@@ -15,7 +15,7 @@ const CoursesOverview = () => {
   const swiperNavNextRef = useRef(null);
   const fetchCourses = async () => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/course/view/?page=1`
+      `https://e-novate.onrender.com/api` + `/course/view/?page=1`
     );
     const data = await res.json();
     setCourses(data);

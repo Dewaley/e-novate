@@ -44,7 +44,7 @@ const ArticlePage = () => {
   };
   const fetchComments = async (articleData) => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + "/blog/comment"
+      `https://e-novate.onrender.com/api` + "/blog/comment"
     );
     const data = await res.json();
     const filteredData = data.filter(
@@ -57,7 +57,7 @@ const ArticlePage = () => {
       setSearchParams({ search: search, page: page });
     }
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/?search=${search}`
+      `https://e-novate.onrender.com/api` + `/blog/view/?search=${search}`
     );
     const data = await res.json();
     setBlogList(data);
@@ -65,7 +65,7 @@ const ArticlePage = () => {
   };
   const fetchLatestPosts = async () => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/?page=1`
+      `https://e-novate.onrender.com/api` + `/blog/view/?page=1`
     );
     const dat = await res.json();
     const data = await dat.results;
@@ -73,7 +73,7 @@ const ArticlePage = () => {
   };
   const fetchArticle = async () => {
     const res = await fetch(
-      process.env.REACT_APP_ENOVATE_API + `/blog/view/${id}`
+      `https://e-novate.onrender.com/api` + `/blog/view/${id}`
     );
     const data = await res.json();
     setArticle(data);
